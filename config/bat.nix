@@ -2,7 +2,7 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = "Monokai Extended Light";
+      theme = "OneHalfLight";
       italic-text = "always";
     };
   };
