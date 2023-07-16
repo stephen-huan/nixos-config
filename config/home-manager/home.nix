@@ -21,7 +21,11 @@
     pkgs.android-tools
     pkgs.chromium
     pkgs.du-dust
+    pkgs.gpick
     pkgs.htop
+    pkgs.hwinfo
+    pkgs.jq
+    pkgs.ncdu
     pkgs.pulsemixer
     pkgs.tokei
 
