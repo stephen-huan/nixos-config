@@ -18,6 +18,9 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    pkgs.android-tools
+    pkgs.chromium
+    pkgs.du-dust
     pkgs.htop
     pkgs.pulsemixer
     pkgs.tokei
