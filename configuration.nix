@@ -15,7 +15,7 @@
 
   boot.initrd.luks.devices.cryptlvm.device =
     "/dev/disk/by-uuid/5d57809c-d0e9-49e9-939e-f5d68392faf4";
-
+  # manually specify because `nixos-generate-config` doesn't pick it up
   fileSystems."/" = {
     device = "/dev/VolumeGroup/root";
     fsType = "ext4";
@@ -28,6 +28,14 @@
 
   # overwrite /installer/netboot/netboot-minimal.nix
   hardware.enableRedistributableFirmware = lib.mkForce true;
+
+  # hidden option. see: nixos/modules/config/shells-environment.nix
+  # follow nixpkgs's default sandbox shell (which shouldn't pull in deps)
+  # see https://github.com/NixOS/nix/blob/master/flake.nix
+  environment.binsh = "${pkgs.busybox-sandbox-shell}/bin/busybox";
+  # hidden option. see: nixos/modules/system/activation/activation-script.nix
+  # remove /usr/bin/env for reproducibility or purity or whatever
+  environment.usrbinenv = null;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
