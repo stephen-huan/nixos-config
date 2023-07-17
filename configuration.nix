@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
 
 {
   imports =
@@ -10,6 +10,24 @@
       ./hardware-configuration.nix
       (modulesPath + "/installer/netboot/netboot-minimal.nix")
     ];
+
+  boot.kernelParams = [ "boot.shell_on_fail" ];
+
+  boot.initrd.luks.devices.cryptlvm.device =
+    "/dev/disk/by-uuid/5d57809c-d0e9-49e9-939e-f5d68392faf4";
+
+  fileSystems."/" = {
+    device = "/dev/VolumeGroup/root";
+    fsType = "ext4";
+  };
+  # overwrite ./hardware-configuration.nix
+  swapDevices = lib.mkForce
+    [
+      { device = "/dev/VolumeGroup/swap"; }
+    ];
+
+  # overwrite /installer/netboot/netboot-minimal.nix
+  hardware.enableRedistributableFirmware = lib.mkForce true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
