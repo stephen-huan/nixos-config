@@ -26,8 +26,11 @@
     pkgs.hwinfo
     pkgs.jq
     pkgs.ncdu
+    pkgs.nixos-install-tools
     pkgs.pulsemixer
     pkgs.tokei
+    pkgs.zathura
+    pkgs.zbar
 
     pkgs.python311Packages.cython
 
