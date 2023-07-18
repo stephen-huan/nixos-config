@@ -30,9 +30,12 @@
     pkgs.hwinfo
     pkgs.jq
     # pkgs.krita # glx
+    pkgs.mupdf
     pkgs.ncdu
     pkgs.nixos-install-tools
+    pkgs.pandoc
     pkgs.pulsemixer
+    pkgs.shellcheck
     # pkgs.signal-desktop # current version is too new
     # pkgs.sioyek # glx
     pkgs.tokei
