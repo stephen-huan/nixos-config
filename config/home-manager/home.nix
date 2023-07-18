@@ -18,6 +18,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    pkgs.alass
     pkgs.android-tools
     pkgs.chromium
     pkgs.du-dust
@@ -28,9 +29,12 @@
     pkgs.ncdu
     pkgs.nixos-install-tools
     pkgs.pulsemixer
+    # pkgs.signal-desktop # current version is too new
     pkgs.tokei
+    pkgs.yubikey-manager
     pkgs.zathura
     pkgs.zbar
+    pkgs.zotero
 
     pkgs.python311Packages.cython
 
