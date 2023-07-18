@@ -20,9 +20,11 @@
   home.packages = [
     pkgs.alass
     pkgs.android-tools
+    pkgs.caffeine-ng
     pkgs.chromium
     pkgs.du-dust
     pkgs.gpick
+    pkgs.hicolor-icon-theme # for caffeine-ng
     pkgs.htop
     pkgs.hwinfo
     pkgs.jq
