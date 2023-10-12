@@ -185,5 +185,15 @@
         rmdir --ignore-fail-on-non-empty /usr/bin /usr
       '';
     });
+  systemd.services.systemd-update-done.serviceConfig.ExecStart = [
+    "" # clear
+    (
+      pkgs.writeShellScript "systemd-update-done-wrapper" ''
+        mkdir -p /usr
+        ${pkgs.systemd + "/lib/systemd/systemd-update-done"}
+        rmdir --ignore-fail-on-non-empty /usr
+      ''
+    )
+  ];
 }
 
