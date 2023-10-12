@@ -4,7 +4,9 @@
     enable = true;
     enableSshSupport = true;
     pinentryFlavor = "qt";
-    defaultCacheTtl = 1800; # 30 minutes, resets with usage
-    maxCacheTtl = 7200; # 2 hours, maximum
+    # 30 minutes, resets with usage
+    defaultCacheTtl = 1800;
+    # 2 hours, maximum
+    maxCacheTtl = 7200;
   };
 }
