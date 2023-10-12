@@ -18,7 +18,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    # pkgs.alacritty # glx
     pkgs.alass
     pkgs.android-tools
     pkgs.caffeine-ng
