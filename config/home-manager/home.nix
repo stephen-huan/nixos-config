@@ -27,12 +27,19 @@
     pkgs.hicolor-icon-theme # for caffeine-ng
     pkgs.htop
     pkgs.hwinfo
+    pkgs.ipaexfont
+    pkgs.ipafont
     pkgs.jq
     # pkgs.krita # glx
     pkgs.mupdf
     pkgs.ncdu
     pkgs.neofetch
     pkgs.nixos-install-tools
+    pkgs.noto-fonts
+    pkgs.noto-fonts-cjk-sans
+    pkgs.noto-fonts-cjk-serif
+    pkgs.noto-fonts-emoji
+    pkgs.noto-fonts-lgc-plus
     pkgs.pandoc
     pkgs.pass
     pkgs.passExtensions.pass-otp
