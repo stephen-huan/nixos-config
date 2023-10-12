@@ -161,7 +161,7 @@
   services.mullvad-vpn.enableExcludeWrapper = true;
   services.mullvad-vpn.package = pkgs.mullvad; # cli only
 
-  # programs.nano.enable = false; # disable default nano
+  programs.nano.enable = false; # disable default nano
   programs.fish.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
