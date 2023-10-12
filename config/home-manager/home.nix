@@ -30,11 +30,14 @@
     pkgs.hwinfo
     pkgs.jq
     # pkgs.krita # glx
+    pkgs.luajitPackages.libluv # for lewis6991/gitsigns.nvim
     pkgs.mupdf
     pkgs.ncdu
+    pkgs.neofetch
     pkgs.nixos-install-tools
     pkgs.pandoc
     pkgs.pulsemixer
+    pkgs.ranger
     pkgs.shellcheck
     # pkgs.signal-desktop # current version is too new
     # pkgs.sioyek # glx
