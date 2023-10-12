@@ -46,6 +46,7 @@
     # https://www.pixiv.net/artworks/57200827
     splashImage = ./kimitoitanatu2.jpg;
     # https://github.com/NixOS/nixpkgs/issues/243026
+    efiInstallAsRemovable = true;
     extraGrubInstallArgs = [
       "--disable-shim-lock"
     ];
