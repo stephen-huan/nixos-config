@@ -36,6 +36,8 @@
     pkgs.neofetch
     pkgs.nixos-install-tools
     pkgs.pandoc
+    pkgs.pass
+    pkgs.passExtensions.pass-otp
     pkgs.pulsemixer
     pkgs.ranger
     pkgs.shellcheck
@@ -43,6 +45,8 @@
     # pkgs.sioyek # glx
     pkgs.tokei
     pkgs.unzip
+    pkgs.xclip
+    pkgs.xlayoutdisplay
     pkgs.yubikey-manager
     pkgs.zathura
     pkgs.zbar
