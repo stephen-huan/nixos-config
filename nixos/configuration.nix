@@ -175,5 +175,15 @@
       emoji = [ "Noto Color Emoji" ];
     };
   };
+
+  # https://github.com/NixOS/nixpkgs/issues/260658
+  system.activationScripts = lib.mkIf (config.environment.usrbinenv == null) (
+    lib.mkForce {
+      usrbinenv = ''
+        rm -f /usr/bin/env
+        mkdir -p /usr/bin
+        rmdir --ignore-fail-on-non-empty /usr/bin /usr
+      '';
+    });
 }
 
