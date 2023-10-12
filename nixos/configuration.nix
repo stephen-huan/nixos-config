@@ -40,8 +40,16 @@
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.efiSupport = true;
+  boot.loader.grub = {
+    device = "nodev";
+    efiSupport = true;
+    # https://www.pixiv.net/artworks/57200827
+    splashImage = ./kimitoitanatu2.jpg;
+    # https://github.com/NixOS/nixpkgs/issues/243026
+    extraGrubInstallArgs = [
+      "--disable-shim-lock"
+    ];
+  };
 
   networking.hostName = "sora"; # Define your hostname.
   # Pick only one of the below networking options.
