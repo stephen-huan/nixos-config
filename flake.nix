@@ -8,9 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { nixpkgs, home-manager, ... }: {
+  outputs = { nixpkgs, home-manager, impermanence, ... }: {
     nixosConfigurations = {
       sora = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -24,6 +25,7 @@
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
           }
+          impermanence.nixosModules.impermanence (import ./impermanence.nix)
         ];
       };
     };
