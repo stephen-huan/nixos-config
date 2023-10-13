@@ -22,6 +22,7 @@
     pkgs.android-tools
     pkgs.caffeine-ng
     pkgs.chromium
+    pkgs.clipster
     pkgs.du-dust
     pkgs.gpick
     pkgs.hicolor-icon-theme # for caffeine-ng
@@ -88,6 +89,14 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    ".config/clipster/clipster.ini".text = ''
+      [clipster]
+
+      # Number of items to save in the history file for each selection.
+      # 0 - don't save history.
+      history_size = 0
+    '';
   };
 
   # You can also manage environment variables but you will have to manually
