@@ -177,14 +177,14 @@
   };
 
   # https://github.com/NixOS/nixpkgs/issues/260658
-  system.activationScripts = lib.mkIf (config.environment.usrbinenv == null) (
-    lib.mkForce {
-      usrbinenv = ''
+  system.activationScripts.usrbinenv =
+    lib.mkIf (config.environment.usrbinenv == null) (
+      lib.mkForce ''
         rm -f /usr/bin/env
         mkdir -p /usr/bin
         rmdir --ignore-fail-on-non-empty /usr/bin /usr
-      '';
-    });
+      ''
+    );
   systemd.services.systemd-update-done.serviceConfig.ExecStart = [
     "" # clear
     (
