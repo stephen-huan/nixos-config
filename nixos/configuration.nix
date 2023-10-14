@@ -11,9 +11,6 @@
     ];
 
   boot.kernelParams = [ "boot.shell_on_fail" ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    tuxedo-keyboard
-  ];
 
   boot.initrd.luks.devices.cryptlvm.device =
     "/dev/disk/by-uuid/5d57809c-d0e9-49e9-939e-f5d68392faf4";
@@ -41,6 +38,8 @@
 
   # overwrite /installer/netboot/netboot-minimal.nix
   hardware.enableRedistributableFirmware = lib.mkForce true;
+
+  hardware.tuxedo-keyboard.enable = true;
 
   # hidden option. see: nixos/modules/config/shells-environment.nix
   # follow nixpkgs's default sandbox shell (which shouldn't pull in deps)
