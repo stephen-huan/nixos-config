@@ -11,6 +11,9 @@
     ];
 
   boot.kernelParams = [ "boot.shell_on_fail" ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    tuxedo-keyboard
+  ];
 
   boot.initrd.luks.devices.cryptlvm.device =
     "/dev/disk/by-uuid/5d57809c-d0e9-49e9-939e-f5d68392faf4";
