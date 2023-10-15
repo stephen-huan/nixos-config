@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, options, ... }:
 
 let
   password-store = "/home/ikue/.password-store/encryption/tuxedo";
@@ -178,6 +178,16 @@ in
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.enableExcludeWrapper = true;
   services.mullvad-vpn.package = pkgs.mullvad; # cli only
+
+  services.locate = {
+    enable = true;
+    interval = "never";
+    localuser = null;
+    prunePaths = options.services.locate.prunePaths.default ++ [
+      "/persistent"
+    ];
+    package = pkgs.plocate;
+  };
 
   programs.nano.enable = false; # disable default nano
   programs.fish.enable = true;
