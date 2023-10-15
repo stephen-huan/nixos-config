@@ -4,6 +4,9 @@
 
 { config, lib, pkgs, modulesPath, ... }:
 
+let
+  password-store = "/home/ikue/.password-store/encryption/tuxedo";
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -109,11 +112,12 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  users.mutableUsers = false;
   # Define a user account. Don't forget to set a password with `passwd`.
   users.users.ikue = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable `sudo` for the user.
-    initialPassword = "";
+    hashedPasswordFile = "${password-store}/ikue.yescrypt";
     packages = with pkgs; [
       # todo remove
       firefox
@@ -122,6 +126,7 @@
     ];
     shell = pkgs.fish;
   };
+  users.users.root.hashedPasswordFile = "${password-store}/root.yescrypt";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
