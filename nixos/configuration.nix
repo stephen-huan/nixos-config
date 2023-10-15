@@ -209,8 +209,12 @@ in
     lib.mkIf (config.environment.usrbinenv == null) (
       lib.mkForce ''
         rm -f /usr/bin/env
-        mkdir -p /usr/bin
-        rmdir --ignore-fail-on-non-empty /usr/bin /usr
+        if test -e /usr/bin; then
+          rmdir --ignore-fail-on-non-empty /usr/bin
+        fi
+        if test -e /usr; then
+          rmdir --ignore-fail-on-non-empty /usr
+        fi
       ''
     );
   systemd.services.systemd-update-done.serviceConfig.ExecStart = [
