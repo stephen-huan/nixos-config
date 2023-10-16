@@ -27,7 +27,7 @@
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
           }
-          impermanence.nixosModules.impermanence (import ./impermanence.nix)
+          impermanence.nixosModules.impermanence (import ./persistence.nix)
         ];
       };
     };
