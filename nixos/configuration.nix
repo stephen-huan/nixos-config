@@ -135,7 +135,6 @@ in
       # todo remove
       firefox
       tree
-      git
     ];
     shell = pkgs.fish;
   };
@@ -147,6 +146,7 @@ in
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # wget
     xorg.xkbcomp
+    git # required for flakes
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
