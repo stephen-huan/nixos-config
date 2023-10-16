@@ -106,6 +106,12 @@
       history_size = 0
     '';
 
+    ".config/ranger" = {
+      source = ../ranger/ranger;
+      # ranger requires writable config directory
+      recursive = true;
+    };
+
     ".config/black".text = ''
       [tool.black]
       line-length = 79
