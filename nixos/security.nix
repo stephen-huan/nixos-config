@@ -1,6 +1,6 @@
 {
   security = {
-    lockKernelModules = true;
+    lockKernelModules = false;
     sudo.wheelNeedsPassword = false;
   };
 }
