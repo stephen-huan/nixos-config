@@ -6,8 +6,8 @@
       { directory = "/var/lib/iwd"; mode = "0700"; }
       "/etc/mullvad-vpn"
       "/etc/nixos"
-      "/old-root" # TODO remove
-      "/var/cache"
+      "/old-root" # TODO: remove
+      "/var/cache" # TODO: more fine-grain
       "/var/lib/systemd/backlight"
       "/var/lib/systemd/catalog"
       "/var/lib/systemd/coredump"
@@ -21,17 +21,18 @@
       directories = [
         "bin"
         ".cache"
-        ".compose-cache" # TODO remove
+        ".compose-cache" # TODO: remove
         ".config/cmus"
         ".config/home-manager"
-        ".config" # TODO more fine-grain
+        ".config/memento"
+        ".config" # TODO: more fine-grain
         ".github"
         ".gnupg"
         ".local/state/home-manager"
         ".local/state/nix"
         ".local/state/nvim"
         ".local/state/wireplumber"
-        ".local" # TODO more fine-grain
+        ".local" # TODO: more fine-grain
         ".mozilla"
         "Music"
         "not-programs"
