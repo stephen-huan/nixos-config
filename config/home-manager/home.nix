@@ -24,6 +24,7 @@
     pkgs.chromium
     pkgs.cider
     pkgs.clipster
+    pkgs.cmus
     pkgs.du-dust
     pkgs.git-credential-manager
     pkgs.gpick
@@ -34,6 +35,8 @@
     pkgs.ipafont
     pkgs.jq
     pkgs.krita
+    pkgs.mdbook
+    pkgs.mdbook-katex
     pkgs.mupdf
     pkgs.ncdu
     pkgs.neofetch
@@ -59,6 +62,7 @@
     pkgs.silver-searcher
     pkgs.tokei
     pkgs.unzip
+    pkgs.vulnix
     pkgs.xclip
     pkgs.xlayoutdisplay
     pkgs.yadm
