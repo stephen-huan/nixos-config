@@ -43,6 +43,9 @@
     pkgs.neofetch
     pkgs.nil
     pkgs.nixos-install-tools
+    pkgs.nodejs
+    pkgs.nodePackages.node2nix
+    pkgs.nodePackages.prettier
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk-sans
     pkgs.noto-fonts-cjk-serif
