@@ -8,11 +8,6 @@ let
   password-store = "/home/ikue/.password-store/encryption/tuxedo";
 in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
   boot.kernelParams = [ "boot.shell_on_fail" ];
 
   boot.initrd.luks.devices.cryptlvm.device =
@@ -60,7 +55,7 @@ in
     device = "nodev";
     efiSupport = true;
     # https://www.pixiv.net/artworks/57200827
-    splashImage = ./kimitoitanatu2.jpg;
+    splashImage = import ./figures/splashImage.nix;
     # https://github.com/NixOS/nixpkgs/issues/243026
     efiInstallAsRemovable = true;
     extraGrubInstallArgs = [

@@ -16,11 +16,11 @@
       sora = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./nixos/configuration.nix
+          (import ./home.nix { path = "nixos"; })
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.ikue = import ./home.nix;
+            home-manager.users.ikue = import ./home.nix { path = "config"; };
             home-manager.sharedModules = [
               "${impermanence}/home-manager.nix"
             ];
