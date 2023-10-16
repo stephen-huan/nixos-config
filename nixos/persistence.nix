@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  environment.persistence."/persistent" = {
+  environment.persistence."${config._module.args.persistent}" = {
     hideMounts = true;
     directories = [
       { directory = "/var/lib/bluetooth"; mode = "0700"; }

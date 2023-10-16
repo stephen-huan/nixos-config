@@ -16,7 +16,8 @@
     system = "x86_64-linux";
     hostname = "sora";
     username = "ikue";
-    args = { inherit hostname username; };
+    persistent = "/persistent";
+    args = { inherit hostname username persistent; };
   in {
     nixosConfigurations = {
       ${hostname} = nixpkgs.lib.nixosSystem {

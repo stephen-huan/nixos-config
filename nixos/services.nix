@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   services = {
@@ -10,7 +10,7 @@
       enable = true;
       interval = "never"; # manually `updatedb`
       localuser = null;
-      prunePaths = lib.mkOptionDefault [ "/persistent" ];
+      prunePaths = lib.mkOptionDefault [ "${config._module.args.persistent}" ];
       package = pkgs.plocate;
     };
   };

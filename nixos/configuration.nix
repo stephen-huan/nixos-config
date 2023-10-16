@@ -13,14 +13,14 @@
     options = [ "defaults" "size=2G" "mode=755" ];
   };
   # manually specify because `nixos-generate-config` doesn't pick it up
-  fileSystems."/persistent" = {
+  fileSystems."${config._module.args.persistent}" = {
     device = "/dev/VolumeGroup/root";
     fsType = "ext4";
     neededForBoot = true;
   };
   # https://nixos.wiki/wiki/Filesystems
   fileSystems."/nix" = {
-    device = "/persistent/nix";
+    device = "${config._module.args.persistent}/nix";
     options = [ "bind" ];
   };
   # overwrite ./hardware-configuration.nix
