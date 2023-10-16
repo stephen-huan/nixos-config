@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   environment.persistence."/persistent" = {
     hideMounts = true;
@@ -17,7 +19,7 @@
       "/etc/machine-id"
       "/var/lib/logrotate.status"
     ];
-    users.ikue = {
+    users.${config._module.args.username} = {
       directories = [
         "bin"
         ".cache"

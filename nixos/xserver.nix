@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   services.xserver = {
     # Enable the X11 windowing system.
@@ -12,7 +14,7 @@
       sddm.enable = true;
       autoLogin = {
         enable = true;
-        user = "ikue";
+        user = config._module.args.username;
       };
     };
     windowManager.i3.enable = true;

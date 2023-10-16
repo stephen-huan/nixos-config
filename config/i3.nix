@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   xsession.windowManager.i3 = {
     enable = true;
@@ -94,7 +96,7 @@ floating_modifier $mod
 # bindsym $mod+Return exec i3-sensible-terminal
 # --no-startup-id because alacritty does not send the proper response
 # https://github.com/alacritty/alacritty/issues/868
-bindsym $mod+Return exec --no-startup-id /etc/profiles/per-user/ikue/bin/alacritty
+bindsym $mod+Return exec --no-startup-id ${pkgs.alacritty}/bin/alacritty
 
 # kill focused window
 bindsym $mod+$sup+q kill

@@ -16,6 +16,7 @@
     system = "x86_64-linux";
     hostname = "sora";
     username = "ikue";
+    args = { inherit hostname username; };
   in {
     nixosConfigurations = {
       ${hostname} = nixpkgs.lib.nixosSystem {
@@ -27,12 +28,17 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.${username} = import ./home.nix { path = "config"; };
-              sharedModules = [ "${impermanence}/home-manager.nix" ];
-              # Optionally, use extraSpecialArgs to pass arguments to home.nix
+              sharedModules = [
+                "${impermanence}/home-manager.nix"
+                { _module = { inherit args; }; }
+              ];
+              # optionally, use extraSpecialArgs to pass arguments to home.nix
             };
           }
           "${impermanence}/nixos.nix"
+          { _module = { inherit args; }; }
         ];
+        # optionally, use specialArgs to pass arguments to configuration.nix
       };
     };
   };

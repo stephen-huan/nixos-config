@@ -1,15 +1,16 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
-  password-store = "/home/ikue/.password-store/encryption/tuxedo";
+  username = config._module.args.username;
+  password-store = "/home/${username}/.password-store/encryption/tuxedo";
 in
 {
   users = {
     mutableUsers = false;
-    users.ikue = {
+    users.${username} = {
       isNormalUser = true;
       extraGroups = [ "wheel" ]; # enable `sudo` for the user
-      hashedPasswordFile = "${password-store}/ikue.yescrypt";
+      hashedPasswordFile = "${password-store}/${username}.yescrypt";
       packages = with pkgs; [
         # todo remove
         firefox
