@@ -22,6 +22,7 @@
     pkgs.android-tools
     pkgs.caffeine-ng
     pkgs.chromium
+    pkgs.cider
     pkgs.clipster
     pkgs.du-dust
     pkgs.git-credential-manager
@@ -32,7 +33,7 @@
     pkgs.ipaexfont
     pkgs.ipafont
     pkgs.jq
-    # pkgs.krita # glx
+    pkgs.krita
     pkgs.mupdf
     pkgs.ncdu
     pkgs.neofetch
@@ -48,8 +49,14 @@
     pkgs.pulsemixer
     pkgs.ranger
     pkgs.shellcheck
-    # pkgs.signal-desktop # current version is too new
-    # pkgs.sioyek # glx
+    (
+      # temporarily override until new version
+      pkgs.signal-desktop.override {
+        version = "6.34.0";
+        hash = "sha256-YsmXzorTYyydFcXME6GUxn/oaVosVfnCUjAurmlK+x8=";
+      }
+    )
+    pkgs.silver-searcher
     pkgs.tokei
     pkgs.unzip
     pkgs.xclip
