@@ -35,11 +35,13 @@
     pkgs.ipafont
     pkgs.jq
     pkgs.krita
+    pkgs.llvmPackages_latest.libstdcxxClang
     pkgs.mdbook
     pkgs.mdbook-katex
     pkgs.mupdf
     pkgs.ncdu
     pkgs.neofetch
+    pkgs.nil
     pkgs.nixos-install-tools
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk-sans
@@ -65,6 +67,7 @@
     pkgs.vulnix
     pkgs.xclip
     pkgs.xlayoutdisplay
+    pkgs.yacreader
     pkgs.yadm
     pkgs.yubikey-manager
     pkgs.zathura
