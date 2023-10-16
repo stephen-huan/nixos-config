@@ -106,6 +106,8 @@
       history_size = 0
     '';
 
+    ".config/nvim".source = ../nvim/nvim;
+
     ".config/ranger" = {
       source = ../ranger/ranger;
       # ranger requires writable config directory

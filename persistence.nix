@@ -23,6 +23,7 @@
         ".cache"
         ".compose-cache" # TODO: remove
         ".config/cmus"
+        ".config/fish" # TODO: nix config
         ".config/home-manager"
         ".config/memento"
         ".config" # TODO: more fine-grain
