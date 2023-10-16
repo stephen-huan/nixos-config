@@ -204,6 +204,7 @@ in
 
   programs.nano.enable = false; # disable default nano
   programs.fish.enable = true;
+  programs.fuse.userAllowOther = true;
 
   security.sudo.wheelNeedsPassword = false;
 

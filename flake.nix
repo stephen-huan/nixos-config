@@ -21,7 +21,9 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.ikue = import ./home.nix;
-
+            home-manager.sharedModules = [
+              "${impermanence}/home-manager.nix"
+            ];
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
           }

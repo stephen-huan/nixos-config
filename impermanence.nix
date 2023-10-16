@@ -36,16 +36,11 @@
         "Music"
         "not-programs"
         ".password-store"
-        ".pki" # https://bbs.archlinux.org/viewtopic.php?id=99464 (zotero->nss)
+        ".pki" # https://bbs.archlinux.org/viewtopic.php?id=99464 (nss)
         "programs"
         ".ssh"
         ".zotero"
         "Zotero"
-      ];
-      files = [
-        ".Xkeymap" # TODO remove
-        ".xlayoutdisplay" # TODO remove
-        ".xprofile" # TODO remove
       ];
     };
   };
