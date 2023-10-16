@@ -31,7 +31,7 @@
               # Optionally, use extraSpecialArgs to pass arguments to home.nix
             };
           }
-          impermanence.nixosModules.impermanence (import ./persistence.nix)
+          "${impermanence}/nixos.nix"
         ];
       };
     };
