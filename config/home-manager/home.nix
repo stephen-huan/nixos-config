@@ -106,6 +106,14 @@
       # 0 - don't save history.
       history_size = 0
     '';
+
+    ".xlayoutdisplay".text = ''
+      # restrict frame rate to at most 60hz
+      # tuxedo pulse 15 has problems with 1440p at high refresh rates
+      rate=60
+    '';
+
+    ".xprofile".source = ../xprofile/.xprofile;
   };
 
   # You can also manage environment variables but you will have to manually
