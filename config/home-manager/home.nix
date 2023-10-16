@@ -106,6 +106,11 @@
       history_size = 0
     '';
 
+    ".config/black".text = ''
+      [tool.black]
+      line-length = 79
+    '';
+
     ".xlayoutdisplay".text = ''
       # restrict frame rate to at most 60hz
       # tuxedo pulse 15 has problems with 1440p at high refresh rates
