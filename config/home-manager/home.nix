@@ -28,7 +28,6 @@
     pkgs.du-dust
     pkgs.git-credential-manager
     pkgs.gpick
-    pkgs.hicolor-icon-theme # for caffeine-ng
     pkgs.htop
     pkgs.hwinfo
     pkgs.ipaexfont
