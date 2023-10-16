@@ -26,9 +26,12 @@
         ".config/fish" # TODO: nix config
         ".config/home-manager"
         ".config/memento"
+        ".config/Signal"
         ".config" # TODO: more fine-grain
+        "Desktop"
         ".github"
         ".gnupg"
+        ".julia"
         ".local/state/home-manager"
         ".local/state/nix"
         ".local/state/nvim"
@@ -38,6 +41,7 @@
         "Music"
         "not-programs"
         ".password-store"
+        "Pictures"
         ".pki" # https://bbs.archlinux.org/viewtopic.php?id=99464 (nss)
         "programs"
         ".ssh"
