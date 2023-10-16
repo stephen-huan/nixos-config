@@ -23,9 +23,6 @@ export XMODIFIERS=@im=ibus
 # set wallpaper background
 feh --no-fehbg --bg-scale ~/Pictures/config/desktop_background
 
-# compositor (transparency and other fancy effects)
-picom --daemon
-
 # screensaver after 30 minutes of inactivity
 xset s 1800
 xss-lock --transfer-sleep-lock -- \
@@ -39,4 +36,3 @@ caffeine &
 
 # login alert sound: should be desktop-login but I like service-login better
 canberra-gtk-play --id=service-login &
-
