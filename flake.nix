@@ -11,21 +11,25 @@
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { nixpkgs, home-manager, impermanence, ... }: {
+  outputs = { nixpkgs, home-manager, impermanence, ... }:
+  let
+    system = "x86_64-linux";
+    hostname = "sora";
+    username = "ikue";
+  in {
     nixosConfigurations = {
-      sora = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      ${hostname} = nixpkgs.lib.nixosSystem {
+        inherit system;
         modules = [
           (import ./home.nix { path = "nixos"; })
           home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.ikue = import ./home.nix { path = "config"; };
-            home-manager.sharedModules = [
-              "${impermanence}/home-manager.nix"
-            ];
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.${username} = import ./home.nix { path = "config"; };
+              sharedModules = [ "${impermanence}/home-manager.nix" ];
+              # Optionally, use extraSpecialArgs to pass arguments to home.nix
+            };
           }
           impermanence.nixosModules.impermanence (import ./persistence.nix)
         ];
