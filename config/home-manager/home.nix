@@ -64,6 +64,7 @@
       }
     )
     pkgs.silver-searcher
+    pkgs.texlive.combined.scheme-full
     pkgs.tokei
     pkgs.unzip
     pkgs.vulnix
