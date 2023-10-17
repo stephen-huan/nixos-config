@@ -2,6 +2,6 @@
 
 {
   home.packages = [ pkgs.caffeine-ng ];
-  # doesn't work
+  # automatic from systemd-xdg-autostart-generator (xdg.autostart.enable)
   services.caffeine.enable = false;
 }

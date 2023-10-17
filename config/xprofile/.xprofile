@@ -28,11 +28,5 @@ xset s 1800
 xss-lock --transfer-sleep-lock -- \
     i3lock --nofork --image="$HOME/Pictures/config/screensaver" &
 
-# MPRIS dameon to track media player with most recent activity
-playerctld daemon
-
-# every time the computer goes to sleep, there's a chance it won't wake up
-caffeine &
-
 # login alert sound: should be desktop-login but I like service-login better
 canberra-gtk-play --id=service-login &
