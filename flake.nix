@@ -54,5 +54,8 @@
         checkPhase = "statix check .";
         installPhase = "touch $out";
       };
+      devShells.${system}.default = pkgs.mkShell {
+        packages = [ pkgs.nixpkgs-fmt pkgs.statix pkgs.nil ];
+      };
     };
 }
