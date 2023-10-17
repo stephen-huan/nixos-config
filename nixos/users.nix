@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  username = config._module.args.username;
+  inherit (config._module.args) username;
   password-store = "/home/${username}/.password-store/encryption/tuxedo";
 in
 {

@@ -8,20 +8,22 @@
   boot.initrd.luks.devices.cryptlvm.device =
     "/dev/disk/by-uuid/5d57809c-d0e9-49e9-939e-f5d68392faf4";
   # https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/
-  fileSystems."/" = {
-    fsType = "tmpfs";
-    options = [ "defaults" "size=2G" "mode=755" ];
-  };
-  # manually specify because `nixos-generate-config` doesn't pick it up
-  fileSystems."${config._module.args.persistent}" = {
-    device = "/dev/VolumeGroup/root";
-    fsType = "ext4";
-    neededForBoot = true;
-  };
-  # https://nixos.wiki/wiki/Filesystems
-  fileSystems."/nix" = {
-    device = "${config._module.args.persistent}/nix";
-    options = [ "bind" ];
+  fileSystems = {
+    "/" = {
+      fsType = "tmpfs";
+      options = [ "defaults" "size=2G" "mode=755" ];
+    };
+    # manually specify because `nixos-generate-config` doesn't pick it up
+    ${config._module.args.persistent} = {
+      device = "/dev/VolumeGroup/root";
+      fsType = "ext4";
+      neededForBoot = true;
+    };
+    # https://nixos.wiki/wiki/Filesystems
+    "/nix" = {
+      device = "${config._module.args.persistent}/nix";
+      options = [ "bind" ];
+    };
   };
   # overwrite ./hardware-configuration.nix
   swapDevices = lib.mkForce [

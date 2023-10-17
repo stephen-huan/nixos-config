@@ -51,7 +51,7 @@
         src = ./.;
         doCheck = true;
         nativeCheckInputs = [ pkgs.statix ];
-        checkPhase = "statix check .";
+        checkPhase = "statix check --config statix.toml";
         installPhase = "touch $out";
       };
       devShells.${system}.default = pkgs.mkShell {
