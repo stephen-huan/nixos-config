@@ -36,15 +36,23 @@
                   "${impermanence}/home-manager.nix"
                   { _module = { inherit args; }; }
                 ];
-                # optionally, use extraSpecialArgs to pass arguments to home.nix
+                # optionally, use extraSpecialArgs to pass arguments
               };
             }
             "${impermanence}/nixos.nix"
             { _module = { inherit args; }; }
           ];
-          # optionally, use specialArgs to pass arguments to configuration.nix
+          # optionally, use specialArgs to pass arguments
         };
       };
       formatter.${system} = pkgs.nixpkgs-fmt;
+      checks.${system}.lint = pkgs.stdenv.mkDerivation {
+        name = "lint";
+        src = ./.;
+        doCheck = true;
+        nativeCheckInputs = [ pkgs.statix ];
+        checkPhase = "statix check .";
+        installPhase = "touch $out";
+      };
     };
 }
