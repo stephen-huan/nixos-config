@@ -25,8 +25,6 @@
       pkgs.gpick
       pkgs.htop
       pkgs.hwinfo
-      pkgs.ipaexfont
-      pkgs.ipafont
       pkgs.jq
       pkgs.krita
       pkgs.llvmPackages_latest.libstdcxxClang
@@ -38,10 +36,6 @@
       pkgs.nodejs
       pkgs.nodePackages.node2nix
       pkgs.nodePackages.prettier
-      pkgs.noto-fonts
-      pkgs.noto-fonts-cjk-sans
-      pkgs.noto-fonts-cjk-serif
-      pkgs.noto-fonts-emoji
       pkgs.pandoc
       pkgs.pass
       pkgs.passExtensions.pass-otp
