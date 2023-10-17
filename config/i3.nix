@@ -48,10 +48,10 @@
 
       # Use pactl to adjust volume in PulseAudio.
       set $refresh_i3status killall -SIGUSR1 i3status
-      bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@      +5% && $refresh_i3status
-      bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@      -5% && $refresh_i3status
-      bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@   toggle && $refresh_i3status
-      bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+      bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@   5%+    && $refresh_i3status
+      bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@   5%-    && $refresh_i3status
+      bindsym XF86AudioMute        exec --no-startup-id wpctl set-mute   @DEFAULT_SINK@   toggle && $refresh_i3status
+      bindsym XF86AudioMicMute     exec --no-startup-id wpctl set-mute   @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
       # use playerctl and the MPRIS protocol to control media players
       # see: https://wiki.archlinux.org/title/MPRIS
@@ -96,7 +96,7 @@
       # bindsym $mod+Return exec i3-sensible-terminal
       # --no-startup-id because alacritty does not send the proper response
       # https://github.com/alacritty/alacritty/issues/868
-      bindsym $mod+Return exec --no-startup-id ${pkgs.alacritty}/bin/alacritty
+      bindsym $mod+Return exec --no-startup-id alacritty
 
       # kill focused window
       bindsym $mod+$sup+q kill
