@@ -16,15 +16,12 @@
     packages = [
       pkgs.alass
       pkgs.android-tools
-      pkgs.caffeine-ng
       pkgs.chromium
       pkgs.cider
       pkgs.cmus
       pkgs.du-dust
-      pkgs.git-credential-manager
       pkgs.gpick
       pkgs.htop
-      pkgs.hwinfo
       pkgs.jq
       pkgs.krita
       pkgs.llvmPackages_latest.libstdcxxClang
@@ -56,7 +53,6 @@
       pkgs.vulnix
       pkgs.xclip
       pkgs.yacreader
-      pkgs.yadm
       pkgs.yubikey-manager
       pkgs.zathura
       pkgs.zbar
