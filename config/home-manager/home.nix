@@ -60,6 +60,7 @@
       pkgs.silver-searcher
       pkgs.texlive.combined.scheme-full
       pkgs.tokei
+      pkgs.tree
       pkgs.unzip
       pkgs.vulnix
       pkgs.xclip

@@ -11,11 +11,6 @@ in
       isNormalUser = true;
       extraGroups = [ "wheel" ]; # enable `sudo` for the user
       hashedPasswordFile = "${password-store}/${username}.yescrypt";
-      packages = with pkgs; [
-        # todo remove
-        firefox
-        tree
-      ];
       shell = pkgs.fish;
     };
     users.root.hashedPasswordFile = "${password-store}/root.yescrypt";
