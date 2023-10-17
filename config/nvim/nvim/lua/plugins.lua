@@ -73,9 +73,6 @@ return require("packer").startup({function(use)
                 current_line_blame_opts = {
                     delay = 100,
                 },
-                yadm = {
-                    enable = true,
-                },
                 -- buffer local keybindings
                 on_attach = function(bufnr)
                     local gitsigns = package.loaded.gitsigns
@@ -392,7 +389,4 @@ config = {
     compile_path = require("packer.util").join_paths(
         vim.fn.stdpath "data", "site", "plugin", "packer_compiled.lua"
     ),
-    display = {
-        open_fn = require("packer.util").float,
-    },
 }})
