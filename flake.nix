@@ -12,37 +12,39 @@
   };
 
   outputs = { nixpkgs, home-manager, impermanence, ... }:
-  let
-    system = "x86_64-linux";
-    hostname = "sora";
-    username = "ikue";
-    persistent = "/persistent";
-    args = { inherit hostname username persistent; };
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    nixosConfigurations = {
-      ${hostname} = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          (import ./home.nix { path = "nixos"; })
-          home-manager.nixosModules.home-manager {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.${username} = import ./home.nix { path = "config"; };
-              sharedModules = [
-                "${impermanence}/home-manager.nix"
-                { _module = { inherit args; }; }
-              ];
-              # optionally, use extraSpecialArgs to pass arguments to home.nix
-            };
-          }
-          "${impermanence}/nixos.nix"
-          { _module = { inherit args; }; }
-        ];
-        # optionally, use specialArgs to pass arguments to configuration.nix
+    let
+      system = "x86_64-linux";
+      hostname = "sora";
+      username = "ikue";
+      persistent = "/persistent";
+      args = { inherit hostname username persistent; };
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+    {
+      nixosConfigurations = {
+        ${hostname} = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./home.nix { path = "nixos"; })
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${username} = import ./home.nix { path = "config"; };
+                sharedModules = [
+                  "${impermanence}/home-manager.nix"
+                  { _module = { inherit args; }; }
+                ];
+                # optionally, use extraSpecialArgs to pass arguments to home.nix
+              };
+            }
+            "${impermanence}/nixos.nix"
+            { _module = { inherit args; }; }
+          ];
+          # optionally, use specialArgs to pass arguments to configuration.nix
+        };
       };
+      formatter.${system} = pkgs.nixpkgs-fmt;
     };
-    formatter.${system} = pkgs.nixpkgs-fmt;
-  };
 }

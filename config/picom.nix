@@ -10,10 +10,10 @@
     # make inactive windows slightly transparent
     inactiveOpacity = 0.9;
     opacityRules = [
-        # exclude screensaver (i3lock) window
-        "100:class_g = 'i3lock'"
-        # exclude floating windows
-        "100:I3_FLOATING_WINDOW@:c"
+      # exclude screensaver (i3lock) window
+      "100:class_g = 'i3lock'"
+      # exclude floating windows
+      "100:I3_FLOATING_WINDOW@:c"
     ];
   };
 }
