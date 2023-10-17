@@ -42,7 +42,6 @@
       pkgs.noto-fonts-cjk-sans
       pkgs.noto-fonts-cjk-serif
       pkgs.noto-fonts-emoji
-      pkgs.noto-fonts-lgc-plus
       pkgs.pandoc
       pkgs.pass
       pkgs.passExtensions.pass-otp
