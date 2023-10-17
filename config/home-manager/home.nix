@@ -35,8 +35,6 @@
     pkgs.mupdf
     pkgs.ncdu
     pkgs.neofetch
-    pkgs.nil
-    pkgs.nixos-install-tools
     pkgs.nodejs
     pkgs.nodePackages.node2nix
     pkgs.nodePackages.prettier
