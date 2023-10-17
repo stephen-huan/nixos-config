@@ -19,7 +19,6 @@
       pkgs.caffeine-ng
       pkgs.chromium
       pkgs.cider
-      pkgs.clipster
       pkgs.cmus
       pkgs.du-dust
       pkgs.git-credential-manager
@@ -48,7 +47,6 @@
       pkgs.pass
       pkgs.passExtensions.pass-otp
       pkgs.pulsemixer
-      pkgs.ranger
       pkgs.shellcheck
       (
         # temporarily override until new version
@@ -64,7 +62,6 @@
       pkgs.unzip
       pkgs.vulnix
       pkgs.xclip
-      pkgs.xlayoutdisplay
       pkgs.yacreader
       pkgs.yadm
       pkgs.yubikey-manager
@@ -92,36 +89,10 @@
     # Home Manager is pretty good at managing dotfiles. The primary way to
     # manage plain files is through 'home.file'.
     file = {
-      ".config/ames/config".source = ../ames/config;
-
-      ".config/clipster/clipster.ini".text = ''
-        [clipster]
-
-        # Number of items to save in the history file for each selection.
-        # 0 - don't save history.
-        history_size = 0
-      '';
-
-      ".config/nvim".source = ../nvim/nvim;
-
-      ".config/ranger" = {
-        source = ../ranger/ranger;
-        # ranger requires writable config directory
-        recursive = true;
-      };
-
       ".config/black".text = ''
         [tool.black]
         line-length = 79
       '';
-
-      ".xlayoutdisplay".text = ''
-        # restrict frame rate to at most 60hz
-        # tuxedo pulse 15 has problems with 1440p at high refresh rates
-        rate=60
-      '';
-
-      ".xprofile".source = ../xprofile/.xprofile;
     };
 
     # You can also manage environment variables but you will have to manually
