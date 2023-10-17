@@ -18,6 +18,7 @@
     username = "ikue";
     persistent = "/persistent";
     args = { inherit hostname username persistent; };
+    pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = {
       ${hostname} = nixpkgs.lib.nixosSystem {
@@ -42,5 +43,6 @@
         # optionally, use specialArgs to pass arguments to configuration.nix
       };
     };
+    formatter.${system} = pkgs.nixpkgs-fmt;
   };
 }
