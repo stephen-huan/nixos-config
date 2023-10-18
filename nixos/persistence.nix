@@ -8,7 +8,6 @@
       { directory = "/var/lib/iwd"; mode = "0700"; }
       "/etc/mullvad-vpn"
       "/etc/nixos"
-      "/old-root" # TODO: remove
       "/var/cache" # TODO: more fine-grain
       "/var/lib/systemd/backlight"
       "/var/lib/systemd/catalog"
