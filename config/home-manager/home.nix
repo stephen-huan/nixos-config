@@ -23,8 +23,10 @@
       pkgs.gpick
       pkgs.htop
       pkgs.jq
+      pkgs.julia-bin
       pkgs.krita
       pkgs.llvmPackages_latest.libstdcxxClang
+      pkgs.maim
       pkgs.mdbook
       pkgs.mdbook-katex
       pkgs.mupdf
@@ -60,6 +62,7 @@
       pkgs.zotero
 
       pkgs.python311Packages.cython
+      pkgs.python311Packages.pygments
 
       # # It is sometimes useful to fine-tune packages, for example, by
       # # applying overrides. You can do that directly here, just don't forget
