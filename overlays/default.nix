@@ -1,4 +1,4 @@
 {
-  pkgs = self: super: import ../pkgs/top-level { pkgs = self; };
+  pkgs = final: prev: import ../pkgs/top-level { pkgs = final; };
   maintainers = import ./maintainers.nix;
 }

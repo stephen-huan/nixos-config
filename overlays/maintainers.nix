@@ -1,4 +1,4 @@
-self: super:
+final: prev:
 
 let
   stephen-huan = {
@@ -12,7 +12,7 @@ let
   };
 in
 {
-  lib = super.lib // {
-    maintainers = super.lib.maintainers // { inherit stephen-huan; };
+  lib = prev.lib // {
+    maintainers = prev.lib.maintainers // { inherit stephen-huan; };
   };
 }
