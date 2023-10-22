@@ -49,8 +49,9 @@
       };
       legacyPackages.${system} = import ./. { inherit pkgs; };
       packages.${system} = nixpkgs.lib.filterAttrs
-        (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system};
-      overlays = self.legacyPackages.${system}.overlays;
+        (_: v: nixpkgs.lib.isDerivation v)
+        self.legacyPackages.${system};
+      inherit (self.legacyPackages.${system}) overlays;
       formatter.${system} = pkgs.nixpkgs-fmt;
       checks.${system}.lint = pkgs.stdenv.mkDerivation {
         name = "lint";

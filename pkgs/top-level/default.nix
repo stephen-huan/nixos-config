@@ -2,5 +2,6 @@
 
 {
   iwd-last-network = pkgs.callPackage
-    ../os-specific/linux/iwd-last-network { };
+    ../os-specific/linux/iwd-last-network
+    { };
 }
