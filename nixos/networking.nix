@@ -34,4 +34,5 @@
   systemd.services.mullvad-daemon.path = [
     config.networking.resolvconf.package
   ];
+  services.unbound.enable = true;
 }
