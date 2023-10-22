@@ -26,7 +26,7 @@
     (
       pkgs.writeShellScript "systemd-update-done-wrapper" ''
         mkdir -p /usr
-        ${pkgs.systemd}/lib/systemd/systemd-update-done
+        /run/current-system/sw/lib/systemd/systemd-update-done
         rmdir --ignore-fail-on-non-empty /usr
       ''
     )
