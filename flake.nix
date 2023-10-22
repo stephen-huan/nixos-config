@@ -19,19 +19,24 @@
       persistent = "/persistent";
       args = { inherit hostname username persistent; };
       pkgs = nixpkgs.legacyPackages.${system};
+      # https://github.com/NixOS/nixpkgs/issues/156312
+      # https://github.com/NixOS/nixpkgs/pull/157056
+      lib = nixpkgs.lib.extend (
+        final: prev: prev // (import ./lib { inherit pkgs; })
+      );
     in
     {
       nixosConfigurations = {
-        ${hostname} = nixpkgs.lib.nixosSystem {
-          inherit system;
+        ${hostname} = lib.nixosSystem {
+          inherit system lib;
           modules = [
-            (import ./home.nix { path = "nixos"; })
+            (lib.importDir "nixos")
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.${username} = import ./home.nix { path = "config"; };
+                users.${username} = lib.importDir "config";
                 sharedModules = [
                   "${impermanence}/home-manager.nix"
                   { _module = { inherit args; }; }
@@ -48,8 +53,7 @@
         };
       };
       legacyPackages.${system} = import ./. { inherit pkgs; };
-      packages.${system} = nixpkgs.lib.filterAttrs
-        (_: v: nixpkgs.lib.isDerivation v)
+      packages.${system} = lib.filterAttrs (_: v: lib.isDerivation v)
         self.legacyPackages.${system};
       inherit (self.legacyPackages.${system}) overlays;
       formatter.${system} = pkgs.nixpkgs-fmt;
