@@ -30,7 +30,6 @@
         ".config/Signal"
         ".config" # TODO: more fine-grain
         "Desktop"
-        ".github"
         ".gnupg"
         ".julia"
         ".local/state/home-manager"
@@ -46,6 +45,7 @@
         ".pki" # https://bbs.archlinux.org/viewtopic.php?id=99464 (nss)
         "programs"
         ".ssh"
+        ".thunderbird"
         ".zotero"
         "Zotero"
       ];
