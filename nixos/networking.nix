@@ -30,4 +30,8 @@
     enableExcludeWrapper = true;
     package = pkgs.mullvad; # cli only
   };
+  # https://github.com/NixOS/nixpkgs/issues/262681
+  systemd.services.mullvad-daemon.path = [
+    config.networking.resolvconf.package
+  ];
 }
