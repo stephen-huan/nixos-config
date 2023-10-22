@@ -11,7 +11,7 @@
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { nixpkgs, home-manager, impermanence, ... }:
+  outputs = { self, nixpkgs, home-manager, impermanence, ... }:
     let
       system = "x86_64-linux";
       hostname = "sora";
@@ -37,14 +37,17 @@
                   { _module = { inherit args; }; }
                 ];
                 # optionally, use extraSpecialArgs to pass arguments
+                extraSpecialArgs = { inherit self; };
               };
             }
             "${impermanence}/nixos.nix"
             { _module = { inherit args; }; }
           ];
           # optionally, use specialArgs to pass arguments
+          specialArgs = { inherit self; };
         };
       };
+      overlays = import ./overlays;
       formatter.${system} = pkgs.nixpkgs-fmt;
       checks.${system}.lint = pkgs.stdenv.mkDerivation {
         name = "lint";
