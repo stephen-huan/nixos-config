@@ -22,17 +22,41 @@
     };
     dhcpcd = {
       enable = true;
-      runHook = "";
+      runHook = ''
+        # disable wifi if ethernet connected and
+        # enable wifi if ethernet disconnected
+        # https://bugs.archlinux.org/task/67382#comment191690
+        wired=eno1
+        wireless=wlan0
+
+        if [ "$interface" = $wired ]; then
+          case "$reason" in NOCARRIER|BOUND)
+            if $if_up; then
+              # ethernet up means wifi down
+              iwctl station $wireless disconnect
+            elif $if_down; then
+              # ethernet down means wifi up
+              # parse `iwctl known-networks list` and connect to most recent
+              last="$(${pkgs.iwd-last-network}/bin/iwd-last-network)"
+              iwctl station $wireless connect "$last"
+            fi
+            ;;
+          esac
+        fi
+      '';
     };
   };
-  services.mullvad-vpn = {
-    enable = true;
-    enableExcludeWrapper = true;
-    package = pkgs.mullvad; # cli only
+  services = {
+    unbound.enable = true;
+    mullvad-vpn = {
+      enable = true;
+      enableExcludeWrapper = true;
+      package = pkgs.mullvad; # cli only
+    };
   };
-  # https://github.com/NixOS/nixpkgs/issues/262681
-  systemd.services.mullvad-daemon.path = [
-    config.networking.resolvconf.package
-  ];
-  services.unbound.enable = true;
+  systemd.services = {
+    dhcpcd.path = [ pkgs.iwd ];
+    # https://github.com/NixOS/nixpkgs/issues/262681
+    mullvad-daemon.path = [ config.networking.resolvconf.package ];
+  };
 }
