@@ -36,8 +36,6 @@
       pkgs.nodePackages.node2nix
       pkgs.nodePackages.prettier
       pkgs.pandoc
-      pkgs.pass
-      pkgs.passExtensions.pass-otp
       pkgs.pulsemixer
       pkgs.shellcheck
       (
