@@ -98,7 +98,8 @@
     #
     # if you don't want to manage your shell through Home Manager.
     sessionVariables = {
-      # EDITOR = "emacs";
+      # restrict openMP from using all CPU resources (monitor flickering)
+      OMP_NUM_THREADS = "4";
     };
   };
 }
