@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ config, lib, ... }:
 
 {
   home.persistence.${lib.homeDir config} = {
