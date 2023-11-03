@@ -6,6 +6,6 @@
     imports = map (name: ../${path}/${name})
       (builtins.attrNames (builtins.readDir ../${path}));
   };
-  homeDir = config:
+  persistentHome = config:
     "${config._module.args.persistent}${config.home.homeDirectory}";
 }

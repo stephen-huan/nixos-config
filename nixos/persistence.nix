@@ -25,7 +25,6 @@
         ".config/memento"
         ".config/Signal"
         ".config" # TODO: more fine-grain
-        "Desktop"
         { directory = ".gnupg"; mode = "0700"; }
         { directory = ".ssh"; mode = "0700"; }
         ".julia"
@@ -35,10 +34,8 @@
         ".local/state/wireplumber"
         ".local" # TODO: more fine-grain
         ".mozilla"
-        "Music"
         "not-programs"
         ".password-store"
-        "Pictures"
         ".pki" # https://bbs.archlinux.org/viewtopic.php?id=99464 (nss)
         "programs"
         ".thunderbird"
