@@ -30,7 +30,8 @@
         ".config/Signal"
         ".config" # TODO: more fine-grain
         "Desktop"
-        ".gnupg"
+        { directory = ".gnupg"; mode = "0700"; }
+        { directory = ".ssh"; mode = "0700"; }
         ".julia"
         ".local/state/home-manager"
         ".local/state/nix"
@@ -44,7 +45,6 @@
         "Pictures"
         ".pki" # https://bbs.archlinux.org/viewtopic.php?id=99464 (nss)
         "programs"
-        ".ssh"
         ".thunderbird"
         ".zotero"
         "Zotero"
