@@ -1,10 +1,7 @@
-{ config, ... }:
+{ lib, config, ... }:
 
-let
-  homeDir = "${config._module.args.persistent}${config.home.homeDirectory}";
-in
 {
-  home.persistence.${homeDir} = {
+  home.persistence.${lib.homeDir config} = {
     allowOther = true;
     # uses `bindfs` (https://bindfs.org/) rather than `mount --bind`
     directories = [ ];
