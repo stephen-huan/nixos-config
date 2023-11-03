@@ -8,16 +8,12 @@
       { directory = "/var/lib/iwd"; mode = "0700"; }
       "/etc/mullvad-vpn"
       "/etc/nixos"
-      "/var/cache" # TODO: more fine-grain
+      "/var/cache"
       "/var/lib/systemd/backlight"
-      "/var/lib/systemd/catalog"
       "/var/lib/systemd/coredump"
       "/var/log"
     ];
-    files = [
-      "/etc/machine-id"
-      "/var/lib/logrotate.status"
-    ];
+    files = [ "/etc/machine-id" ];
     users.${config._module.args.username} = {
       directories = [
         "bin"
