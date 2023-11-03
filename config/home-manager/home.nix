@@ -24,10 +24,10 @@
       pkgs.fishPlugins.fzf
       pkgs.fishPlugins.z
       pkgs.gpick
-      pkgs.htop
       pkgs.jq
       pkgs.julia-bin
       pkgs.krita
+      pkgs.libreoffice
       pkgs.llvmPackages_latest.libstdcxxClang
       pkgs.maim
       pkgs.mdbook
