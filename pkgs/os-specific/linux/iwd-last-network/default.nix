@@ -27,9 +27,9 @@ stdenv.mkDerivation {
     cp ./iwd-last-network.py $out/bin/iwd-last-network
   '';
 
-  meta = {
+  meta = with lib; {
     description = "Return iwd's most recently connected network";
-    license = lib.licenses.unlicense;
-    maintainers = [ lib.maintainers.stephen-huan ];
+    license = licenses.unlicense;
+    maintainers = with maintainers; [ stephen-huan ];
   };
 }
