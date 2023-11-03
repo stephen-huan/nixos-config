@@ -20,9 +20,6 @@
       pkgs.cider
       pkgs.cmus
       pkgs.du-dust
-      pkgs.fishPlugins.fish-command-timer
-      pkgs.fishPlugins.fzf
-      pkgs.fishPlugins.z
       pkgs.gpick
       pkgs.jq
       pkgs.julia-bin

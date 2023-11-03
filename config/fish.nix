@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   programs.fish = {
     enable = true;
@@ -17,4 +19,5 @@
       set -gx LESS_TERMCAP_us (set_color brgreen)
     '';
   };
+  home.packages = with pkgs.fishPlugins; [ fish-command-timer fzf z ];
 }
