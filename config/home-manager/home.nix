@@ -38,13 +38,7 @@
       pkgs.pandoc
       pkgs.pulsemixer
       pkgs.shellcheck
-      (
-        # temporarily override until new version
-        pkgs.signal-desktop.override {
-          version = "6.34.0";
-          hash = "sha256-YsmXzorTYyydFcXME6GUxn/oaVosVfnCUjAurmlK+x8=";
-        }
-      )
+      pkgs.signal-desktop
       pkgs.silver-searcher
       pkgs.texlive.combined.scheme-full
       pkgs.tokei
