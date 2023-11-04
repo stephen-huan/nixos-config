@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   programs.fish = {
@@ -19,5 +19,13 @@
       set -gx LESS_TERMCAP_us (set_color brgreen)
     '';
   };
-  home.packages = with pkgs.fishPlugins; [ fish-command-timer fzf z ];
+  home = {
+    packages = with pkgs.fishPlugins; [ fish-command-timer fzf z ];
+    persistence.${lib.persistentHome config} = {
+      directories = [
+        { directory = ".config/fish/functions"; method = "symlink"; }
+      ];
+      files = [ ".config/fish/fish_variables" ];
+    };
+  };
 }

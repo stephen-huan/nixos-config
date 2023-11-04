@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   home.packages = [ pkgs.caffeine-ng ];
@@ -11,4 +11,7 @@
     # Permission denied: '/run/user/1000/caffeine-ng/pid'
     ProtectHome = lib.mkForce false;
   };
+  home.persistence.${lib.persistentHome config}.directories = [
+    { directory = ".config/caffeine"; method = "symlink"; }
+  ];
 }

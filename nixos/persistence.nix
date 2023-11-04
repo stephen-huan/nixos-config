@@ -16,31 +16,12 @@
     files = [ "/etc/machine-id" ];
     users.${config._module.args.username} = {
       directories = [
-        "bin"
-        ".cache"
-        ".compose-cache" # TODO: remove
-        ".config/cmus"
-        ".config/fish" # TODO: nix config
-        ".config/home-manager"
-        ".config/memento"
-        ".config/Signal"
-        ".config" # TODO: more fine-grain
+        ".cache" # Error installing file '.cache/.keep' outside $HOME
         { directory = ".gnupg"; mode = "0700"; }
         { directory = ".ssh"; mode = "0700"; }
-        ".julia"
-        ".local/state/home-manager"
-        ".local/state/nix"
-        ".local/state/nvim"
-        ".local/state/wireplumber"
-        ".local" # TODO: more fine-grain
-        ".mozilla"
-        "not-programs"
+        ".local/share" # Error installing file outside $HOME
+        ".local/state"
         ".password-store"
-        ".pki" # https://bbs.archlinux.org/viewtopic.php?id=99464 (nss)
-        "programs"
-        ".thunderbird"
-        ".zotero"
-        "Zotero"
       ];
     };
   };
