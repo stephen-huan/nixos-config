@@ -21,7 +21,6 @@
         { directory = ".ssh"; mode = "0700"; }
         ".local/share" # Error installing file outside $HOME
         ".local/state"
-        ".password-store"
       ];
     };
   };

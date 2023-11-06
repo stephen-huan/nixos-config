@@ -13,6 +13,7 @@
       ".config/Signal"
       ".julia"
       "not-programs"
+      ".password-store"
       "programs"
       ".zotero"
       "Zotero"
