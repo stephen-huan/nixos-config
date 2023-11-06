@@ -1,3 +1,3 @@
 {
-  home.file.".config/ames/config".source = ./config;
+  xdg.configFile."ames/config".source = ./config;
 }

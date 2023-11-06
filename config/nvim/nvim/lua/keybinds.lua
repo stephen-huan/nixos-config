@@ -29,11 +29,9 @@ vim.keymap.set("n", "<leader>c", "<cmd>set hlsearch! hlsearch?<cr>")
 vim.keymap.set("n", "<leader>C", "<cmd>set spell! spell?<cr>")
 -- source vimrc
 vim.keymap.set("n", "<leader>v", function()
-    vim.cmd [[
-        source ~/.config/nvim/init.lua
-        source ~/.config/nvim/lua/plugins.lua
-        PackerCompile
-    ]]
+    vim.cmd("source " .. vim.fn.stdpath "config" .. "/init.lua")
+    vim.cmd("source " .. vim.fn.stdpath "config" .. "/lua/plugins.lua")
+    vim.cmd "PackerCompile"
 end)
 -- reset syntax
 -- vim.keymap.set("n", "<leader>e", "<cmd>syntax off <bar> syntax on<cr>")

@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  configHome = lib.stripPrefix config.home.homeDirectory config.xdg.configHome;
+in
 {
   programs.fish = {
     enable = true;
@@ -23,9 +26,9 @@
     packages = with pkgs.fishPlugins; [ fish-command-timer fzf z ];
     persistence.${lib.persistentHome config} = {
       directories = [
-        { directory = ".config/fish/functions"; method = "symlink"; }
+        { directory = "${configHome}/fish/functions"; method = "symlink"; }
       ];
-      files = [ ".config/fish/fish_variables" ];
+      files = [ "${configHome}/fish/fish_variables" ];
     };
   };
 }

@@ -1,6 +1,5 @@
 {
   home = {
-    file.".config/nvim".source = ./nvim;
     sessionVariables = {
       VISUAL = "nvim";
       EDITOR = "nvim";
@@ -9,4 +8,5 @@
       MANWIDTH = "80";
     };
   };
+  xdg.configFile."nvim".source = ./nvim;
 }

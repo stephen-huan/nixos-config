@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  configHome = lib.stripPrefix config.home.homeDirectory config.xdg.configHome;
+in
 {
   home.packages = [ pkgs.caffeine-ng ];
   services.caffeine.enable = true;
@@ -12,6 +15,6 @@
     ProtectHome = lib.mkForce false;
   };
   home.persistence.${lib.persistentHome config}.directories = [
-    { directory = ".config/caffeine"; method = "symlink"; }
+    { directory = "${configHome}/caffeine"; method = "symlink"; }
   ];
 }

@@ -72,12 +72,7 @@
 
     # Home Manager is pretty good at managing dotfiles. The primary way to
     # manage plain files is through 'home.file'.
-    file = {
-      ".config/black".text = ''
-        [tool.black]
-        line-length = 79
-      '';
-    };
+    file = { };
 
     # You can also manage environment variables but you will have to manually
     # source
@@ -93,5 +88,11 @@
       # restrict openMP from using all CPU resources (monitor flickering)
       OMP_NUM_THREADS = "4";
     };
+  };
+  xdg.configFile = {
+    "black".text = ''
+      [tool.black]
+      line-length = 79
+    '';
   };
 }
