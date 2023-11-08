@@ -17,7 +17,10 @@
         user = config._module.args.username;
       };
     };
-    desktopManager.runXdgAutostartIfNone = true;
+    desktopManager = {
+      runXdgAutostartIfNone = true;
+      wallpaper.mode = "scale";
+    };
     windowManager.i3.enable = true;
   };
 }
