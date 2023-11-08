@@ -16,15 +16,23 @@ stdenv.mkDerivation {
   doCheck = true;
   nativeCheckInputs = [ black isort ruff ];
   checkPhase = ''
+    runHook preCheck
+
     isort --check --diff --profile black .
     black --check --diff --exclude="" .
     ruff check .
+
+    runHook postCheck
   '';
 
   installPhase = ''
+    runHook preInstall
+
     mkdir -p $out/bin
-    chmod +x ./iwd-last-network.py
-    cp ./iwd-last-network.py $out/bin/iwd-last-network
+    chmod +x iwd-last-network.py
+    cp iwd-last-network.py $out/bin/iwd-last-network
+
+    runHook postInstall
   '';
 
   meta = with lib; {
