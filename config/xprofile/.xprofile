@@ -13,9 +13,6 @@ xset r rate 225 25
 # clipboard manager
 clipster --daemon &
 
-# set wallpaper background
-feh --no-fehbg --bg-scale ~/Pictures/config/desktop_background
-
 # screensaver after 30 minutes of inactivity
 xset s 1800
 xss-lock --transfer-sleep-lock -- \
