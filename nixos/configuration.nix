@@ -33,14 +33,6 @@
   # Set your time zone.
   time.timeZone = "US/Eastern";
 
-  i18n = {
-    # Select internationalisation properties.
-    # defaultLocale = "en_US.UTF-8";
-    inputMethod = {
-      enabled = "ibus";
-      ibus.engines = with pkgs.ibus-engines; [ mozc-ut ];
-    };
-  };
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
