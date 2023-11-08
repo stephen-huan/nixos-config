@@ -20,8 +20,10 @@ in
       ] ++ map (name: "${configHome}/${name}") [
         "Cider"
         "cmus"
+        "dconf" # used for ibus e.g., `dconf dump /desktop/ibus/`
         "home-manager"
         "memento"
+        "mozc"
         "Signal"
       ]
     );
