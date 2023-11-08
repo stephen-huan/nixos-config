@@ -27,6 +27,9 @@ in
         "Signal"
       ]
     );
-    files = [ "${configHome}/mimeapps.list" ];
+    files = [
+      ".background-image"
+      "${configHome}/mimeapps.list"
+    ];
   };
 }
