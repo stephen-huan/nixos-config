@@ -17,6 +17,7 @@
         user = config._module.args.username;
       };
     };
+    desktopManager.runXdgAutostartIfNone = true;
     windowManager.i3.enable = true;
   };
 }
