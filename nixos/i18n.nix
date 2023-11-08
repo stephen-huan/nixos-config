@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   i18n = {
-    # Select internationalisation properties.
-    # defaultLocale = "en_US.UTF-8";
+    defaultLocale = "en_US.UTF-8";
+    supportedLocales = lib.mkOptionDefault [ "ja_JP.UTF-8/UTF-8" ];
     inputMethod = {
       enabled = "ibus";
       ibus.engines = with pkgs.ibus-engines; [ mozc-ut ];
