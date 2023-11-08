@@ -1,7 +1,8 @@
 { pkgs }:
 
+let
+  inherit (pkgs) callPackage;
+in
 {
-  iwd-last-network = pkgs.callPackage
-    ../os-specific/linux/iwd-last-network
-    { };
+  iwd-last-network = callPackage ../os-specific/linux/iwd-last-network { };
 }
