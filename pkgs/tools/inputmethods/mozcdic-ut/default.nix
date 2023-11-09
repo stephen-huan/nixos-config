@@ -1,5 +1,5 @@
 { lib
-, stdenv
+, stdenvNoCC
 , fetchFromGitHub
 , fetchurl
 , ibus-engines
@@ -21,7 +21,7 @@
 let
   date = "20231101";
 in
-stdenv.mkDerivation {
+stdenvNoCC.mkDerivation {
   pname = "mozcdic-ut";
   version = date;
 

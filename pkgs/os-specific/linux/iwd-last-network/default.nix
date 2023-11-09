@@ -1,6 +1,6 @@
-{ lib, stdenv, python3, black, isort, ruff }:
+{ lib, stdenvNoCC, python3, black, isort, ruff }:
 
-stdenv.mkDerivation {
+stdenvNoCC.mkDerivation {
   name = "iwd-last-network";
   src = ./iwd-last-network.py;
 
