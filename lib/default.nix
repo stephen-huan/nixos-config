@@ -1,7 +1,7 @@
 { pkgs }:
 
 let
-  lib = pkgs.lib;
+  inherit (pkgs) lib;
 in
 {
   # loads *.nix files and directories with default.nix
