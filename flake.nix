@@ -57,7 +57,7 @@
         self.legacyPackages.${system};
       inherit (self.legacyPackages.${system}) overlays;
       formatter.${system} = pkgs.nixpkgs-fmt;
-      checks.${system}.lint = pkgs.stdenv.mkDerivation {
+      checks.${system}.lint = pkgs.stdenvNoCC.mkDerivation {
         name = "lint";
         src = ./.;
         doCheck = true;
@@ -65,7 +65,7 @@
         checkPhase = "statix check --config statix.toml";
         installPhase = "touch $out";
       };
-      devShells.${system}.default = pkgs.mkShell {
+      devShells.${system}.default = pkgs.mkShellNoCC {
         packages = [ pkgs.nixpkgs-fmt pkgs.statix pkgs.nil ];
       };
     };
