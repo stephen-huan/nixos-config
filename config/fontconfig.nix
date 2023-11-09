@@ -5,6 +5,7 @@
   home.packages = [
     pkgs.ipaexfont
     pkgs.ipafont
+    pkgs.kanjistrokeorders
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk-sans
     pkgs.noto-fonts-cjk-serif
