@@ -126,6 +126,7 @@ stdenvNoCC.mkDerivation {
     ./remove-wget.patch
   ];
 
+  strictDeps = true;
   nativeBuildInputs = [ ruby ];
 
   buildPhase = ''
@@ -144,8 +145,7 @@ stdenvNoCC.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    mkdir $out
-    cp mozcdic-ut.txt $out
+    install -Dm644 mozcdic-ut.txt -t $out
 
     runHook postInstall
   '';
