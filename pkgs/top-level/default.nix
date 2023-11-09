@@ -5,6 +5,6 @@ let
 in
 {
   iwd-last-network = callPackage ../os-specific/linux/iwd-last-network { };
-  mozcdic-ut = callPackage ../tools/inputmethods/mozcdic-ut { };
   kanjistrokeorders = callPackage ../data/fonts/kanjistrokeorders { };
+  mozcdic-ut = callPackage ../tools/inputmethods/mozcdic-ut { };
 }
