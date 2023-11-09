@@ -1,8 +1,5 @@
-{ lib
-, buildFishPlugin
-, fetchFromGitHub
-,
-}:
+{ lib, buildFishPlugin, fetchFromGitHub }:
+
 buildFishPlugin {
   pname = "fish-command-timer";
   version = "unstable-2022-05-16";
