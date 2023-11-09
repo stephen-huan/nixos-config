@@ -4,9 +4,13 @@ stdenvNoCC.mkDerivation {
   name = "iwd-last-network";
   src = ./iwd-last-network.py;
 
-  unpackCmd = ''
-    mkdir iwd-last-network
-    cp $src ./iwd-last-network/iwd-last-network.py
+  sourceRoot = ".";
+  unpackPhase = ''
+    runHook preUnpack
+
+    cp $src "$(stripHash "$src")"
+
+    runHook postUnpack
   '';
 
   strictDeps = true;
@@ -28,9 +32,7 @@ stdenvNoCC.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    mkdir -p $out/bin
-    chmod +x iwd-last-network.py
-    cp iwd-last-network.py $out/bin/iwd-last-network
+    install -Dm755 -T iwd-last-network.py $out/bin/iwd-last-network
 
     runHook postInstall
   '';
