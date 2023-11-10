@@ -35,7 +35,7 @@
             {
               home-manager = {
                 useGlobalPkgs = false;
-                useUserPackages = true;
+                useUserPackages = false;
                 users.${username} = lib.importDir "config";
                 sharedModules = [
                   "${impermanence}/home-manager.nix"
