@@ -26,13 +26,14 @@ stdenvNoCC.mkDerivation {
   version = date;
 
   srcs = [
-    (fetchFromGitHub {
+    mozc.src
+    (fetchFromGitHub rec {
+      name = repo;
       owner = "utuhiro78";
       repo = "merge-ut-dictionaries";
       rev = "c4daa91f69ee6d45eaec510cbaa58075d29ba820";
       hash = "sha256-pniWfQtp569gj7RfC6q/gLPt7vusetzQ3WOXPxKDYDI=";
     })
-    mozc.src
     (fetchurl {
       url = "https://dumps.wikimedia.org/jawiki/${date}/jawiki-${date}-all-titles-in-ns0.gz";
       hash = "sha256-S30QNW29VRa4P7JTi7vVdqDrWChSuXFEjkDbYwnpG1A=";
@@ -89,33 +90,29 @@ stdenvNoCC.mkDerivation {
 
   sourceRoot = ".";
 
-  unpackPhase = ''
-    runHook preUnpack
+  # see pkgs/tools/archivers/unrar/setup-hook.sh
+  # and https://www.reddit.com/r/NixOS/comments/kqe57g/
+  preUnpack = ''
+    unpackCmdHooks+=(_tryGz)
+    _tryGz() {
+      if [[ "$curSrc" =~ \.tar.gz$ ]]; then return 1; fi
+      if ! [[ "$curSrc" =~ \.gz$ ]]; then return 1; fi
+      cp "$curSrc" "$(stripHash "$curSrc")"
+    }
+  '';
 
-    srcsArray=($srcs)
-    cp -r "''${srcsArray[0]}" source
-    cd source/src
-    chmod -R u+w -- .
-    cp "''${srcsArray[1]}/src/data/dictionary_oss/id.def" .
-    cp "''${srcsArray[2]}" jawiki-latest-all-titles-in-ns0.gz
-    for dict in "''${srcsArray[@]:3}"; do
-      cp -r "$dict" "$(stripHash "$dict")"
-    done
-    chmod -R u+w -- .
-
-    # UT辞書を展開して結合
-    mv mozcdic-ut-*/mozcdic-ut-*.txt.tar.bz2 .
-    for f in mozcdic-ut-*.txt.tar.bz2; do tar xf "$f"; done
-
-    cat mozcdic-ut-*.txt > mozcdic-ut.txt
-
-    runHook postUnpack
+  postUnpack = ''
+    root="merge-ut-dictionaries/src"
+    mv "${mozc.src.name}" "$root/mozc"
+    mv jawiki-*-all-titles-in-ns0.gz "$root/jawiki-latest-all-titles-in-ns0.gz"
+    mv mozcdic-ut-* "$root"
+    cd "$root"
   '';
 
   configurePhase = ''
     runHook preConfigure
 
-    export LOCALE_ARCHIVE=${glibcLocales}/lib/locale/locale-archive
+    export LOCALE_ARCHIVE="${glibcLocales}/lib/locale/locale-archive"
     export LANG=ja_JP.UTF-8
 
     runHook postConfigure
@@ -123,7 +120,8 @@ stdenvNoCC.mkDerivation {
 
   patches = [
     ./local-mozc.patch
-    ./remove-wget.patch
+    ./local-jawiki.patch
+    ./local-mozcdic-ut.patch
   ];
 
   strictDeps = true;
@@ -132,12 +130,7 @@ stdenvNoCC.mkDerivation {
   buildPhase = ''
     runHook preBuild
 
-    # mozcdic-ut.txt の重複エントリを削除
-    ruby remove_duplicate_ut_entries.rb mozcdic-ut.txt
-
-    # mozcdic-ut.txt の単語コストを変更
-    ruby count_word_hits.rb
-    ruby apply_word_hits.rb mozcdic-ut.txt
+    bash make.sh
 
     runHook postBuild
   '';
