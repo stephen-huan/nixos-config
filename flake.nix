@@ -34,7 +34,7 @@
             home-manager.nixosModules.home-manager
             {
               home-manager = {
-                useGlobalPkgs = true;
+                useGlobalPkgs = false;
                 useUserPackages = true;
                 users.${username} = lib.importDir "config";
                 sharedModules = [
