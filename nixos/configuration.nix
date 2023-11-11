@@ -30,9 +30,6 @@
     { device = "/dev/VolumeGroup/swap"; }
   ];
 
-  # Set your time zone.
-  time.timeZone = "US/Eastern";
-
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
