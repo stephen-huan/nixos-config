@@ -30,12 +30,6 @@
     { device = "/dev/VolumeGroup/swap"; }
   ];
 
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
-  # };
-
   environment = {
     systemPackages = with pkgs; [
       neovim
