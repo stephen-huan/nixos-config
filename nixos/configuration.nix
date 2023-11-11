@@ -39,16 +39,6 @@
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
 
-  # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
-  services.pipewire = {
-    enable = true;
-    audio.enable = true;
-    wireplumber.enable = true;
-    pulse.enable = true;
-  };
-
   environment = {
     systemPackages = with pkgs; [
       neovim

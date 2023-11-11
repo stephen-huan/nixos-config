@@ -6,6 +6,12 @@
     # printing.enable = true;
     # Enable the OpenSSH daemon.
     # openssh.enable = true;
+    pipewire = {
+      enable = true;
+      wireplumber.enable = true;
+      audio.enable = true;
+      pulse.enable = true;
+    };
     locate = {
       enable = true;
       interval = "never"; # manually `updatedb`
