@@ -49,12 +49,12 @@
     pulse.enable = true;
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    # wget
-    xorg.xkbcomp
-    git # required for flakes
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      neovim
+      git # required for flakes
+      xorg.xkbcomp
+    ];
+    variables.EDITOR = "nvim";
+  };
 }
