@@ -36,7 +36,7 @@
               home-manager = {
                 useGlobalPkgs = false;
                 useUserPackages = false;
-                users.${username} = lib.importDir "config";
+                users.${username} = lib.importDir "home";
                 sharedModules = [
                   "${impermanence}/home-manager.nix"
                   { _module = { inherit args; }; }
