@@ -5,9 +5,8 @@
 { config, lib, pkgs, modulesPath, options, ... }:
 
 {
-  boot.initrd.luks.devices.cryptlvm.device = (
-    "/dev/disk/by-uuid/5d57809c-d0e9-49e9-939e-f5d68392faf4"
-  );
+  boot.initrd.luks.devices.cryptlvm.device =
+    "/dev/disk/by-uuid/5d57809c-d0e9-49e9-939e-f5d68392faf4";
   # https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/
   fileSystems = {
     "/" = {
