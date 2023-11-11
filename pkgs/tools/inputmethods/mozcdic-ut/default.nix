@@ -109,6 +109,12 @@ stdenvNoCC.mkDerivation {
     cd "$root"
   '';
 
+  patches = [
+    ./local-mozc.patch
+    ./local-jawiki.patch
+    ./local-mozcdic-ut.patch
+  ];
+
   configurePhase = ''
     runHook preConfigure
 
@@ -117,12 +123,6 @@ stdenvNoCC.mkDerivation {
 
     runHook postConfigure
   '';
-
-  patches = [
-    ./local-mozc.patch
-    ./local-jawiki.patch
-    ./local-mozcdic-ut.patch
-  ];
 
   strictDeps = true;
   nativeBuildInputs = [ ruby ];
