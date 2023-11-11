@@ -33,8 +33,6 @@
   environment = {
     systemPackages = with pkgs; [
       git # required for flakes
-      neovim
     ];
-    variables.EDITOR = "nvim";
   };
 }
