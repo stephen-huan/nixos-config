@@ -273,6 +273,7 @@ for _, language in pairs(packages) do
 end
 
 local on_attach_semantic = function(client, bufnr)
+    -- stylua: ignore
     local tokens = (
         client.server_capabilities.semanticTokensProvider.legend.tokenTypes
     )

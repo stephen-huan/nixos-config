@@ -1,3 +1,4 @@
+-- stylua: ignore
 return require("packer").startup({function(use)
     -- package manager
     use "wbthomason/packer.nvim"
