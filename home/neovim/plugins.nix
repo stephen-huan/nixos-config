@@ -140,7 +140,6 @@ in
     # julia
     julia-vim
     # lean
-    plenary-nvim
     {
       plugin = lean-nvim;
       type = "lua";
