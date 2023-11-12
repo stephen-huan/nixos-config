@@ -9,7 +9,7 @@
       inherit (nixpkgs) lib;
       systems = lib.systems.flakeExposed;
       eachDefaultSystem = f: builtins.foldl' lib.attrsets.recursiveUpdate { }
-        (map (system: f system) systems);
+        (map f systems);
     in
     eachDefaultSystem (system:
       let
