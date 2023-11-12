@@ -14,15 +14,30 @@
     eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
+        formatter = pkgs.stylua;
+        linters = [
+          pkgs.luaPackages.luacheck
+          pkgs.selene
+        ];
       in
       {
+        formatter.${system} = formatter;
+        checks.${system}.lint = pkgs.stdenvNoCC.mkDerivation {
+          name = "lint";
+          src = ./.;
+          doCheck = true;
+          nativeCheckInputs = linters ++ pkgs.lib.singleton formatter;
+          checkPhase = ''
+            stylua --check .
+            luacheck .
+            selene .
+          '';
+          installPhase = "touch $out";
+        };
         devShells.${system}.default = pkgs.mkShellNoCC {
           packages = [
             pkgs.lua-language-server
-            pkgs.luaPackages.luacheck
-            pkgs.selene
-            pkgs.stylua
-          ];
+          ] ++ linters ++ pkgs.lib.singleton formatter;
         };
       }
     );
