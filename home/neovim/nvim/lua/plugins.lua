@@ -11,24 +11,6 @@ return require("packer").startup({function(use)
             vim.cmd.colorscheme "polar"
         end,
     }
-    -- statusline
-    use {
-        "itchyny/lightline.vim",
-        config = function()
-            vim.g.lightline = {
-                -- set lightline colorscheme
-                colorscheme = "polar",
-                -- remove 'fileformat' and 'fileencoding' from the default bar
-                active = {
-                    right = {
-                        { "lineinfo" },
-                        { "percent" },
-                        { "filetype" },
-                    },
-                },
-            }
-        end,
-    }
     -- startup manager
     use {
         "mhinz/vim-startify",
