@@ -47,6 +47,10 @@ local packages = {
     nix = {
         -- https://github.com/oxalica/nil
         lsp = { "nil_ls" },
+        -- https://github.com/nerdypepper/statix
+        linter = { "statix" },
+        -- https://github.com/nix-community/nixpkgs-fmt
+        formatter = { "nixpkgs_fmt" },
     },
     python = {
         lsp = {
