@@ -1,9 +1,8 @@
-local mason = require "mason-registry"
 local lspconfig = require "lspconfig"
 -- add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- installed mason packages
+-- installed packages
 local packages = {
     css = {
         -- https://github.com/microsoft/vscode-css-languageservice
@@ -87,20 +86,6 @@ local packages = {
         lsp = { "taplo" },
     },
 }
-
--- command to install specified packages
-vim.api.nvim_create_user_command("MasonInstallAll", function()
-    for _, language in pairs(packages) do
-        for _, list in pairs(language) do
-            for _, package in pairs(list) do
-                local name = package.package
-                if not mason.is_installed(name) then
-                    vim.cmd("MasonInstall " .. name)
-                end
-            end
-        end
-    end
-end, {})
 
 -- use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer

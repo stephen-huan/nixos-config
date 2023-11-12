@@ -114,12 +114,6 @@ in
       type = "lua";
       config = getConfig "nvim-treesitter";
     }
-    # lsp installation
-    {
-      plugin = mason-nvim;
-      type = "lua";
-      config = getConfig "mason-nvim";
-    }
     # lsp configuration
     {
       plugin = nvim-lspconfig;
