@@ -12,6 +12,7 @@ let
 in
 {
   imports = [
+    ./packages.nix
     ./plugins.nix
   ];
   config = {
