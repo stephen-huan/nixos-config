@@ -5,6 +5,12 @@ let
 in
 {
   programs.neovim.plugins = with pkgs.vimPlugins; [
+    # colorscheme, fork of habamax/vim-polar
+    {
+      plugin = polar-nvim;
+      type = "lua";
+      config = getConfig "polar-nvim";
+    }
     # statusline
     {
       plugin = lightline-vim;
@@ -39,6 +45,13 @@ in
     vim-lastplace
     # allow plugins to . repeat
     vim-repeat
+    # ranger integration
+    bclose-vim
+    {
+      plugin = ranger-vim;
+      type = "lua";
+      config = getConfig "ranger-vim";
+    }
     # fzf
     {
       plugin = pkgs.fzf;
@@ -137,6 +150,8 @@ in
       type = "lua";
       config = getConfig "vimtex";
     }
+    # cython
+    vim-cython-syntax
     # julia
     julia-vim
     # lean
