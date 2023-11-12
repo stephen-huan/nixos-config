@@ -17,6 +17,7 @@
     users.${config._module.args.username} = {
       directories = [
         ".cache" # Error installing file '.cache/.keep' outside $HOME
+        ".config/fish"
         { directory = ".gnupg"; mode = "0700"; }
         { directory = ".ssh"; mode = "0700"; }
         ".local/share" # Error installing file outside $HOME

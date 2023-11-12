@@ -1,8 +1,5 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  configHome = lib.stripPrefix config.home.homeDirectory config.xdg.configHome;
-in
 {
   programs.fish = {
     enable = true;
@@ -22,13 +19,5 @@ in
       set -gx LESS_TERMCAP_us (set_color brgreen)
     '';
   };
-  home = {
-    packages = with pkgs.fishPlugins; [ fish-command-timer fzf z ];
-    persistence.${lib.persistentHome config} = {
-      directories = [
-        { directory = "${configHome}/fish/functions"; method = "symlink"; }
-      ];
-      files = [ "${configHome}/fish/fish_variables" ];
-    };
-  };
+  home.packages = with pkgs.fishPlugins; [ fish-command-timer fzf z ];
 }
