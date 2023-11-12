@@ -293,29 +293,6 @@ return require("packer").startup({function(use)
             require "config.format"
         end,
     }
-    -- tree-sitter
-    use {
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
-        config = function()
-            require("nvim-treesitter.configs").setup {
-                ensure_installed = "all",
-                highlight = {
-                    enable = true,
-                    disable = { "latex", "gitcommit", "julia" },
-                },
-                indent = {
-                    enable = true,
-                    disable = { "python" },
-                },
-                matchup = {
-                    enable = true,
-                },
-            }
-        end,
-    }
-    -- tree-sitter utilities
-    use "nvim-treesitter/playground"
     -- language pack
     use {
         "sheerun/vim-polyglot",
