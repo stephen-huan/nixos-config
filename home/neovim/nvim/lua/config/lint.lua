@@ -8,7 +8,7 @@ for language, types in pairs(packages) do
     if types.linter then
         lint.linters_by_ft[language] = {}
         for _, linter in pairs(types.linter) do
-            table.insert(lint.linters_by_ft[language], linter.name)
+            table.insert(lint.linters_by_ft[language], linter)
         end
         table.insert(languages, language)
     end

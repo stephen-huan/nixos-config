@@ -10,7 +10,7 @@ for language, types in pairs(packages) do
         for _, formatter in pairs(types.formatter) do
             table.insert(
                 formatters_by_ft[language],
-                require("formatter.filetypes." .. language)[formatter.name]
+                require("formatter.filetypes." .. language)[formatter]
             )
         end
     end

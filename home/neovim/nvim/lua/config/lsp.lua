@@ -6,200 +6,86 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- installed mason packages
 local packages = {
     bash = {
-        lsp = {
-            -- https://github.com/bash-lsp/bash-language-server
-            {
-                package = "bash-language-server",
-                name = "bashls",
-            },
-        },
-        linter = {
-            -- https://github.com/koalaman/shellcheck
-            {
-                package = "shellcheck",
-                name = "shellcheck",
-            },
-        },
+        -- https://github.com/bash-lsp/bash-language-server
+        lsp = { "bashls" },
+        -- https://github.com/koalaman/shellcheck
+        linter = { "shellcheck" },
+        -- https://github.com/mvdan/sh
+        -- formatter = { "shfmt" },
     },
     css = {
-        lsp = {
-            -- https://github.com/microsoft/vscode-css-languageservice
-            {
-                package = "css-lsp",
-                name = "cssls",
-            },
-        },
-        formatter = {
-            -- https://github.com/prettier/prettier
-            {
-                package = "prettier",
-                name = "prettier",
-            },
-        },
+        -- https://github.com/microsoft/vscode-css-languageservice
+        lsp = { "cssls" },
+        -- https://github.com/prettier/prettier
+        formatter = { "prettier" },
     },
     html = {
-        lsp = {
-            -- https://github.com/microsoft/vscode-html-languageservice
-            {
-                package = "html-lsp",
-                name = "html",
-            },
-        },
-        formatter = {
-            -- https://github.com/prettier/prettier
-            {
-                package = "prettier",
-                name = "prettier",
-            },
-        },
+        -- https://github.com/microsoft/vscode-html-languageservice
+        lsp = { "html" },
+        formatter = { "prettier" },
     },
     json = {
-        linter = {
-            -- https://github.com/zaach/jsonlint
-            {
-                package = "jsonlint",
-                name = "jsonlint",
-            },
-        },
-        formatter = {
-            -- https://github.com/prettier/prettier
-            {
-                package = "prettier",
-                name = "prettier",
-            },
-        },
+        -- https://github.com/zaach/jsonlint
+        linter = { "jsonlint" },
+        formatter = { "prettier" },
     },
     julia = {
-        lsp = {
-            -- https://github.com/julia-vscode/LanguageServer.jl
-            {
-                package = "julia-lsp",
-                name = "julials",
-            },
-        },
+        -- https://github.com/julia-vscode/LanguageServer.jl
+        lsp = { "julials" },
     },
     latex = {
-        lsp = {
-            -- https://github.com/latex-lsp/texlab
-            {
-                package = "texlab",
-                name = "texlab",
-            },
-        },
+        -- https://github.com/latex-lsp/texlab
+        lsp = { "texlab" },
     },
     lua = {
-        lsp = {
-            -- https://github.com/LuaLS/lua-language-server
-            {
-                package = "lua-language-server",
-                name = "lua_ls",
-            },
-        },
+        -- https://github.com/LuaLS/lua-language-server
+        lsp = { "lua_ls" },
         linter = {
             -- https://github.com/mpeterv/luacheck
-            --[[
-            {
-                package = "luacheck",
-                name = "luacheck",
-            },
-            --]]
+            -- "luacheck"
             -- https://github.com/Kampfkarren/selene
-            {
-                package = "selene",
-                name = "selene",
-            },
+            "selene",
         },
-        formatter = {
-            -- https://github.com/JohnnyMorganz/StyLua
-            {
-                package = "stylua",
-                name = "stylua",
-            },
-        },
+        -- https://github.com/JohnnyMorganz/StyLua
+        formatter = { "stylua" },
     },
     markdown = {
-        formatter = {
-            {
-                package = "prettier",
-                name = "prettier",
-            },
-        },
+        formatter = { "prettier" },
     },
     nix = {
-        lsp = {
-            {
-                -- https://github.com/oxalica/nil
-                package = "nil",
-                name = "nil_ls",
-            },
-        },
+        -- https://github.com/oxalica/nil
+        lsp = { "nil_ls" },
     },
     python = {
         lsp = {
             -- https://github.com/microsoft/pyright
-            {
-                package = "pyright",
-                name = "pyright",
-            },
+            "pyright",
             -- https://github.com/facebook/pyre-check
-            --[[
-            {
-                package = "pyre",
-                name = "pyre",
-            },
-            --]]
+            -- "pyre",
             -- https://github.com/pappasam/jedi-language-server
-            --[[
-            {
-                package = "jedi-language-server",
-                name = "jedi_language_server",
-            },
-            --]]
+            -- "jedi_language_server",
         },
         linter = {
             -- https://github.com/charliermarsh/ruff
-            {
-                package = "ruff",
-                name = "ruff",
-            },
+            "ruff",
             -- https://github.com/python/mypy
-            --[[
-            {
-                package = "mypy",
-                name = "mypy",
-            },
-            --]]
+            -- "mypy",
         },
         formatter = {
             -- https://github.com/PyCQA/isort
-            {
-                package = "isort",
-                name = "isort",
-            },
+            "isort",
             -- https://github.com/psf/black
-            {
-                package = "black",
-                name = "black",
-            },
+            "black",
         },
     },
     sh = {
-        formatter = {
-            -- https://github.com/mvdan/sh
-            {
-                package = "shfmt",
-                name = "shfmt",
-            },
-        },
+        lsp = { "bashls" },
+        linter = { "shellcheck" },
+        formatter = { "shfmt" },
     },
     toml = {
-        lsp = {
-            -- https://github.com/tamasfe/taplo
-            {
-                package = "taplo",
-                name = "taplo",
-            },
-        },
+        -- https://github.com/tamasfe/taplo
+        lsp = { "taplo" },
     },
 }
 
@@ -264,7 +150,7 @@ end
 for _, language in pairs(packages) do
     if language.lsp then
         for _, lsp in pairs(language.lsp) do
-            lspconfig[lsp.name].setup {
+            lspconfig[lsp].setup {
                 on_attach = on_attach,
                 capabilities = capabilities,
             }
