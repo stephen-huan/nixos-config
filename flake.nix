@@ -24,6 +24,8 @@
       lib = nixpkgs.lib.extend (
         final: prev: prev // (import ./lib { inherit pkgs; })
       );
+      formatter = pkgs.nixpkgs-fmt;
+      linters = [ pkgs.statix ];
     in
     {
       nixosConfigurations = {
@@ -56,17 +58,22 @@
       packages.${system} = lib.filterAttrs (_: v: lib.isDerivation v)
         self.legacyPackages.${system};
       inherit (self.legacyPackages.${system}) overlays;
-      formatter.${system} = pkgs.nixpkgs-fmt;
+      formatter.${system} = formatter;
       checks.${system}.lint = pkgs.stdenvNoCC.mkDerivation {
         name = "lint";
         src = ./.;
         doCheck = true;
-        nativeCheckInputs = [ pkgs.statix ];
-        checkPhase = "statix check --config statix.toml";
+        nativeCheckInputs = linters ++ lib.singleton formatter;
+        checkPhase = ''
+          nixpkgs-fmt --check .
+          statix check
+        '';
         installPhase = "touch $out";
       };
       devShells.${system}.default = pkgs.mkShellNoCC {
-        packages = [ pkgs.nixpkgs-fmt pkgs.statix pkgs.nil ];
+        packages = [
+          pkgs.nil
+        ] ++ linters ++ lib.singleton formatter;
       };
     };
 }
