@@ -29,11 +29,4 @@
   swapDevices = lib.mkForce [
     { device = "/dev/VolumeGroup/swap"; }
   ];
-
-  environment = {
-    systemPackages = with pkgs; [
-      git # required for flakes
-      backintime
-    ];
-  };
 }
