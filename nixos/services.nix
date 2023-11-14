@@ -19,5 +19,15 @@
       prunePaths = lib.mkOptionDefault [ "${config._module.args.persistent}" ];
       package = pkgs.plocate;
     };
+    geoclue2 = {
+      enable = true;
+      appConfig = {
+        # see nixos/modules/services/x11/redshift.nix
+        redshift = {
+          isAllowed = true;
+          isSystem = false;
+        };
+      };
+    };
   };
 }
