@@ -31,7 +31,6 @@
       pkgs.mdbook
       pkgs.mdbook-katex
       pkgs.mupdf
-      pkgs.ncdu
       pkgs.neofetch
       pkgs.nodejs
       pkgs.nodePackages.node2nix
