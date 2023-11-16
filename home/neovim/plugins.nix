@@ -92,8 +92,6 @@ in
     }
     # detect indent and adjust indent options
     vim-sleuth
-    # misc. text operations
-    tabular
     # matching
     vim-matchup
     # insert pairs automatically
