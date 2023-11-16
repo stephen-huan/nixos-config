@@ -132,12 +132,6 @@ in
       type = "lua";
       config = getConfig "formatter-nvim";
     }
-    # language pack
-    {
-      plugin = vim-polyglot;
-      type = "lua";
-      config = getConfig "vim-polyglot";
-    }
     # LaTeX
     {
       plugin = vimtex;

@@ -1,5 +1,3 @@
--- needs to be before the package is loaded
-vim.g.polyglot_disabled = { "sensible", "ftdetect", "python" }
 require "options"
 require "keybinds"
 require "autocmds"
