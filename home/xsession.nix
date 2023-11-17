@@ -1,7 +1,9 @@
+{ lib, pkgs, ... }:
+
 {
   xsession = {
     enable = true;
-    profileExtra = ''
+    initExtra = ''
       # automatically determine monitor layout
       xlayoutdisplay
 
@@ -21,6 +23,14 @@
 
       # login alert sound: should be desktop-login but I like service-login
       canberra-gtk-play --id=service-login &
+
+      # Start the desktop manager.
+      /run/current-system/systemd/bin/systemctl --user start \
+        xdg-autostart-if-no-desktop-manager.target
+
+      if [ -e $HOME/.background-image ]; then
+        ${lib.getExe pkgs.feh} --bg-scale $HOME/.background-image
+      fi
     '';
   };
 }
