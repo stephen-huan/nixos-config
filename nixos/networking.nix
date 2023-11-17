@@ -50,7 +50,7 @@
     unbound.enable = true;
     mullvad-vpn = {
       enable = true;
-      enableExcludeWrapper = true;
+      enableExcludeWrapper = false;
       package = pkgs.mullvad; # cli only
     };
   };
