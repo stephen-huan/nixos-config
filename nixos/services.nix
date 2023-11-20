@@ -30,4 +30,11 @@
       };
     };
   };
+  systemd = {
+    # delay until mullvad-daemon.service connects
+    services.geoclue.after = [ "time-sync.target" ];
+    # https://github.com/NixOS/nixpkgs/pull/51338
+    additionalUpstreamSystemUnits = [ "systemd-time-wait-sync.service" ];
+    services.systemd-time-wait-sync.wantedBy = [ "sysinit.target" ];
+  };
 }
