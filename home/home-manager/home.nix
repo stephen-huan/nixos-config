@@ -32,9 +32,6 @@
       pkgs.mdbook-katex
       pkgs.mupdf
       pkgs.neofetch
-      pkgs.nodejs
-      pkgs.nodePackages.node2nix
-      pkgs.nodePackages.prettier
       pkgs.pandoc
       pkgs.pulsemixer
       pkgs.shellcheck
