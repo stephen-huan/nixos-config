@@ -9,8 +9,7 @@
       "/etc/mullvad-vpn"
       "/etc/nixos"
       "/var/cache"
-      "/var/lib/systemd/backlight"
-      "/var/lib/systemd/coredump"
+      "/var/lib/systemd"
       "/var/log"
     ];
     files = [ "/etc/machine-id" ];
