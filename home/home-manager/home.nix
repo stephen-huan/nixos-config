@@ -34,14 +34,12 @@
       pkgs.neofetch
       pkgs.pandoc
       pkgs.pulsemixer
-      pkgs.shellcheck
       pkgs.signal-desktop
       pkgs.silver-searcher
       pkgs.texlive.combined.scheme-full
       pkgs.tokei
       pkgs.tree
       pkgs.unzip
-      pkgs.vulnix
       pkgs.xclip
       pkgs.yacreader
       pkgs.yubikey-manager
