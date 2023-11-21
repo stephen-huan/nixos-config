@@ -28,8 +28,6 @@
       pkgs.libreoffice
       pkgs.llvmPackages_latest.libstdcxxClang
       pkgs.maim
-      pkgs.mdbook
-      pkgs.mdbook-katex
       pkgs.mupdf
       pkgs.neofetch
       pkgs.pandoc
