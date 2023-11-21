@@ -40,6 +40,7 @@ stdenvNoCC.mkDerivation {
   meta = with lib; {
     description = "Return iwd's most recently connected network";
     license = licenses.unlicense;
+    platforms = platforms.linux;
     maintainers = with maintainers; [ stephen-huan ];
   };
 }
