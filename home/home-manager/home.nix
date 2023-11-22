@@ -17,8 +17,6 @@
       pkgs.alass
       pkgs.android-tools
       pkgs.anki
-      pkgs.chromium
-      pkgs.cider
       pkgs.cmus
       pkgs.du-dust
       pkgs.gpick
