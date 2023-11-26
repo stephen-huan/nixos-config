@@ -18,7 +18,6 @@ in
         ".zotero"
         "Zotero"
       ] ++ map (name: "${configHome}/${name}") [
-        "Cider"
         "cmus"
         "home-manager"
         "memento"
