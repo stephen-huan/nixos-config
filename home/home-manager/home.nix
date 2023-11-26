@@ -34,6 +34,7 @@
       pkgs.silver-searcher
       pkgs.texlive.combined.scheme-full
       pkgs.tokei
+      pkgs.trashy
       pkgs.tree
       pkgs.unzip
       pkgs.xclip
