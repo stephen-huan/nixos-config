@@ -32,7 +32,7 @@ stdenvNoCC.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    install -Dm755 -T iwd-last-network.py $out/bin/iwd-last-network
+    install -Dm755 iwd-last-network.py -T $out/bin/iwd-last-network
 
     runHook postInstall
   '';
