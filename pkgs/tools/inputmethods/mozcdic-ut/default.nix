@@ -18,12 +18,9 @@
 
 # see https://github.com/utuhiro78/merge-ut-dictionaries/blob/main/src/make.sh
 # and https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=mozc-ut
-let
-  date = "20231120";
-in
-stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation rec {
   pname = "mozcdic-ut";
-  version = date;
+  version = "20231120";
 
   srcs = [
     mozc.src
@@ -35,7 +32,7 @@ stdenvNoCC.mkDerivation {
       hash = "sha256-PyY7ADmhc/wk+Df4v1Yk6LWUzNZAu4eV/x53maxmVzM=";
     })
     (fetchurl {
-      url = "https://dumps.wikimedia.org/jawiki/${date}/jawiki-${date}-all-titles-in-ns0.gz";
+      url = "https://dumps.wikimedia.org/jawiki/${version}/jawiki-${version}-all-titles-in-ns0.gz";
       hash = "sha256-OkalMQ9+niVz7bQnERV4ZvM0p0ChbzrOAuYX99MvQ/4=";
     })
   ] ++ lib.optional alt-cannadic (fetchFromGitHub rec {
