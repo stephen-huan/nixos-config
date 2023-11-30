@@ -9,6 +9,6 @@
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk-sans
     pkgs.noto-fonts-cjk-serif
-    pkgs.noto-fonts-emoji
+    pkgs.noto-fonts-color-emoji
   ];
 }
