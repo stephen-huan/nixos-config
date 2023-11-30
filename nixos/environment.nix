@@ -4,7 +4,6 @@
   environment = {
     systemPackages = with pkgs; [
       git # required for flakes
-      backintime
     ];
     # hidden option. see: nixos/modules/config/shells-environment.nix
     # follow nixpkgs's default sandbox shell (which shouldn't pull in deps)
