@@ -56,7 +56,5 @@
   };
   systemd.services = {
     dhcpcd.path = [ pkgs.iwd ];
-    # https://github.com/NixOS/nixpkgs/issues/262681
-    mullvad-daemon.path = [ config.networking.resolvconf.package ];
   };
 }
