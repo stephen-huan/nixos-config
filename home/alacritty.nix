@@ -2,9 +2,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      # Font configuration
       font.size = 15.0;
-
       # https://github.com/alacritty/alacritty/wiki/Color-schemes
       # Colors (Tango)
       colors = {
@@ -12,7 +10,6 @@
           background = "#ffffff";
           foreground = "#000000";
         };
-        # Normal colors
         normal = {
           black = "#2e3436";
           red = "#cc0000";
@@ -23,7 +20,6 @@
           cyan = "#06989a";
           white = "#d3d7cf";
         };
-        # Bright colors
         bright = {
           black = "#2e3436";
           red = "#ef2929";
@@ -34,36 +30,16 @@
           cyan = "#34e2e2";
           white = "#eeeeec";
         };
-        # Cursor colors
-        #
-        # Colors which should be used to draw the terminal cursor.
-        #
-        # Allowed values are CellForeground/CellBackground; which reference the
-        # affected cell; or hexadecimal colors like #ff00ff.
         cursor = {
           text = "#ffffff";
           cursor = "#000000";
         };
-        # Vi mode cursor colors
-        #
-        # Colors for the cursor when the vi mode is active.
-        #
-        # Allowed values are CellForeground/CellBackground; which reference the
-        # affected cell; or hexadecimal colors like #ff00ff.
         vi_mode_cursor = {
           text = "#ffffff";
           cursor = "#000000";
         };
       };
-      # Bell
-      #
-      # The bell is rung every time the BEL control character is received.
       bell = {
-        # Bell Command
-        #
-        # This program is executed whenever the bell is rung.
-        #
-        # When set to `command: None`; no command will be executed.
         command = null;
         # TODO: option to enable this
         # command = {
@@ -72,7 +48,6 @@
         # };
       };
       key_bindings = [
-        # Vi Mode
         { key = "Space"; mods = "Alt"; mode = "~Search"; action = "ToggleViMode"; }
         # scancode to get around invalid virtual keycode provided by winit
         # see: https://github.com/alacritty/alacritty/issues/3460
