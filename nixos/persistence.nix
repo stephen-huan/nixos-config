@@ -24,6 +24,7 @@ in
     };
   };
   systemd.tmpfiles.rules = map (dir: "L ${dir} - - - - ${persistent}${dir}") [
+    config.services.unbound.stateDir
     "/var/lib/bluetooth"
     "/var/lib/iwd"
     "/var/lib/mullvad-vpn"
