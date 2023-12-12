@@ -11,6 +11,10 @@ in
       # required for flakes
       git
     ];
+    etc = {
+      "nixos/flake.nix".source = "${home}/.config/home-manager/flake.nix";
+      "machine-id".text = "${machine-id}\n";
+    };
     # hidden option. see: nixos/modules/config/shells-environment.nix
     # follow nixpkgs's default sandbox shell (which shouldn't pull in deps)
     # see https://github.com/NixOS/nix/blob/master/flake.nix
@@ -18,10 +22,6 @@ in
     # hidden option. see: nixos/modules/system/activation/activation-script.nix
     # remove /usr/bin/env for reproducibility or purity or whatever
     usrbinenv = null;
-    etc = {
-      "nixos/flake.nix".source = "${home}/.config/home-manager/flake.nix";
-      "machine-id".text = "${machine-id}\n";
-    };
   };
   # https://github.com/NixOS/nixpkgs/issues/260658
   system.activationScripts.usrbinenv =
