@@ -3,7 +3,8 @@
 {
   environment = {
     systemPackages = with pkgs; [
-      git # required for flakes
+      # required for flakes
+      git
     ];
     # hidden option. see: nixos/modules/config/shells-environment.nix
     # follow nixpkgs's default sandbox shell (which shouldn't pull in deps)
@@ -27,7 +28,8 @@
       ''
     );
   systemd.services.systemd-update-done.serviceConfig.ExecStart = [
-    "" # clear
+    # clear
+    ""
     (
       pkgs.writeShellScript "systemd-update-done-wrapper" ''
         mkdir -p /usr
