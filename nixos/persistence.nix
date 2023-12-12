@@ -7,7 +7,6 @@
       { directory = "/var/lib/bluetooth"; mode = "0700"; }
       { directory = "/var/lib/iwd"; mode = "0700"; }
       "/etc/mullvad-vpn"
-      "/etc/nixos"
       "/var/cache"
       "/var/lib/systemd"
       "/var/log"
