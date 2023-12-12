@@ -1,8 +1,9 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (config._module.args) username;
+  inherit (config._module.args) username hostname;
   inherit (config.users.users.${username}) home;
+  machine-id = builtins.substring 0 32 (builtins.hashString "sha256" hostname);
 in
 {
   environment = {
@@ -19,6 +20,7 @@ in
     usrbinenv = null;
     etc = {
       "nixos/flake.nix".source = "${home}/.config/home-manager/flake.nix";
+      "machine-id".text = "${machine-id}\n";
     };
   };
   # https://github.com/NixOS/nixpkgs/issues/260658
