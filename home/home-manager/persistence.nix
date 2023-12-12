@@ -12,6 +12,7 @@ in
       [
         "bin"
         ".julia"
+        "micromamba"
         "not-programs"
         ".password-store"
         "programs"
