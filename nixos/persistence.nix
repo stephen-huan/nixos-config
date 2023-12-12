@@ -6,8 +6,8 @@
     directories = [
       { directory = "/var/lib/bluetooth"; mode = "0700"; }
       { directory = "/var/lib/iwd"; mode = "0700"; }
-      "/etc/mullvad-vpn"
       "/var/cache"
+      "/var/lib/mullvad-vpn"
       "/var/lib/systemd"
       "/var/log"
     ];
