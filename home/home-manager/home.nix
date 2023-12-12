@@ -20,6 +20,7 @@
       pkgs.backintime-common
       pkgs.cmus
       pkgs.du-dust
+      pkgs.ffmpeg
       pkgs.gpick
       pkgs.jq
       pkgs.julia-bin
@@ -27,6 +28,8 @@
       pkgs.libreoffice
       pkgs.llvmPackages_latest.libstdcxxClang
       pkgs.maim
+      pkgs.memento
+      pkgs.mpv
       pkgs.mupdf
       pkgs.neofetch
       pkgs.pandoc
