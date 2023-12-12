@@ -1,5 +1,9 @@
 { config, lib, pkgs, ... }:
 
+let
+  inherit (config._module.args) username;
+  inherit (config.users.users.${username}) home;
+in
 {
   environment = {
     systemPackages = with pkgs; [
@@ -13,6 +17,9 @@
     # hidden option. see: nixos/modules/system/activation/activation-script.nix
     # remove /usr/bin/env for reproducibility or purity or whatever
     usrbinenv = null;
+    etc = {
+      "nixos/flake.nix".source = "${home}/.config/home-manager/flake.nix";
+    };
   };
   # https://github.com/NixOS/nixpkgs/issues/260658
   system.activationScripts.usrbinenv =
