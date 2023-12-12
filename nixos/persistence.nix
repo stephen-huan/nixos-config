@@ -1,7 +1,14 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 let
   inherit (config._module.args) persistent;
+  persistPaths = rules:
+    map (rule: "d ${persistent}${rule}") rules
+    ++ map
+      (rule:
+        let path = builtins.elemAt (lib.splitString " " rule) 0;
+        in "L ${path} - - - - ${persistent}${path}")
+      rules;
 in
 {
   environment.persistence.${persistent} = {
@@ -23,10 +30,10 @@ in
       ];
     };
   };
-  systemd.tmpfiles.rules = map (dir: "L ${dir} - - - - ${persistent}${dir}") [
-    config.services.unbound.stateDir
-    "/var/lib/bluetooth"
-    "/var/lib/iwd"
-    "/var/lib/mullvad-vpn"
+  systemd.tmpfiles.rules = persistPaths [
+    "${config.services.unbound.stateDir} 0755 unbound unbound -"
+    "/var/lib/bluetooth 0700 root root -"
+    "/var/lib/iwd 0700 root root -"
+    "/var/lib/mullvad-vpn 0755 root root -"
   ];
 }
