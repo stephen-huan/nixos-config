@@ -1,13 +1,13 @@
 { config, ... }:
 
+let
+  inherit (config._module.args) persistent;
+in
 {
-  environment.persistence."${config._module.args.persistent}" = {
+  environment.persistence.${persistent} = {
     hideMounts = true;
     directories = [
-      { directory = "/var/lib/bluetooth"; mode = "0700"; }
-      { directory = "/var/lib/iwd"; mode = "0700"; }
       "/var/cache"
-      "/var/lib/mullvad-vpn"
       "/var/lib/systemd"
       "/var/log"
     ];
@@ -23,4 +23,9 @@
       ];
     };
   };
+  systemd.tmpfiles.rules = map (dir: "L ${dir} - - - - ${persistent}${dir}") [
+    "/var/lib/bluetooth"
+    "/var/lib/iwd"
+    "/var/lib/mullvad-vpn"
+  ];
 }
