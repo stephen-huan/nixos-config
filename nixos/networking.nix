@@ -57,4 +57,6 @@
   systemd.services = {
     dhcpcd.path = [ pkgs.iwd ];
   };
+  # could also set $MULLVAD_SETTINGS_DIR
+  environment.etc."mullvad-vpn".source = "/var/lib/mullvad-vpn";
 }
