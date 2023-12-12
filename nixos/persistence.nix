@@ -11,7 +11,7 @@
       "/var/lib/systemd"
       "/var/log"
     ];
-    files = [ "/etc/machine-id" ];
+    files = [ ];
     users.${config._module.args.username} = {
       directories = [
         ".cache" # Error installing file '.cache/.keep' outside $HOME
