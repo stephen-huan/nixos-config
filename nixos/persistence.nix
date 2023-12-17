@@ -30,10 +30,11 @@ in
       ];
     };
   };
-  systemd.tmpfiles.rules = persistPaths [
-    "${config.services.unbound.stateDir} 0755 unbound unbound -"
+  systemd.tmpfiles.rules = persistPaths ([
     "/var/lib/bluetooth 0700 root root -"
     "/var/lib/iwd 0700 root root -"
     "/var/lib/mullvad-vpn 0755 root root -"
-  ];
+  ] ++ lib.optional config.services.unbound.enable
+    "${config.services.unbound.stateDir} 0755 unbound unbound -"
+  );
 }
