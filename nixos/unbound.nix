@@ -13,13 +13,16 @@ in
         unbound_conf=${unbound_conf}
         unbound_restart='${unbound_restart}'
       '';
-      dhcpcd.extraConfig = "nohook resolv.conf";
       nameservers = [
         "1.1.1.1"
         "1.0.0.1"
         "2606:4700:4700::1111"
         "2606:4700:4700::1001"
       ];
+      wireless.iwd.settings = {
+        Network.NameResolvingService = lib.mkForce "none";
+      };
+      dhcpcd.extraConfig = "nohook resolv.conf";
     };
     services.unbound = {
       settings = {
