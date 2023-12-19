@@ -22,6 +22,7 @@
       pkgs.du-dust
       pkgs.ffmpeg
       pkgs.gpick
+      pkgs.iw
       pkgs.jq
       pkgs.julia-bin
       pkgs.krita
