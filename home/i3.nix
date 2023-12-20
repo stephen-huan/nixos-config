@@ -1,4 +1,4 @@
-{ config, lib, options, ... }:
+{ config, lib, pkgs, options, ... }:
 
 let
   cfg = config.xsession.windowManager.i3;
@@ -72,9 +72,9 @@ let
   };
   exec = "exec --no-startup-id";
   refresh_status = "killall -SIGUSR1 i3status";
-  screenshot = "maim --hidecursor";
-  screenshot_select = "maim --hidecursor --select --nodrag";
-  copy_image = "xclip -selection clipboard -target image/png";
+  screenshot = "${lib.getExe pkgs.maim} --hidecursor";
+  screenshot_select = "${lib.getExe pkgs.maim} --hidecursor --select --nodrag";
+  copy_image = "${lib.getExe pkgs.xclip} -selection clipboard -t image/png";
   image_path = "~/Pictures/screenshot-$(date +%s).png";
 in
 {
