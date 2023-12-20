@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ config, ... }:
 
 {
-  home.packages = [ pkgs.playerctl ];
+  home.packages = [ config.services.playerctld.package ];
   services.playerctld.enable = true;
 }
