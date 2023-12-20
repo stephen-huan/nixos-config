@@ -86,10 +86,4 @@
       OMP_NUM_THREADS = "4";
     };
   };
-  xdg.configFile = {
-    "black".text = ''
-      [tool.black]
-      line-length = 79
-    '';
-  };
 }
