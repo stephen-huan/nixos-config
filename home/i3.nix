@@ -95,7 +95,11 @@ in
       # https://github.com/alacritty/alacritty/issues/868
       terminal = "--no-startup-id alacritty";
       menu = "--no-startup-id dmenu_run";
-      bars = [{ statusCommand = "i3status"; position = "top"; }];
+      bars = [{
+        statusCommand = "i3status";
+        position = "top";
+        workspaceNumbers = false;
+      }];
       floating.modifier = "$mod";
       modes = {
         resize = {
@@ -120,16 +124,16 @@ in
       set $up k
       set $right l
       # workspaces
-      set $ws1 "1"
-      set $ws2 "2"
-      set $ws3 "3"
-      set $ws4 "4"
-      set $ws5 "5"
-      set $ws6 "6"
-      set $ws7 "7"
-      set $ws8 "8"
-      set $ws9 "9"
-      set $ws10 "10"
+      set $ws1 "1:一"
+      set $ws2 "2:二"
+      set $ws3 "3:三"
+      set $ws4 "4:四"
+      set $ws5 "5:五"
+      set $ws6 "6:六"
+      set $ws7 "7:七"
+      set $ws8 "8:八"
+      set $ws9 "9:九"
+      set $ws10 "10:十"
     '';
   };
 }
