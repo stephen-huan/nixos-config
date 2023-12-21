@@ -4,5 +4,6 @@
   maintainers = import ./maintainers.nix;
   fishPlugins = import ./fishPlugins.nix;
   ibus-engines = import ./ibus-engines.nix;
+  ranger = import ./ranger;
   vimPlugins = import ./vimPlugins.nix;
 }
