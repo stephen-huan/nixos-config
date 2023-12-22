@@ -107,8 +107,8 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   patches = [
-    ./local-mozc.patch
     ./local-jawiki.patch
+    ./local-mozc.patch
     ./local-mozcdic-ut.patch
   ];
 
