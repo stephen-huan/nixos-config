@@ -34,6 +34,7 @@
       pkgs.mupdf
       pkgs.neofetch
       pkgs.pandoc
+      pkgs.perl'
       pkgs.pulsemixer
       pkgs.python3
       pkgs.signal-desktop
