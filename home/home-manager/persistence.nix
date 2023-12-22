@@ -17,7 +17,6 @@ in
         ".julia"
         "micromamba"
         "not-programs"
-        ".password-store"
         "programs"
         ".zotero"
         "Zotero"

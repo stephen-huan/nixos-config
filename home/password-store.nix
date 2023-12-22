@@ -11,4 +11,7 @@
       PASSWORD_STORE_SIGNING_KEY = "EA6E27948C7DBF5D0DF085A10FBC2E3BA99DD60E";
     };
   };
+  home.persistence.default.directories = [
+    { directory = ".password-store"; method = "symlink"; }
+  ];
 }
