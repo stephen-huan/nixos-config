@@ -30,7 +30,6 @@
     {
       nixosConfigurations = {
         ${hostname} = lib.nixosSystem {
-          inherit system lib;
           modules = [
             (lib.importDir "nixos")
             home-manager.nixosModules.home-manager
