@@ -1,8 +1,11 @@
 final: prev:
 
 let
+  self = prev.perl;
   sh = "${final.busybox-sandbox-shell}/bin/sh";
-  perl' = prev.perl.overrideAttrs (previousAttrs: {
+in
+{
+  perl' = self.overrideAttrs (previousAttrs: {
     preConfigure = previousAttrs.preConfigure + ''
       cat >> config.over <<EOF
       sh="${sh}"
@@ -15,7 +18,4 @@ let
     # speeds up the build from ~5 minutes to ~2 minutes
     enableParallelBuilding = true;
   });
-in
-{
-  inherit perl';
 }
