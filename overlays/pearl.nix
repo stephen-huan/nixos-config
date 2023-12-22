@@ -1,7 +1,7 @@
 final: prev:
 
 let
-  self = prev.perl;
+  self = final.perl;
   sh = "${final.busybox-sandbox-shell}/bin/sh";
 in
 {
