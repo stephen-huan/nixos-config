@@ -5,7 +5,7 @@
   caffeine-ng = import ./caffeine-ng.nix;
   fishPlugins = import ./fishPlugins.nix;
   ibus-engines = import ./ibus-engines.nix;
-  pearl' = import ./pearl.nix;
+  perl' = import ./perl.nix;
   ranger = import ./ranger;
   vimPlugins = import ./vimPlugins.nix;
 }
