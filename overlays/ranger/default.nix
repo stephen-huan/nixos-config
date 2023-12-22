@@ -1,7 +1,10 @@
 final: prev:
 
+let
+  self = prev.ranger;
+in
 {
-  ranger = prev.ranger.overrideAttrs {
+  ranger = self.overrideAttrs {
     patches = [ ./lazy-nix-store.patch ];
   };
 }
