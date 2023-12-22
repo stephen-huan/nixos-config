@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, pkgs, ... }:
 
 {
   xdg = {
@@ -10,7 +10,7 @@
       createDirectories = false;
     };
   };
-  home.persistence.${lib.persistentHome config}.directories = map
+  home.persistence.${pkgs.lib.persistentHome config}.directories = map
     (path: { directory = builtins.baseNameOf path; method = "symlink"; })
     (with config.xdg.userDirs; [
       desktop
