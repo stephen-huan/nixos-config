@@ -20,7 +20,7 @@
 # and https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=mozc-ut
 stdenvNoCC.mkDerivation rec {
   pname = "mozcdic-ut";
-  version = "20231120";
+  version = "20231220";
 
   srcs = [
     mozc.src
@@ -28,12 +28,12 @@ stdenvNoCC.mkDerivation rec {
       name = repo;
       owner = "utuhiro78";
       repo = "merge-ut-dictionaries";
-      rev = "6b82871b11693cde9e312009bf47b2c66f1b1cfe";
-      hash = "sha256-PyY7ADmhc/wk+Df4v1Yk6LWUzNZAu4eV/x53maxmVzM=";
+      rev = "254e25281b363d28d992caa9985ef946b31146f1";
+      hash = "sha256-21NqcOKpH6N2RhHzOCjCesWNwLWA6BGOExPo7N82V+4=";
     })
     (fetchurl {
       url = "https://dumps.wikimedia.org/jawiki/${version}/jawiki-${version}-all-titles-in-ns0.gz";
-      hash = "sha256-OkalMQ9+niVz7bQnERV4ZvM0p0ChbzrOAuYX99MvQ/4=";
+      hash = "sha256-EzbHb3piQjKy4goQtCweKRLhCPT3O35MpLJXt0PEKEM=";
     })
   ] ++ lib.optional alt-cannadic (fetchFromGitHub rec {
     name = repo;
@@ -45,14 +45,14 @@ stdenvNoCC.mkDerivation rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-edict2";
-    rev = "acfe3631fc82a7c2ddb929a922f93a9e36191a99";
-    hash = "sha256-bjTM+PhBiyFpoIq+WaVBaIMme5D4pZBVq4hp1n1jYgE=";
+    rev = "ac4d4af457d891e865592258c4018f77b50c4fe6";
+    hash = "sha256-JH7JEp5boblSUfQBT2KVBLtkQDfst912UzCelLrDIjE=";
   }) ++ lib.optional jawiki (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-jawiki";
-    rev = "3eccc6bc1cb818639d4323339c540995c60ce2ed";
-    hash = "sha256-OtCD5k/VWmMcHQwPTFqHv/SlCSAyoxIGPe0mHU5zZQc=";
+    rev = "fe41386ae52c673b96827ab5e55e0aa18b66cb57";
+    hash = "sha256-v9QNZc+coCcLg8TsFW+r508/XbKZH/O+ZyxcP/LEm+4=";
   }) ++ lib.optional neologd (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
@@ -63,14 +63,14 @@ stdenvNoCC.mkDerivation rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-personal-names";
-    rev = "363da782f56cab70342b996b8c85436431f34cb4";
-    hash = "sha256-t+hMSx9znV4URDo81qJdmAnE/s2LhiITnmlSSskHPfo=";
+    rev = "e939ab92959eec279ab98c53b6bd1273ed7e5acc";
+    hash = "sha256-UzrLBx/4Dsi0ZZO5yBe3a32Ifsb4CuJGFSpPvNfChmU=";
   }) ++ lib.optional place-names (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-place-names";
-    rev = "24f96d2efe9da666565fe111abfda5d0b9e8dc8e";
-    hash = "sha256-tFXGG+p6jDSizZrY2nUDvqlnqol7v61KEPNNapRDrXE=";
+    rev = "d57f84c88455cd81f1439aed0f3ec43cea4d7be6";
+    hash = "sha256-iFznaeBz560Zk6aqQ7x6kesX0aIbK4W6WqXzC5iHnpU=";
   }) ++ lib.optional skk-jisyo (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
