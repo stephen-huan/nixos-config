@@ -4,6 +4,7 @@
   maintainers = import ./maintainers.nix;
   caffeine-ng = import ./caffeine-ng.nix;
   fishPlugins = import ./fishPlugins.nix;
+  gcc' = import ./gcc.nix;
   ibus-engines = import ./ibus-engines.nix;
   perl' = import ./perl.nix;
   ranger = import ./ranger;
