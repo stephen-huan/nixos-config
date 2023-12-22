@@ -1,11 +1,14 @@
 { config, pkgs, ... }:
 
 let
-  strip = pkgs.lib.stripPrefix config.home.homeDirectory;
+  inherit (config.home) homeDirectory;
+  persistentStoragePath = "${config._module.args.persistent}${homeDirectory}";
+  strip = pkgs.lib.stripPrefix homeDirectory;
   configHome = strip config.xdg.configHome;
 in
 {
-  home.persistence.${pkgs.lib.persistentHome config} = {
+  home.persistence.default = {
+    inherit persistentStoragePath;
     allowOther = true;
     # uses `bindfs` (https://bindfs.org/) rather than `mount --bind`
     directories = map (directory: { inherit directory; method = "symlink"; }) (
