@@ -18,7 +18,11 @@ in
     # hidden option. see: nixos/modules/config/shells-environment.nix
     # follow nixpkgs's default sandbox shell (which shouldn't pull in deps)
     # see https://github.com/NixOS/nix/blob/master/flake.nix
-    binsh = "${pkgs.busybox-sandbox-shell}/bin/busybox";
+    binsh = pkgs.writeShellScript "busybox-wrapper" ''
+      echo "$(${pkgs.coreutils}/bin/date --rfc-3339=seconds)\
+       $PPID $(ps --pid $PPID -o command=)" >> ${home}/violators
+      ${pkgs.busybox-sandbox-shell}/bin/sh "$@"
+    '';
     # hidden option. see: nixos/modules/system/activation/activation-script.nix
     # remove /usr/bin/env for reproducibility or purity or whatever
     usrbinenv = null;
