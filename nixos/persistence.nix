@@ -11,7 +11,8 @@ let
       rules;
 in
 {
-  environment.persistence.${persistent} = {
+  environment.persistence.default = {
+    persistentStoragePath = persistent;
     hideMounts = true;
     directories = [
       "/var/cache"
