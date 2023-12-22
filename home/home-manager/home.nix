@@ -35,6 +35,7 @@
       pkgs.neofetch
       pkgs.pandoc
       pkgs.pulsemixer
+      pkgs.python3
       pkgs.signal-desktop
       pkgs.silver-searcher
       pkgs.texlive.combined.scheme-full
