@@ -21,15 +21,12 @@ let
       name = replace replaceKeys name;
       value = replace replaceBindings value.content;
     })
-    (lib.filterAttrs
-      (name: _: ! builtins.elem name [
-        # conflicts with $mod+$left
-        "${cfg.config.modifier}+h"
-        # remove layout tabbed
-        "${cfg.config.modifier}+w"
-      ])
-      i3options.keybindings.default
-    )
+    (builtins.removeAttrs i3options.keybindings.default [
+      # conflicts with $mod+$left
+      "${cfg.config.modifier}+h"
+      # remove layout tabbed
+      "${cfg.config.modifier}+w"
+    ])
   ) // {
     "$mod+semicolon" = "split h";
     # override layout stacking
