@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = [ pkgs.thunderbird ];
   programs.thunderbird.enable = false;
-  home.persistence.${pkgs.lib.persistentHome config}.directories = [
+  home.persistence.default.directories = [
     { directory = ".thunderbird"; method = "symlink"; }
   ];
 }
