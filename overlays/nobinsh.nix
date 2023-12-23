@@ -9,9 +9,11 @@ let
     perlPackages = final.perlPackages // { inherit (self) perl; };
 
     gawk = self.callPackage prev.gawk.override { };
+
     i3 = self.callPackage prev.i3.override { };
     silver-searcher = self.callPackage prev.silver-searcher.override { };
     xlayoutdisplay = self.callPackage prev.xlayoutdisplay.override { };
+
     xrdb = self.callPackage prev.xorg.xrdb.override { };
     xorg = final.xorg // { inherit (self) xrdb; };
   });
@@ -25,12 +27,12 @@ let
     pkgs;
 in
 (addFlags {
+  # we cannot overlay gawk, probably because it's in stdenv
+  gawkInteractive = packages.gawk;
   inherit (packages)
     i3
     silver-searcher
     xlayoutdisplay;
-  # we cannot overlay gawk, probably because it's in stdenv
-  gawkInteractive = packages.gawk;
 }) // {
   xorg = prev.xorg // addFlags { inherit (packages.xorg) xrdb; };
 }
