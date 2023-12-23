@@ -15,6 +15,8 @@ in
       "nixos/flake.nix".source = "${home}/.config/home-manager/flake.nix";
       "machine-id".text = "${machine-id}\n";
     };
+    # prevent creation of /lib and /lib64
+    stub-ld.enable = false;
     # hidden option. see: nixos/modules/config/shells-environment.nix
     # follow nixpkgs's default sandbox shell (which shouldn't pull in deps)
     # see https://github.com/NixOS/nix/blob/master/flake.nix
