@@ -3,11 +3,11 @@
 let
   inherit (config._module.args) persistent;
   persistPaths = rules:
-    map (rule: "d ${persistent}${rule}") rules
-    ++ map
-      (rule:
-        let path = builtins.elemAt (lib.splitString " " rule) 0;
-        in "L ${path} - - - - ${persistent}${path}")
+    builtins.mapAttrs
+      (name: _: { L = { argument = "${persistent}${name}"; }; })
+      rules
+    // lib.mapAttrs'
+      (name: value: { name = "${persistent}${name}"; value = { d = value; }; })
       rules;
 in
 {
@@ -31,11 +31,13 @@ in
       ];
     };
   };
-  systemd.tmpfiles.rules = persistPaths ([
-    "/var/lib/bluetooth 0700 root root -"
-    "/var/lib/iwd 0700 root root -"
-    "/var/lib/mullvad-vpn 0755 root root -"
-  ] ++ lib.optional config.services.unbound.enable
-    "${config.services.unbound.stateDir} 0755 unbound unbound -"
-  );
+  systemd.tmpfiles.settings."00-persistence" = persistPaths ({
+    "/var/lib/bluetooth" = { mode = "0700"; user = "root"; group = "root"; };
+    "/var/lib/iwd" = { mode = "0700"; user = "root"; group = "root"; };
+    "/var/lib/mullvad-vpn" = { mode = "0755"; user = "root"; group = "root"; };
+  } // lib.optionalAttrs config.services.unbound.enable {
+    "${config.services.unbound.stateDir}" = {
+      mode = "0755"; inherit (config.services.unbound) user group;
+    };
+  });
 }
