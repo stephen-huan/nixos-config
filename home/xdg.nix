@@ -17,4 +17,8 @@
       music
       pictures
     ]);
+  systemd.user.tmpfiles.rules = map (path: "d ${path}")
+    (with config.xdg.userDirs; [
+      download
+    ]);
 }
