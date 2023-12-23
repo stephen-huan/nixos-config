@@ -8,6 +8,7 @@ let
     perl = final.perl';
 
     i3 = self.callPackage prev.i3.override { };
+    silver-searcher = self.callPackage prev.silver-searcher.override { };
     xlayoutdisplay = self.callPackage prev.xlayoutdisplay.override { };
     xrdb = self.callPackage prev.xorg.xrdb.override { };
     xorg = final.xorg // {
@@ -27,6 +28,7 @@ in
 (addFlags {
   inherit (packages)
     i3
+    silver-searcher
     xlayoutdisplay;
 }) // {
   xorg = prev.xorg // (addFlags {
