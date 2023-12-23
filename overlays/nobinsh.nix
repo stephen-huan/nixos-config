@@ -8,6 +8,7 @@ let
     perl = final.perl';
 
     i3 = self.callPackage prev.i3.override { };
+    xlayoutdisplay = self.callPackage prev.xlayoutdisplay.override { };
   });
 in
 builtins.mapAttrs
@@ -15,5 +16,6 @@ builtins.mapAttrs
   (_: pkg: pkg.overrideAttrs { NIX_CFLAGS_COMPILE = "-isysroot nowhere"; })
 {
   inherit (packages)
-    i3;
+    i3
+    xlayoutdisplay;
 }
