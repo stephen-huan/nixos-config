@@ -6,6 +6,7 @@ let
     stdenv = final.overrideCC final.stdenv final.gcc';
     # not strictly necessary but might as well
     perl = final.perl';
+    perlPackages = final.perlPackages // { inherit (self) perl; };
 
     # we cannot use gawk, probably because it is in the stdenv
     gawkInteractive = self.callPackage prev.gawkInteractive.override { };
