@@ -11,6 +11,6 @@ in
     perl = final.perl';
   }).overrideAttrs {
     # https://github.com/NixOS/nixpkgs/issues/129595#issuecomment-897979569
-    NIX_CFLAGS_COMPILE="-isysroot nowhere";
+    NIX_CFLAGS_COMPILE = "-isysroot nowhere";
   };
 }
