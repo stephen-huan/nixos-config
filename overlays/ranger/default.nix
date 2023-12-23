@@ -6,7 +6,8 @@ let
 in
 {
   ranger = self.overrideAttrs (previousAttrs: {
-    patches = [ ./lazy-nix-store.patch ];
+    patches = final.lib.attrByPath [ "patches" ] [ ] previousAttrs
+      ++ [ ./lazy-nix-store.patch ];
 
     preConfigure = previousAttrs.preConfigure + ''
       substituteInPlace \
