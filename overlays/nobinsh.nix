@@ -28,7 +28,7 @@ let
 in
 (addFlags {
   # we cannot overlay gawk, probably because it's in stdenv
-  gawkInteractive = packages.gawk;
+  gawk' = packages.gawk;
   inherit (packages)
     i3
     silver-searcher
