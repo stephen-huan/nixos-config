@@ -10,6 +10,7 @@ let
   } // addFlags {
     gawk = self.callPackage prev.gawk.override { };
     gnugrep = self.callPackage prev.gnugrep.override { };
+    xdg-utils = self.callPackage prev.xdg-utils.override { };
 
     i3 = self.callPackage prev.i3.override { };
     silver-searcher = self.callPackage prev.silver-searcher.override { };
@@ -32,6 +33,8 @@ in
   # we cannot overlay these, probably because they're in stdenv
   gawk' = packages.gawk;
   gnugrep' = packages.gnugrep;
+  # overlaying xdg-utils triggers a mass rebuild
+  xdg-utils' = packages.xdg-utils;
 
   inherit (packages)
     i3
