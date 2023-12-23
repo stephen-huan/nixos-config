@@ -8,8 +8,7 @@ let
     perl = final.perl';
     perlPackages = final.perlPackages // { inherit (self) perl; };
 
-    # we cannot use gawk, probably because it is in the stdenv
-    gawkInteractive = self.callPackage prev.gawkInteractive.override { };
+    gawk = self.callPackage prev.gawk.override { };
     i3 = self.callPackage prev.i3.override { };
     silver-searcher = self.callPackage prev.silver-searcher.override { };
     xlayoutdisplay = self.callPackage prev.xlayoutdisplay.override { };
@@ -27,10 +26,11 @@ let
 in
 (addFlags {
   inherit (packages)
-    gawkInteractive
     i3
     silver-searcher
     xlayoutdisplay;
+  # we cannot overlay gawk, probably because it's in stdenv
+  gawkInteractive = packages.gawk;
 }) // {
   xorg = prev.xorg // addFlags { inherit (packages.xorg) xrdb; };
 }
