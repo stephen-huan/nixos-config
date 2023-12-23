@@ -20,7 +20,8 @@ in
     # see https://github.com/NixOS/nix/blob/master/flake.nix
     binsh = pkgs.writeShellScript "busybox-wrapper" ''
       echo "$(${pkgs.coreutils}/bin/date --rfc-3339=seconds)\
-       $PPID $(ps --pid $PPID -o command=)" >> ${home}/violators
+       $PPID $(${lib.getExe pkgs.ps} --pid $PPID -o command=)"\
+       >> ${home}/violators
       ${pkgs.busybox-sandbox-shell}/bin/sh "$@"
     '';
     # hidden option. see: nixos/modules/system/activation/activation-script.nix
