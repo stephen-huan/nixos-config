@@ -12,6 +12,10 @@ let
     gnugrep = self.callPackage prev.gnugrep.override { };
     xdg-utils = self.callPackage prev.xdg-utils.override { };
 
+    alacritty = self.callPackage prev.alacritty.override {
+      inherit (self.darwin.apple_sdk.frameworks)
+        AppKit CoreGraphics CoreServices CoreText Foundation OpenGL;
+    };
     i3 = self.callPackage prev.i3.override { };
     silver-searcher = self.callPackage prev.silver-searcher.override { };
     xlayoutdisplay = self.callPackage prev.xlayoutdisplay.override { };
@@ -37,6 +41,7 @@ in
   xdg-utils' = packages.xdg-utils;
 
   inherit (packages)
+    alacritty
     i3
     silver-searcher
     xlayoutdisplay;
