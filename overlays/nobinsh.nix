@@ -13,10 +13,7 @@ let
     silver-searcher = self.callPackage prev.silver-searcher.override { };
     xlayoutdisplay = self.callPackage prev.xlayoutdisplay.override { };
     xrdb = self.callPackage prev.xorg.xrdb.override { };
-    xorg = final.xorg // {
-      inherit (self)
-        xrdb;
-    };
+    xorg = final.xorg // { inherit (self) xrdb; };
   });
   addFlags = pkgs: builtins.mapAttrs
     (_: pkg: pkg.overrideAttrs (previousAttrs: {
@@ -34,8 +31,5 @@ in
     silver-searcher
     xlayoutdisplay;
 }) // {
-  xorg = prev.xorg // (addFlags {
-    inherit (packages.xorg)
-      xrdb;
-  });
+  xorg = prev.xorg // addFlags { inherit (packages.xorg) xrdb; };
 }
