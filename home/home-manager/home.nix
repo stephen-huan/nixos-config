@@ -21,6 +21,7 @@
       pkgs.cmus
       pkgs.du-dust
       pkgs.ffmpeg
+      pkgs.gawkInteractive
       pkgs.gpick
       pkgs.iw
       pkgs.jq
