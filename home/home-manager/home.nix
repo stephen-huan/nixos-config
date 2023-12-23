@@ -22,6 +22,7 @@
       pkgs.du-dust
       pkgs.ffmpeg
       pkgs.gawk'
+      pkgs.gnugrep'
       pkgs.gpick
       pkgs.iw
       pkgs.jq
