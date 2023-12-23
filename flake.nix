@@ -69,7 +69,12 @@
         '';
         installPhase = "touch $out";
       };
-      devShells.${system}.default = pkgs.mkShellNoCC {
+      devShells.${system}.default = (pkgs.mkShellNoCC.override {
+        # https://discourse.nixos.org/t/minimal-nix-shell/14373/3
+        stdenv = pkgs.stdenvNoCC.override {
+          initialPath = [ pkgs.coreutils ];
+        };
+      }) {
         packages = [
           pkgs.nil
         ] ++ linters ++ lib.singleton formatter;

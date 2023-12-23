@@ -34,7 +34,11 @@
           '';
           installPhase = "touch $out";
         };
-        devShells.${system}.default = pkgs.mkShellNoCC {
+        devShells.${system}.default = (pkgs.mkShellNoCC.override {
+          stdenv = pkgs.stdenvNoCC.override {
+            initialPath = [ pkgs.coreutils ];
+          };
+        }) {
           packages = [
             pkgs.lua-language-server
           ] ++ linters ++ pkgs.lib.singleton formatter;
