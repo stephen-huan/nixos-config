@@ -16,8 +16,12 @@ let
     };
   });
   addFlags = pkgs: builtins.mapAttrs
-    # https://github.com/NixOS/nixpkgs/issues/129595#issuecomment-897979569
-    (_: pkg: pkg.overrideAttrs { NIX_CFLAGS_COMPILE = "-isysroot nowhere"; })
+    (_: pkg: pkg.overrideAttrs (previousAttrs: {
+      # https://github.com/NixOS/nixpkgs/issues/129595#issuecomment-897979569
+      env.NIX_CFLAGS_COMPILE = "-isysroot nowhere "
+        + final.lib.attrByPath [ "NIX_CFLAGS_COMPILE" ] "" previousAttrs
+        + final.lib.attrByPath [ "env" "NIX_CFLAGS_COMPILE" ] "" previousAttrs;
+    }))
     pkgs;
 in
 (addFlags {
