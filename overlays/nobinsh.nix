@@ -9,6 +9,7 @@ let
     perlPackages = final.perlPackages // { inherit (self) perl; };
   } // addFlags {
     gawk = self.callPackage prev.gawk.override { };
+    gnugrep = self.callPackage prev.gnugrep.override { };
 
     i3 = self.callPackage prev.i3.override { };
     silver-searcher = self.callPackage prev.silver-searcher.override { };
@@ -28,8 +29,9 @@ let
     pkgs;
 in
 {
-  # we cannot overlay gawk, probably because it's in stdenv
+  # we cannot overlay these, probably because they're in stdenv
   gawk' = packages.gawk;
+  gnugrep' = packages.gnugrep;
 
   inherit (packages)
     i3
