@@ -7,7 +7,7 @@ let
     # not strictly necessary but might as well
     perl = final.perl';
     perlPackages = final.perlPackages // { inherit (self) perl; };
-
+  } // addFlags {
     gawk = self.callPackage prev.gawk.override { };
 
     i3 = self.callPackage prev.i3.override { };
@@ -15,6 +15,7 @@ let
     xlayoutdisplay = self.callPackage prev.xlayoutdisplay.override { };
 
     xrdb = self.callPackage prev.xorg.xrdb.override { };
+  } // {
     xorg = final.xorg // { inherit (self) xrdb; };
   });
   addFlags = pkgs: builtins.mapAttrs
@@ -26,13 +27,14 @@ let
     }))
     pkgs;
 in
-(addFlags {
+{
   # we cannot overlay gawk, probably because it's in stdenv
   gawk' = packages.gawk;
+
   inherit (packages)
     i3
     silver-searcher
     xlayoutdisplay;
-}) // {
-  xorg = prev.xorg // addFlags { inherit (packages.xorg) xrdb; };
+
+  xorg = prev.xorg // { inherit (packages.xorg) xrdb; };
 }
