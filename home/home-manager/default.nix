@@ -1,6 +1,7 @@
 {
   imports = [
     ./home.nix
+    ./nobinsh.nix
     ./persistence.nix
   ];
   config = {

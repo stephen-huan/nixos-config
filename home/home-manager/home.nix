@@ -21,8 +21,6 @@
       pkgs.cmus
       pkgs.du-dust
       pkgs.ffmpeg
-      pkgs.gawk'
-      pkgs.gnugrep'
       pkgs.gpick
       pkgs.iw
       pkgs.jq
@@ -36,7 +34,6 @@
       pkgs.mupdf
       pkgs.neofetch
       pkgs.pandoc
-      pkgs.perl'
       pkgs.pulsemixer
       pkgs.python3
       pkgs.signal-desktop
