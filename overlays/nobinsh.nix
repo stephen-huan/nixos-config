@@ -7,6 +7,8 @@ let
     # not strictly necessary but might as well
     perl = final.perl';
 
+    # we cannot use gawk, probably because it is in the stdenv
+    gawkInteractive = self.callPackage prev.gawkInteractive.override { };
     i3 = self.callPackage prev.i3.override { };
     silver-searcher = self.callPackage prev.silver-searcher.override { };
     xlayoutdisplay = self.callPackage prev.xlayoutdisplay.override { };
@@ -27,6 +29,7 @@ let
 in
 (addFlags {
   inherit (packages)
+    gawkInteractive
     i3
     silver-searcher
     xlayoutdisplay;
