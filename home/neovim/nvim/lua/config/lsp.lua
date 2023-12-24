@@ -10,6 +10,9 @@ local packages = {
         -- https://github.com/prettier/prettier
         formatter = { "prettier" },
     },
+    fish = {
+        linter = { "fish" },
+    },
     html = {
         -- https://github.com/microsoft/vscode-html-languageservice
         lsp = { "html" },
