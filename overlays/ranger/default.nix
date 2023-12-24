@@ -6,10 +6,11 @@ let
 in
 {
   ranger = self.overrideAttrs (previousAttrs: {
-    patches = final.lib.attrByPath [ "patches" ] [ ] previousAttrs
-      ++ [ ./lazy-nix-store.patch ];
+    patches = previousAttrs.patches or [ ] ++ [
+      ./lazy-nix-store.patch
+    ];
 
-    preConfigure = previousAttrs.preConfigure + ''
+    preConfigure = previousAttrs.preConfigure or "" + ''
       substituteInPlace \
         ranger/config/commands.py \
         ranger/ext/rifle.py \

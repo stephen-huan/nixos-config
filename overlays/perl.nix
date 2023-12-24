@@ -6,7 +6,7 @@ let
 in
 {
   perl' = self.overrideAttrs (previousAttrs: {
-    preConfigure = previousAttrs.preConfigure + ''
+    preConfigure = previousAttrs.preConfigure or "" + ''
       cat >> config.over <<EOF
       sh="${sh}"
       startsh="#!${sh}"

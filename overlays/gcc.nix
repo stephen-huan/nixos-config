@@ -3,7 +3,7 @@ final: prev:
 let
   sh = "${final.busybox-sandbox-shell}/bin/sh";
   libc = final.glibc.overrideAttrs (previousAttrs: {
-    postPatch = previousAttrs.postPatch + ''
+    postPatch = previousAttrs.postPatch or "" + ''
       substituteInPlace \
         sysdeps/generic/paths.h \
         sysdeps/posix/system.c \
