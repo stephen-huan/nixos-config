@@ -28,19 +28,24 @@ in
     # remove /usr/bin/env for reproducibility or purity or whatever
     usrbinenv = null;
   };
-  # https://github.com/NixOS/nixpkgs/issues/260658
-  system.activationScripts.usrbinenv =
-    lib.mkIf (config.environment.usrbinenv == null) (
-      lib.mkForce ''
-        rm -f /usr/bin/env
-        if test -e /usr/bin; then
-          rmdir --ignore-fail-on-non-empty /usr/bin
-        fi
-        if test -e /usr; then
-          rmdir --ignore-fail-on-non-empty /usr
-        fi
-      ''
-    );
+  system.activationScripts = {
+    binsh = lib.mkIf false (lib.mkForce ''
+      rm -f /bin/sh
+      if test -e /bin; then
+        rmdir --ignore-fail-on-non-empty /bin
+      fi
+    '');
+    # https://github.com/NixOS/nixpkgs/issues/260658
+    usrbinenv = lib.mkIf (config.environment.usrbinenv == null) (lib.mkForce ''
+      rm -f /usr/bin/env
+      if test -e /usr/bin; then
+        rmdir --ignore-fail-on-non-empty /usr/bin
+      fi
+      if test -e /usr; then
+        rmdir --ignore-fail-on-non-empty /usr
+      fi
+    '');
+  };
   systemd.services.systemd-update-done.serviceConfig.ExecStart = [
     # clear
     ""
