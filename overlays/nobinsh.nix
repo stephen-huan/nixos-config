@@ -8,7 +8,13 @@ let
     perl = final.perl';
     perlPackages = final.perlPackages // { inherit (self) perl; };
   } // addFlags {
-    gawk = self.callPackage prev.gawk.override { };
+    gawk = self.callPackage (prev.gawk.overrideAttrs (previousAttrs: {
+      postPatch = previousAttrs.postPatch or "" + ''
+        substituteInPlace io.c \
+          --replace "/bin/sh" "${sh}"
+      '';
+    })).override
+      { };
     gnugrep = self.callPackage prev.gnugrep.override { };
     xdg-utils = self.callPackage prev.xdg-utils.override { };
 
