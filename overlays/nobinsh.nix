@@ -20,10 +20,28 @@ let
     silver-searcher = self.callPackage prev.silver-searcher.override { };
     xlayoutdisplay = self.callPackage prev.xlayoutdisplay.override { };
 
+    xorgserver = self.callPackage
+      (prev.xorg.xorgserver.overrideAttrs (previousAttrs: {
+        postPatch = previousAttrs.postPatch or "" + ''
+          substituteInPlace \
+            hw/xquartz/mach-startup/bundle-main.c \
+            hw/xquartz/NSUserDefaults+XQuartzDefaults.m \
+            hw/xwin/winprefs.c \
+            os/utils.c \
+            --replace "/bin/sh" "${sh}"
+        '';
+      })).override
+      { };
+
     xrdb = self.callPackage prev.xorg.xrdb.override { };
   } // {
-    xorg = final.xorg // { inherit (self) xrdb; };
+    xorg = final.xorg // {
+      inherit (self)
+        xorgserver
+        xrdb;
+    };
   });
+  sh = "${final.busybox-sandbox-shell}/bin/sh";
   addFlags = pkgs: builtins.mapAttrs
     (_: pkg: pkg.overrideAttrs (previousAttrs: {
       # https://github.com/NixOS/nixpkgs/issues/129595#issuecomment-897979569
@@ -46,5 +64,9 @@ in
     silver-searcher
     xlayoutdisplay;
 
-  xorg = prev.xorg // { inherit (packages.xorg) xrdb; };
+  xorg = prev.xorg // {
+    xorgserver' = packages.xorg.xorgserver;
+
+    inherit (packages.xorg) xrdb;
+  };
 }
