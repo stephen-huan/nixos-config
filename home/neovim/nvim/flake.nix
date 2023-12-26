@@ -22,6 +22,7 @@
       in
       {
         formatter.${system} = formatter;
+
         checks.${system}.lint = pkgs.stdenvNoCC.mkDerivation {
           name = "lint";
           src = ./.;
@@ -34,6 +35,7 @@
           '';
           installPhase = "touch $out";
         };
+
         devShells.${system}.default = (pkgs.mkShellNoCC.override {
           stdenv = pkgs.stdenvNoCC.override {
             initialPath = [ pkgs.coreutils ];

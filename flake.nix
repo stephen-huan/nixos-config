@@ -53,11 +53,16 @@
           specialArgs = { inherit self; };
         };
       };
+
       legacyPackages.${system} = import ./. { inherit pkgs; };
+
       packages.${system} = lib.filterAttrs (_: v: lib.isDerivation v)
         self.legacyPackages.${system};
+
       inherit (self.legacyPackages.${system}) overlays;
+
       formatter.${system} = formatter;
+
       checks.${system}.lint = pkgs.stdenvNoCC.mkDerivation {
         name = "lint";
         src = ./.;
@@ -69,6 +74,7 @@
         '';
         installPhase = "touch $out";
       };
+
       devShells.${system}.default = (pkgs.mkShellNoCC.override {
         # https://discourse.nixos.org/t/minimal-nix-shell/14373/3
         stdenv = pkgs.stdenvNoCC.override {
