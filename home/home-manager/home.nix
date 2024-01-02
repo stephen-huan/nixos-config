@@ -24,6 +24,7 @@
       pkgs.mpv
       pkgs.mupdf
       pkgs.neofetch
+      pkgs.openconnect
       pkgs.pandoc
       pkgs.pulsemixer
       pkgs.python3
