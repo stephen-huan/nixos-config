@@ -14,6 +14,7 @@
     extraConfig = {
       init.defaultBranch = "master";
       pull.rebase = true;
+      push.autoSetupRemote = true;
       credential = {
         helper = "${pkgs.git-credential-manager}/bin/git-credential-manager";
         credentialStore = "gpg";
