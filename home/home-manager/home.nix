@@ -29,8 +29,8 @@
       pkgs.pulsemixer
       pkgs.python3
       pkgs.python3Packages.cython
-      pkgs.python3Packages.eyeD3
       pkgs.python3Packages.pygments
+      pkgs.python3Packages.pytaglib
       pkgs.signal-desktop
       pkgs.silver-searcher
       pkgs.texlive.combined.scheme-full
