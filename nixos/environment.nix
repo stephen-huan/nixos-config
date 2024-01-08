@@ -31,7 +31,7 @@ in
     usrbinenv = null;
   };
   system.activationScripts = {
-    binsh = lib.mkIf false (lib.mkForce ''
+    binsh = lib.mkIf true (lib.mkForce ''
       rm -f /bin/sh
       if test -e /bin; then
         rmdir --ignore-fail-on-non-empty /bin
