@@ -19,6 +19,18 @@
     defaultPackages = lib.remove pkgs.perl
       options.environment.defaultPackages.default;
   };
+  # see nixos/modules/system/activation/switchable-system.nix
+  system = {
+    switch.enable = false;
+    inherit ((import "${modulesPath}/system/activation/switchable-system.nix"
+      {
+        inherit config lib;
+        pkgs = pkgs // {
+          perl = pkgs.perl';
+          perlPackages = pkgs.perlPackages // { perl = pkgs.perl'; };
+        };
+      }).config.content.system) activatableSystemBuilderCommands;
+  };
   # see nixos/modules/services/x11/xserver.nix
   services.xserver = {
     displayManager = {
