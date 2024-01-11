@@ -10,5 +10,6 @@
   nobinsh = import ./nobinsh.nix;
   perl' = import ./perl.nix;
   ranger = import ./ranger;
+  sioyek = import ./sioyek.nix;
   vimPlugins = import ./vimPlugins.nix;
 }
