@@ -1,4 +1,4 @@
-{ lib, pkgs, options, ... }:
+{ config, lib, pkgs, modulesPath, options, ... }:
 
 {
   # strictly speaking, unnecessary
@@ -25,10 +25,7 @@
     inherit ((import "${modulesPath}/system/activation/switchable-system.nix"
       {
         inherit config lib;
-        pkgs = pkgs // {
-          perl = pkgs.perl';
-          perlPackages = pkgs.perlPackages // { perl = pkgs.perl'; };
-        };
+        pkgs = pkgs // { perl = pkgs.perl'; };
       }).config.content.system) activatableSystemBuilderCommands;
   };
   # see nixos/modules/services/x11/xserver.nix
