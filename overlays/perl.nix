@@ -4,8 +4,8 @@ let
   self = final.perl;
   sh = "${final.busybox-sandbox-shell}/bin/sh";
 in
-{
-  perl' = self.overrideAttrs (previousAttrs: {
+rec {
+  perl' = (self.overrideAttrs (previousAttrs: {
     preConfigure = previousAttrs.preConfigure or "" + ''
       cat >> config.over <<EOF
       sh="${sh}"
@@ -17,5 +17,8 @@ in
     '';
     # speeds up the build from ~5 minutes to ~2 minutes
     enableParallelBuilding = true;
-  });
+  })).override {
+    # see pkgs/development/interpreters/perl/default.nix
+    self = perl';
+  };
 }
