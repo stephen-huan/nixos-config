@@ -23,6 +23,7 @@ in
       ] ++ map (name: "${configHome}/${name}") [
         "cmus"
         "home-manager"
+        "libreoffice"
         "memento"
         "mozc"
         "Signal"
