@@ -8,8 +8,8 @@ in
 {
   environment = {
     systemPackages = with pkgs; [
-      # required for flakes
-      git
+      git # required for flakes
+      backintime
     ];
     etc = {
       "nixos/flake.nix".source = "${home}/.config/home-manager/flake.nix";

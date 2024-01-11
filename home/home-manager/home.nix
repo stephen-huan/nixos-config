@@ -8,7 +8,6 @@
       pkgs.alass
       pkgs.android-tools
       pkgs.anki
-      pkgs.backintime-common
       pkgs.cmus
       pkgs.du-dust
       pkgs.ffmpeg
