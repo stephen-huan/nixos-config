@@ -4,6 +4,16 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- installed packages
 local packages = {
+    c = {
+        -- https://clangd.llvm.org/
+        lsp = { "clangd" },
+        -- https://clang.llvm.org/docs/ClangFormat.html
+        formatter = { "clangformat" },
+    },
+    cpp = {
+        lsp = { "clangd" },
+        formatter = { "clangformat" },
+    },
     css = {
         -- https://github.com/microsoft/vscode-css-languageservice
         lsp = { "cssls" },
