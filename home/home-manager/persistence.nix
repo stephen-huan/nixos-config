@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ config, lib, ... }:
 
 let
   inherit (config.home) homeDirectory;
   persistentStoragePath = "${config._module.args.persistent}${homeDirectory}";
-  strip = pkgs.lib.stripPrefix homeDirectory;
+  strip = lib.stripPrefix homeDirectory;
   configHome = strip config.xdg.configHome;
 in
 {
