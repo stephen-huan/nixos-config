@@ -48,12 +48,6 @@
       };
       keyboard.bindings = [
         { key = "Space"; mods = "Alt"; mode = "~Search"; action = "ToggleViMode"; }
-        # scancode to get around invalid virtual keycode provided by winit
-        # see: https://github.com/alacritty/alacritty/issues/3460
-        { key = 5; mods = "Shift"; mode = "Vi|~Search"; action = "Last"; }
-        { key = 7; mods = "Shift"; mode = "Vi|~Search"; action = "FirstOccupied"; }
-        { key = 6; mods = "Shift"; mode = "Vi|~Search"; action = "Bracket"; }
-        { key = 53; mods = "Shift"; mode = "Vi|~Search"; action = "SearchBackward"; }
         # https://stackoverflow.com/questions/16359878/how-to-map-shift-enter
         { key = "Return"; mods = "Shift"; chars = "\\u001b[13;2u"; }
         { key = "Return"; mods = "Control"; chars = "\\u001b[13;5u"; }
