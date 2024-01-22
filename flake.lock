@@ -35,6 +35,26 @@
         "type": "github"
       }
     },
+    "mozc-flake": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1705356233,
+        "narHash": "sha256-1h5mclm4oyc+dRzWNZvh4iuKGPxjv3Q2b2AGkddDbQg=",
+        "owner": "pineapplehunter",
+        "repo": "mozc-flake",
+        "rev": "01b65e1610c410ec6415581a775e4f9828f25b3f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pineapplehunter",
+        "repo": "mozc-flake",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1705677747,
@@ -55,6 +75,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "impermanence": "impermanence",
+        "mozc-flake": "mozc-flake",
         "nixpkgs": "nixpkgs"
       }
     }
