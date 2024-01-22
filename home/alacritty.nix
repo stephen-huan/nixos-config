@@ -40,14 +40,13 @@
         };
       };
       bell = {
-        command = null;
         # TODO: option to enable this
         # command = {
         #   program = "canberra-gtk-play";
         #   args = [ "-i" "bell" ];
         # };
       };
-      key_bindings = [
+      keyboard.bindings = [
         { key = "Space"; mods = "Alt"; mode = "~Search"; action = "ToggleViMode"; }
         # scancode to get around invalid virtual keycode provided by winit
         # see: https://github.com/alacritty/alacritty/issues/3460
@@ -56,8 +55,8 @@
         { key = 6; mods = "Shift"; mode = "Vi|~Search"; action = "Bracket"; }
         { key = 53; mods = "Shift"; mode = "Vi|~Search"; action = "SearchBackward"; }
         # https://stackoverflow.com/questions/16359878/how-to-map-shift-enter
-        { key = "Return"; mods = "Shift"; chars = "\\x1b[13;2u"; }
-        { key = "Return"; mods = "Control"; chars = "\\x1b[13;5u"; }
+        { key = "Return"; mods = "Shift"; chars = "\\u001b[13;2u"; }
+        { key = "Return"; mods = "Control"; chars = "\\u001b[13;5u"; }
       ];
     };
   };
