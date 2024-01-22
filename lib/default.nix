@@ -10,7 +10,7 @@ in
       (builtins.attrNames (builtins.readDir ../${path}));
   };
   # remove prefix from a path, if it exists
-  stripPrefix = prefix: path:
+  removePrefixPath = prefix: path:
     let
       start = lib.splitString "/" prefix;
       tokens = lib.splitString "/" path;
