@@ -27,7 +27,7 @@
           name = "lint";
           src = ./.;
           doCheck = true;
-          nativeCheckInputs = linters ++ pkgs.lib.singleton formatter;
+          nativeCheckInputs = linters ++ lib.singleton formatter;
           checkPhase = ''
             stylua --check .
             luacheck .
@@ -43,7 +43,7 @@
         }) {
           packages = [
             pkgs.lua-language-server
-          ] ++ linters ++ pkgs.lib.singleton formatter;
+          ] ++ linters ++ lib.singleton formatter;
         };
       }
     );
