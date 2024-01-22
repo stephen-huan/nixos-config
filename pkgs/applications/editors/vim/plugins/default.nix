@@ -2,19 +2,6 @@
 
 final: prev:
 {
-  # https://github.com/mfussenegger/nvim-lint/issues/495
-  nvim-lint = buildVimPlugin {
-    pname = "nvim-lint";
-    version = "2023-11-29";
-    src = fetchFromGitHub {
-      owner = "mfussenegger";
-      repo = "nvim-lint";
-      rev = "6f589cb93560581dc2a3b9693658afe865e5649e";
-      sha256 = "sha256-YT1siOydZkeDdAyDkjMgDd/d28J7CzJO5V8RYD5rOH8=";
-    };
-    meta.homepage = "https://github.com/mfussenegger/nvim-lint/";
-  };
-
   ranger-vim = buildVimPlugin {
     pname = "ranger.vim";
     version = "2019-10-30";
