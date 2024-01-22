@@ -2,12 +2,7 @@ final: prev:
 
 let
   self = prev.ibus-engines;
-  mozcdic = final.mozcdic-ut.override {
-    alt-cannadic = true;
-    edict = true;
-    skk-jisyo = true;
-    sudachidict = true;
-  };
+  mozcdic = final.mozcdic-ut;
 in
 {
   ibus-engines = self // {
