@@ -48,6 +48,8 @@
       };
       keyboard.bindings = [
         { key = "Space"; mods = "Alt"; mode = "~Search"; action = "ToggleViMode"; }
+        # https://apple.stackexchange.com/q/24261
+        { key = "Slash"; mods = "Control"; chars = "\\u001f"; }
         # https://stackoverflow.com/questions/16359878/how-to-map-shift-enter
         { key = "Return"; mods = "Shift"; chars = "\\u001b[13;2u"; }
         { key = "Return"; mods = "Control"; chars = "\\u001b[13;5u"; }
