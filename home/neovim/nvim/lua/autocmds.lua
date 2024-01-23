@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "vimrc",
     pattern = "tex",
     callback = function(args)
-        -- start server on first BufWrite, always call VimtexView
+        -- compile and view on every BufWrite
         vim.api.nvim_create_autocmd("BufWritePost", {
             group = vim.api.nvim_create_augroup(
                 string.format("latex<buffer=%d>", args.buf),
@@ -12,10 +12,7 @@ vim.api.nvim_create_autocmd("FileType", {
             ),
             buffer = args.buf,
             callback = function()
-                if not vim.b.latex_started then
-                    vim.cmd "VimtexCompile"
-                    vim.b.latex_started = true
-                end
+                vim.cmd "silent VimtexCompileSS"
                 vim.cmd "VimtexView"
             end,
         })
