@@ -41,6 +41,7 @@ stdenvNoCC.mkDerivation {
     description = "Return iwd's most recently connected network";
     license = licenses.unlicense;
     platforms = platforms.linux;
+    mainProgram = "iwd-last-network";
     maintainers = with maintainers; [ stephen-huan ];
   };
 }
