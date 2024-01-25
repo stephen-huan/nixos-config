@@ -5,7 +5,8 @@ let
 in
 {
   iwd-last-network = callPackage ../os-specific/linux/iwd-last-network { };
-  kanjistrokeorders = callPackage ../data/fonts/kanjistrokeorders { };
+  kanji-stroke-order-font = callPackage ../data/fonts/kanji-stroke-order-font
+    { };
   mozcdic-ut = callPackage ../tools/inputmethods/mozcdic-ut {
     alt-cannadic = true;
     edict = true;

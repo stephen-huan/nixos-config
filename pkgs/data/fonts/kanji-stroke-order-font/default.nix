@@ -1,7 +1,7 @@
 { lib, stdenvNoCC, fetchzip }:
 
 let
-  name = "kanjistrokeorders";
+  name = "kanji-stroke-order-font";
 in
 stdenvNoCC.mkDerivation {
   pname = name;
