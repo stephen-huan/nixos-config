@@ -8,6 +8,7 @@ in
   ranger = self.overrideAttrs (previousAttrs: {
     patches = previousAttrs.patches or [ ] ++ [
       ./lazy-nix-store.patch
+      ./mark-freeze.patch
     ];
 
     preConfigure = previousAttrs.preConfigure or "" + ''

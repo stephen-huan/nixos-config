@@ -1,0 +1,53 @@
+--- a/ranger/gui/curses_shortcuts.py
++++ b/ranger/gui/curses_shortcuts.py
+@@ -73,7 +73,7 @@ class CursesShortcuts(SettingsAware):
+         attr = self.settings.colorscheme.get_attr(*keys)
+         try:
+             self.win.attrset(attr)
+-        except curses.error:
++        except (curses.error, AttributeError):
+             pass
+ 
+     def color_at(self, y, x, wid, *keys):
+--- a/ranger/gui/displayable.py
++++ b/ranger/gui/displayable.py
+@@ -256,7 +256,7 @@ class DisplayableContainer(Displayable):
+         for displayable in self.container:
+             if self.need_redraw:
+                 displayable.need_redraw = True
+-            if displayable.visible:
++            if displayable.visible and displayable.win is not None:
+                 displayable.draw()
+ 
+         self.need_redraw = False
+--- a/ranger/gui/widgets/browsercolumn.py
++++ b/ranger/gui/widgets/browsercolumn.py
+@@ -118,7 +118,7 @@ class BrowserColumn(Pager):  # pylint: disable=too-many-instance-attributes
+         """
+         try:
+             self.win.move(line, 0)
+-        except curses.error:
++        except (curses.error, AttributeError):
+             return
+         for entry in commands:
+             text, attr = entry
+@@ -178,7 +178,7 @@ class BrowserColumn(Pager):  # pylint: disable=too-many-instance-attributes
+                 self.need_redraw |= target.load_if_outdated()
+                 self.need_redraw |= self.last_redraw_time < target.last_load_time
+ 
+-        if self.need_redraw:
++        if self.need_redraw and self.win is not None:
+             self.win.erase()
+             if target is None:
+                 pass
+--- a/ranger/gui/widgets/view_base.py
++++ b/ranger/gui/widgets/view_base.py
+@@ -54,7 +54,7 @@ class ViewBase(Widget, DisplayableContainer):  # pylint: disable=too-many-instan
+                 self.fm.ui.win.move(self.main_column.y, self.main_column.x)
+             except curses.error:
+                 pass
+-        else:
++        elif self.main_column.target is not None:
+             col_x = self.main_column.x
+             col_y = self.main_column.y + self.main_column.target.pointer \
+                 - self.main_column.scroll_begin
