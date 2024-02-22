@@ -8,14 +8,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence.url = "github:nix-community/impermanence";
-    # https://github.com/NixOS/nixpkgs/pull/282148
-    mozc-flake = {
-      url = "github:pineapplehunter/mozc-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, impermanence, mozc-flake, ... }:
+  outputs = { self, nixpkgs, home-manager, impermanence, ... }:
     let
       system = "x86_64-linux";
       hostname = "sora";
@@ -52,15 +47,6 @@
             }
             "${impermanence}/nixos.nix"
             { _module = { inherit args; }; }
-            {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  ibus-engines = prev.ibus-engines // {
-                    mozc = mozc-flake.packages.${system}.default;
-                  };
-                })
-              ];
-            }
           ];
           # optionally, use specialArgs to pass arguments
           specialArgs = { inherit self; };
