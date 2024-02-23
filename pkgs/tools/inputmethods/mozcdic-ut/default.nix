@@ -20,7 +20,7 @@
 # and https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=mozc-ut
 stdenvNoCC.mkDerivation rec {
   pname = "mozcdic-ut";
-  version = "20240120";
+  version = "20240201";
 
   srcs = [
     mozc.src
@@ -33,7 +33,7 @@ stdenvNoCC.mkDerivation rec {
     })
     (fetchurl {
       url = "https://dumps.wikimedia.org/jawiki/${version}/jawiki-${version}-all-titles-in-ns0.gz";
-      hash = "sha256-7E+iE37VlUtNVJHxV1ux3iLRlhWA2FHf0VbxatFkgY0=";
+      hash = "sha256-YFj/sS9tCQcXCS1BdLarn712oul5jrDYzAmzMKLcl2A=";
     })
   ] ++ lib.optional alt-cannadic (fetchFromGitHub rec {
     name = repo;
@@ -45,14 +45,14 @@ stdenvNoCC.mkDerivation rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-edict2";
-    rev = "b2eec665b81214082d61acee1c5a1b5b115baf1a";
-    hash = "sha256-LIpGt6xB8dLUnazbJHZk6EH1/ZyAHMIn1m6Qpr2dsHs=";
+    rev = "16283aa0c2d394a3a000eca4fa3e95eb365698c6";
+    hash = "sha256-H4Y6RGFZBQodpB4cM3o3MPFJGs/xMvbIB/c8CazY1b4=";
   }) ++ lib.optional jawiki (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-jawiki";
-    rev = "6e08b8c823f3d2d09064ad2080e7a16552a7b473";
-    hash = "sha256-0YwAinlcI6yojCdW1MpLgMZfyYV7gk9Q+Wlu4lR3Hrg=";
+    rev = "bd82687d32ae838f1e163d3d2c6ad18740af53f2";
+    hash = "sha256-AjNNV1V5fTMhlR2Nv6g+zNuCCLmPlQUJtUw7JigQKdM=";
   }) ++ lib.optional neologd (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
@@ -63,14 +63,14 @@ stdenvNoCC.mkDerivation rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-personal-names";
-    rev = "8a500f82c553936cbdd33b85955120e731069d44";
-    hash = "sha256-pMyYvl5S0+U++MO5m9rmbtxDzAmO4Xs8sFewOUGqgUA=";
+    rev = "6cc099cefc928bc37854c538e030114df3d5b42d";
+    hash = "sha256-PqbS6VC70IaHJqxP9518zTTZuvXggAsRGeYPiN5T0XU=";
   }) ++ lib.optional place-names (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-place-names";
-    rev = "3db0d6cb2c748bd9b3551a174ce8c4f0a50f2742";
-    hash = "sha256-YZ642ydAQ3V3XxRLAVXf/EIXxiACM2Nv5pNp844niac=";
+    rev = "a847a02e0137ab9e2fdbbaaf120826f870408ca6";
+    hash = "sha256-B0kW8Wa/nCT4KEYl2Rz6gQcj0Po3GxU6i42unHhgZeU=";
   }) ++ lib.optional skk-jisyo (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
