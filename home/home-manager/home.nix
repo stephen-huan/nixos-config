@@ -9,6 +9,7 @@
       pkgs.android-tools
       pkgs.anki
       pkgs.cmus
+      pkgs.diffoscopeMinimal
       pkgs.du-dust
       pkgs.ffmpeg
       pkgs.gpick
