@@ -13,7 +13,7 @@
   outputs = { self, nixpkgs, home-manager, impermanence, ... }:
     let
       system = "x86_64-linux";
-      hostname = "sora";
+      hostname = "hima";
       username = "ikue";
       persistent = "/persistent";
       args = { inherit hostname username persistent; };
