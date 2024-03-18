@@ -33,6 +33,7 @@
       pkgs.python3Packages.pytaglib
       pkgs.signal-desktop
       pkgs.silver-searcher
+      pkgs.tectonic
       pkgs.texlive.combined.scheme-full
       pkgs.tokei
       pkgs.trashy
