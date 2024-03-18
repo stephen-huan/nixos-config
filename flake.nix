@@ -15,7 +15,7 @@
       system = "x86_64-linux";
       hostname = "hima";
       username = "ikue";
-      persistent = "/persistent";
+      persistent = "/keep";
       args = { inherit hostname username persistent; };
       pkgs = nixpkgs.legacyPackages.${system};
       # https://github.com/NixOS/nixpkgs/issues/156312
