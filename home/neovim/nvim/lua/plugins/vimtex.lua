@@ -8,20 +8,10 @@ vim.g.vimtex_quickfix_autoclose_after_keystrokes = 3
 vim.g.vimtex_compiler_method = "tectonic"
 vim.g.vimtex_compiler_tectonic = {
     options = {
+        "--keep-intermediates", -- faster compile times
         "--keep-logs",
         "--synctex",
         "-Z shell-escape",
-        -- breaks synctex
-        -- "-Z deterministic-mode",
-    },
-}
-vim.g.vimtex_compiler_latexmk = {
-    executable = "latexmk",
-    options = {
-        "-verbose",
-        "-file-line-error",
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-shell-escape",
+        -- "-Z deterministic-mode", -- breaks synctex
     },
 }
