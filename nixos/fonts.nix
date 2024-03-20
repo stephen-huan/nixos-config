@@ -2,9 +2,9 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      sansSerif = [ "Noto Sans" "IPAGothic" ];
-      serif = [ "Noto Serif" "IPAMincho" ];
-      monospace = [ "Noto Sans Mono" "IPAGothic" ];
+      sansSerif = [ "Noto Sans" ];
+      serif = [ "Noto Serif" ];
+      monospace = [ "Noto Sans Mono" ];
       emoji = [ "Noto Color Emoji" ];
     };
   };
