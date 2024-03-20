@@ -9,7 +9,7 @@ local rules = {
     Rule("\\left(", "  \\right)", latex):set_end_pair_length(8),
     Rule("\\left[", "  \\right]", latex):set_end_pair_length(8),
     Rule("\\left\\{", "  \\right\\}", latex):set_end_pair_length(9),
-    Rule("$", "  $", "markdown"):set_end_pair_length(2),
+    Rule("$", "$", "markdown"),
 }
 
 for _, rule in pairs(rules) do
