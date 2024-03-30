@@ -9,18 +9,18 @@
 , alt-cannadic ? false
 , edict ? false
 , jawiki ? true
-, neologd ? true
+, neologd ? false
 , personal-names ? true
 , place-names ? true
 , skk-jisyo ? false
-, sudachidict ? false
+, sudachidict ? true
 }:
 
 # see https://github.com/utuhiro78/merge-ut-dictionaries/blob/main/src/make.sh
 # and https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=mozc-ut
 stdenvNoCC.mkDerivation rec {
   pname = "mozcdic-ut";
-  version = "20240201";
+  version = "20240320";
 
   srcs = [
     mozc.src
@@ -28,12 +28,12 @@ stdenvNoCC.mkDerivation rec {
       name = repo;
       owner = "utuhiro78";
       repo = "merge-ut-dictionaries";
-      rev = "a3d6fc4005aff2092657ebca98b9de226e1c617f";
-      hash = "sha256-UK29ACZUK9zGfzW7C85uMw2aF5Gk+0aDeUdNV71PY+0=";
+      rev = "d1515072627818faecd83debb3ed1b2e60a4b203";
+      hash = "sha256-JaHMAij76u3oJZro50RqgJwhiTPtGQGxGwSBlSR5nUM=";
     })
     (fetchurl {
       url = "https://dumps.wikimedia.org/jawiki/${version}/jawiki-${version}-all-titles-in-ns0.gz";
-      hash = "sha256-YFj/sS9tCQcXCS1BdLarn712oul5jrDYzAmzMKLcl2A=";
+      hash = "sha256-o1kvwkhBiT7BwLjZJgL3qtYRgGhpISLXlsPv752juOY=";
     })
   ] ++ lib.optional alt-cannadic (fetchFromGitHub rec {
     name = repo;
@@ -51,8 +51,8 @@ stdenvNoCC.mkDerivation rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-jawiki";
-    rev = "bd82687d32ae838f1e163d3d2c6ad18740af53f2";
-    hash = "sha256-AjNNV1V5fTMhlR2Nv6g+zNuCCLmPlQUJtUw7JigQKdM=";
+    rev = "3550adf4f7ef3c3acbc3acb788b33296733e062d";
+    hash = "sha256-PRNnCblc0kyrhEfeRtuY6QBKoPVcR+fGRJRqhorm1CI=";
   }) ++ lib.optional neologd (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
@@ -63,14 +63,14 @@ stdenvNoCC.mkDerivation rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-personal-names";
-    rev = "6cc099cefc928bc37854c538e030114df3d5b42d";
-    hash = "sha256-PqbS6VC70IaHJqxP9518zTTZuvXggAsRGeYPiN5T0XU=";
+    rev = "3c115668c578992cfcac363bd7aaa0e4d0d9c72e";
+    hash = "sha256-/lbh8DQkG5GvJLHd5QVYphRi5th68sV0EB4vtbAj1a8=";
   }) ++ lib.optional place-names (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-place-names";
-    rev = "a847a02e0137ab9e2fdbbaaf120826f870408ca6";
-    hash = "sha256-B0kW8Wa/nCT4KEYl2Rz6gQcj0Po3GxU6i42unHhgZeU=";
+    rev = "2d4aa706c0d59f42618bbaa42a680a240bd636f6";
+    hash = "sha256-dRIgcvnYmMJcpz2jwbuJqk3jjJK+vHtWS/OcEFyz1Pk=";
   }) ++ lib.optional skk-jisyo (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
