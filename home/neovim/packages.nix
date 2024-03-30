@@ -4,6 +4,7 @@
   programs.neovim.extraPackages = [
     pkgs.black
     pkgs.clang-tools
+    pkgs.inflow
     pkgs.isort
     pkgs.lua-language-server
     pkgs.luaPackages.luacheck

@@ -3,7 +3,7 @@ local options = require "options"
 options.set_options({
     -- limit to 72 character width lines
     colorcolumn = "73",
-    formatprg = "far 72",
+    formatprg = "inflow 72",
 }, "local")
 
 -- remap goyo to 72 characters

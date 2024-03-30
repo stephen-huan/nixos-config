@@ -48,8 +48,8 @@ local options = {
     nrformats = { "alpha", "hex", "bin" },
     -- tilde ~ (switch case) as operator
     tildeop = true,
-    -- (f)ast rewrite of p(ar)
-    formatprg = "far",
+    -- https://cgdct.moe/blog/far/
+    formatprg = "inflow",
 
     -- appearance
 
