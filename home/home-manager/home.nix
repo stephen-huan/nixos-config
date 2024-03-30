@@ -18,7 +18,6 @@
       pkgs.julia-bin
       pkgs.krita
       pkgs.libreoffice
-      pkgs.llvmPackages_latest.libstdcxxClang
       pkgs.maim
       pkgs.memento
       pkgs.mpv
