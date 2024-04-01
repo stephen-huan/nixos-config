@@ -9,7 +9,7 @@ in
   environment = {
     systemPackages = with pkgs; [
       git # required for flakes
-      backintime
+      backintime-common
     ];
     etc = {
       "nixos/flake.nix".source = "${home}/.config/home-manager/flake.nix";
