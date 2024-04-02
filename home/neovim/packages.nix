@@ -23,5 +23,6 @@
     pkgs.stylua
     pkgs.taplo
     pkgs.texlab
+    pkgs.yaml-language-server
   ];
 }

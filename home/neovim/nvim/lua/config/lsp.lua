@@ -98,6 +98,11 @@ local packages = {
         -- https://github.com/tamasfe/taplo
         lsp = { "taplo" },
     },
+    yaml = {
+        -- https://github.com/redhat-developer/yaml-language-server
+        lsp = { "yamlls" },
+        formatter = { "prettier" },
+    },
 }
 
 -- use an on_attach function to only map the following keys
