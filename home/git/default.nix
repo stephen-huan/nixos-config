@@ -19,6 +19,9 @@
         helper = "${pkgs.git-credential-manager}/bin/git-credential-manager";
         credentialStore = "gpg";
       };
+      "credential \"https://git.overleaf.com\"" = {
+        provider = "generic";
+      };
     };
     aliases = {
       a = "add --all";
