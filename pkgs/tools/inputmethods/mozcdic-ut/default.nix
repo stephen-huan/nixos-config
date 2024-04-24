@@ -110,6 +110,7 @@ stdenvNoCC.mkDerivation rec {
     ./local-jawiki.patch
     ./local-mozc.patch
     ./local-mozcdic-ut.patch
+    ./mozc-id.patch
   ];
 
   configurePhase = ''

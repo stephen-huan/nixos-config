@@ -1,0 +1,19 @@
+--- a/make.sh
++++ b/make.sh
+@@ -51,6 +50,16 @@ fi
+ mv mozcdic-ut-*/mozcdic-ut-*.txt.tar.bz2 .
+ for f in mozcdic-ut-*.txt.tar.bz2; do tar xf "$f"; done
+ 
++sed -i "s|1843|1847|g" \
++  mozcdic-ut-alt-cannadic.txt \
++  mozcdic-ut-edict2.txt \
++  mozcdic-ut-jawiki.txt \
++  mozcdic-ut-neologd.txt \
++  mozcdic-ut-personal-names.txt \
++  mozcdic-ut-place-names.txt \
++  mozcdic-ut-skk-jisyo.txt \
++  mozcdic-ut-sudachidict.txt
++
+ cat mozcdic-ut-*.txt > mozcdic-ut.txt
+ 
+ # mozcdic-ut.txt の重複エントリを削除
