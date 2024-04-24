@@ -5,6 +5,17 @@ let
   inherit (config.users.users.${username}) home;
   machine-id = builtins.substring 0 32 (builtins.hashString "sha256" hostname);
   usr-services = [ "dbus-broker.service" "systemd-update-done.service" ];
+  usr-service = {
+    unitConfig = {
+      DefaultDependencies = "no";
+      ReloadPropagatedFrom = usr-services;
+    };
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = "yes";
+    };
+    wantedBy = usr-services;
+  };
 in
 {
   environment = {
@@ -50,18 +61,14 @@ in
     '');
   };
   systemd.services = {
-    mkdir-usr = {
-      unitConfig.DefaultDependencies = "no";
-      serviceConfig.Type = "oneshot";
+    mkdir-usr = usr-service // rec {
       script = "mkdir -p /usr";
-      wantedBy = usr-services;
+      reload = script;
       before = usr-services;
     };
-    rmdir-usr = {
-      unitConfig.DefaultDependencies = "no";
-      serviceConfig.Type = "oneshot";
+    rmdir-usr = usr-service // rec {
       script = "rmdir --ignore-fail-on-non-empty /usr";
-      wantedBy = usr-services;
+      reload = script;
       after = usr-services;
     };
   };
