@@ -6,6 +6,14 @@
     # printing.enable = true;
     # Enable the OpenSSH daemon.
     # openssh.enable = true;
+    displayManager = {
+      defaultSession = "none+i3";
+      sddm.enable = true;
+      autoLogin = {
+        enable = true;
+        user = config._module.args.username;
+      };
+    };
     pipewire = {
       enable = true;
       wireplumber.enable = true;

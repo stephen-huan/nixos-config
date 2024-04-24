@@ -28,11 +28,13 @@
         pkgs = pkgs // { perl = pkgs.perl'; };
       }).config.content.system) activatableSystemBuilderCommands;
   };
+  services.displayManager.sddm.settings = {
+    X11.XephyrPath = "${pkgs.xorg.xorgserver'.out}/bin/Xephyr";
+  };
   # see nixos/modules/services/x11/xserver.nix
   services.xserver = {
     displayManager = {
       xserverBin = lib.mkForce "${pkgs.xorg.xorgserver'.out}/bin/X";
-      sddm.settings.X11.XephyrPath = "${pkgs.xorg.xorgserver'.out}/bin/Xephyr";
     };
     excludePackages = [
       pkgs.xorg.xorgserver.out
