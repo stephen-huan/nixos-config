@@ -8,7 +8,7 @@ in
   nix' = self.overrideAttrs (previousAttrs: {
     preConfigure = previousAttrs.preConfigure or "" + ''
       substituteInPlace src/libmain/shared.cc \
-        --replace "/bin/sh" "${sh}"
+        --replace-fail "/bin/sh" "${sh}"
     '';
   });
 }

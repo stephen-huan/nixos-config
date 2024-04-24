@@ -8,7 +8,7 @@ let
         sysdeps/generic/paths.h \
         sysdeps/posix/system.c \
         sysdeps/unix/sysv/linux/paths.h \
-        --replace "/bin/sh" "${sh}"
+        --replace-fail "/bin/sh" "${sh}"
     '';
   });
 in

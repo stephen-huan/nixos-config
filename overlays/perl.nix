@@ -13,7 +13,7 @@ rec {
       targetsh="${sh}"
       EOF
       substituteInPlace os2/os2.c \
-        --replace "/bin/sh" "${sh}"
+        --replace-fail "/bin/sh" "${sh}"
     '';
     # speeds up the build from ~5 minutes to ~2 minutes
     enableParallelBuilding = true;

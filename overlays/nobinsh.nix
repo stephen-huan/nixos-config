@@ -11,7 +11,7 @@ let
     gawk = self.callPackage (prev.gawk.overrideAttrs (previousAttrs: {
       postPatch = previousAttrs.postPatch or "" + ''
         substituteInPlace io.c \
-          --replace "/bin/sh" "${sh}"
+          --replace-fail "/bin/sh" "${sh}"
       '';
     })).override
       { };
@@ -34,7 +34,7 @@ let
             hw/xquartz/NSUserDefaults+XQuartzDefaults.m \
             hw/xwin/winprefs.c \
             os/utils.c \
-            --replace "/bin/sh" "${sh}"
+            --replace-fail "/bin/sh" "${sh}"
         '';
       })).override
       { };
