@@ -4,6 +4,7 @@ let
   inherit (config._module.args) username hostname;
   inherit (config.users.users.${username}) home;
   machine-id = builtins.substring 0 32 (builtins.hashString "sha256" hostname);
+  usr-services = [ "dbus-broker.service" "systemd-update-done.service" ];
 in
 {
   environment = {
@@ -48,15 +49,20 @@ in
       fi
     '');
   };
-  systemd.services.systemd-update-done.serviceConfig.ExecStart = [
-    # clear
-    ""
-    (
-      pkgs.writeShellScript "systemd-update-done-wrapper" ''
-        mkdir -p /usr
-        /run/current-system/sw/lib/systemd/systemd-update-done
-        rmdir --ignore-fail-on-non-empty /usr
-      ''
-    )
-  ];
+  systemd.services = {
+    mkdir-usr = {
+      unitConfig.DefaultDependencies = "no";
+      serviceConfig.Type = "oneshot";
+      script = "mkdir -p /usr";
+      wantedBy = usr-services;
+      before = usr-services;
+    };
+    rmdir-usr = {
+      unitConfig.DefaultDependencies = "no";
+      serviceConfig.Type = "oneshot";
+      script = "rmdir --ignore-fail-on-non-empty /usr";
+      wantedBy = usr-services;
+      after = usr-services;
+    };
+  };
 }
