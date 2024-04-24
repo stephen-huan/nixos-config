@@ -6,15 +6,16 @@ let
   machine-id = builtins.substring 0 32 (builtins.hashString "sha256" hostname);
   usr-services = [ "dbus-broker.service" "systemd-update-done.service" ];
   usr-service = {
-    unitConfig = {
-      DefaultDependencies = "no";
-      ReloadPropagatedFrom = usr-services;
-    };
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = "yes";
-    };
+    unitConfig.DefaultDependencies = "no";
+    serviceConfig.Type = "oneshot";
     wantedBy = usr-services;
+  };
+  usr-service-reload = lib.attrsets.recursiveUpdate usr-service {
+    unitConfig.ReloadPropagatedFrom = usr-services;
+    serviceConfig.RemainAfterExit = "yes";
+    script = " "; # no-op
+    wantedBy = [ ];
+    upheldBy = usr-services;
   };
 in
 {
@@ -60,15 +61,21 @@ in
       fi
     '');
   };
-  systemd.services = {
-    mkdir-usr = usr-service // rec {
+  systemd.services = rec {
+    mkdir-usr = usr-service // {
       script = "mkdir -p /usr";
-      reload = script;
       before = usr-services;
     };
-    rmdir-usr = usr-service // rec {
+    mkdir-usr-reload = usr-service-reload // {
+      reload = mkdir-usr.script;
+      before = usr-services;
+    };
+    rmdir-usr = usr-service // {
       script = "rmdir --ignore-fail-on-non-empty /usr";
-      reload = script;
+      after = usr-services;
+    };
+    rmdir-usr-reload = usr-service-reload // {
+      reload = rmdir-usr.script;
       after = usr-services;
     };
   };
