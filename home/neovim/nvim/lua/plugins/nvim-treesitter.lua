@@ -19,5 +19,7 @@ require("nvim-treesitter.configs").setup {
     },
     matchup = {
         enable = true,
+        -- intermittent freezes
+        disable = { "julia" },
     },
 }
