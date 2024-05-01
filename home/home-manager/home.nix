@@ -11,7 +11,7 @@
       pkgs.cmus
       pkgs.diffoscopeMinimal
       pkgs.du-dust
-      pkgs.ffmpeg
+      pkgs.ffmpeg-full
       pkgs.gpick
       pkgs.iw
       pkgs.jq
