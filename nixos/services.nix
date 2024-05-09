@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  inherit (config._module.args) persistent;
+in
 {
   services = {
     # Enable CUPS to print documents.
@@ -29,6 +32,7 @@
     };
     geoclue2 = {
       enable = true;
+      enableWifi = false;
       appConfig = {
         # see nixos/modules/services/x11/redshift.nix
         redshift = {
@@ -38,11 +42,20 @@
       };
     };
   };
-  systemd = {
+  systemd = lib.mkIf config.services.geoclue2.enableWifi {
     # delay until mullvad-daemon.service connects
-    services.geoclue.after = [ "time-sync.target" ];
+    services = {
+      geoclue.after = [ "time-sync.target" ];
+      systemd-time-wait-sync.wantedBy = [ "sysinit.target" ];
+    };
     # https://github.com/NixOS/nixpkgs/pull/51338
     additionalUpstreamSystemUnits = [ "systemd-time-wait-sync.service" ];
-    services.systemd-time-wait-sync.wantedBy = [ "sysinit.target" ];
+  };
+  environment.etc = lib.mkIf (! config.services.geoclue2.enableWifi) {
+    "geolocation".source = "${persistent}/var/lib/geolocation";
+    "geoclue/conf.d/00-config.conf".text = ''
+      [static-source]
+      enable=true
+    '';
   };
 }
