@@ -2,10 +2,6 @@
 
 {
   home.packages = [ pkgs.ncdu ];
-  xdg.configFile = {
-    "ncdu/config".text = ''
-      # supposedly for dark backgrounds, but it works better than dark-bg
-      --color dark
-    '';
-  };
+  # supposedly for dark backgrounds, but it works better than dark-bg
+  xdg.configFile."ncdu/config".text = "--color dark";
 }
