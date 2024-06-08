@@ -16,12 +16,12 @@ final: prev:
 
   polar-nvim = buildVimPlugin {
     pname = "polar.nvim";
-    version = "2024-03-20";
+    version = "2024-06-08";
     src = fetchFromGitHub {
       owner = "stephen-huan";
       repo = "polar.nvim";
-      rev = "b21094b674e42d8a6322588948ad29566eef50e0";
-      sha256 = "sha256-BayGSbzXQN75DvYsMrJjThHqyTYdf9ubi4wBYLBQN/M=";
+      rev = "de79dd9d37c6b03e08610863e1b220585cebda3b";
+      sha256 = "sha256-PYeOUowJaG3Cm1odHNc5CDobLF4SV4TVLgq/L3Gn78s=";
     };
     meta.homepage = "https://github.com/stephen-huan/polar.nvim/";
   };
