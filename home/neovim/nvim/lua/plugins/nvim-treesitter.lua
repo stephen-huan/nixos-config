@@ -2,7 +2,7 @@ require("nvim-treesitter.configs").setup {
     ignore_install = "all",
     highlight = {
         enable = true,
-        disable = { "latex", "gitcommit", "julia" },
+        disable = { "latex", "julia" },
     },
     incremental_selection = {
         enable = true,
