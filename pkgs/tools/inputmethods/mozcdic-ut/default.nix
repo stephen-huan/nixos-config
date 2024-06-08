@@ -113,14 +113,10 @@ stdenvNoCC.mkDerivation rec {
     ./mozc-id.patch
   ];
 
-  configurePhase = ''
-    runHook preConfigure
-
-    export LOCALE_ARCHIVE="${glibcLocales}/lib/locale/locale-archive"
-    export LANG=ja_JP.UTF-8
-
-    runHook postConfigure
-  '';
+  env = {
+    LOCALE_ARCHIVE = "${glibcLocales}/lib/locale/locale-archive";
+    LC_ALL = "en_US.UTF-8";
+  };
 
   strictDeps = true;
   nativeBuildInputs = [ ruby ];
