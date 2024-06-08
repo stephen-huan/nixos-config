@@ -12,10 +12,10 @@ in
           src = final.fetchFromGitHub {
             owner = "tectonic-typesetting";
             repo = "tectonic";
-            rev = "78fd97716ee111861bd981a45e6816589d16f504";
-            sha256 = "sha256-pKx2fzBllkv3fzUfhv9qKlPqD4JKdEN74+gsLbmwZ/o=";
+            rev = "19654bf152d602995da970f6164713953cffc2e6";
+            sha256 = "sha256-3xfcumVLbURGR6Tdr6UAbMznCn7zNdIZDKCLqsaQksM=";
           };
-          cargoHash = "sha256-BcVepSoFogh/OU0DoQNnT8X9bNc74rMDT+3zelmfwkY=";
+          cargoHash = "sha256-h963vaEDxJtxd1lr6ym1ygxvRLDihIlbYMj27F0BjXM=";
         });
     };
   });
