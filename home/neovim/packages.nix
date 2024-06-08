@@ -15,6 +15,7 @@
     pkgs.nodePackages.prettier
     pkgs.nodePackages.pyright
     pkgs.nodePackages.vscode-langservers-extracted
+    pkgs.ripgrep
     pkgs.ruff
     pkgs.selene
     pkgs.shellcheck
