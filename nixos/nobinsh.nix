@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, options, ... }:
+{ lib, pkgs, options, ... }:
 
 {
   # strictly speaking, unnecessary
@@ -22,11 +22,7 @@
   # see nixos/modules/system/activation/switchable-system.nix
   system = {
     switch.enable = false;
-    inherit ((import "${modulesPath}/system/activation/switchable-system.nix"
-      {
-        inherit config lib;
-        pkgs = pkgs // { perl = pkgs.perl'; };
-      }).config.content.system) activatableSystemBuilderCommands;
+    switch.enableNg = true;
   };
   services.displayManager.sddm.settings = {
     X11.XephyrPath = "${pkgs.xorg.xorgserver'.out}/bin/Xephyr";
