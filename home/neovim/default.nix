@@ -4,7 +4,7 @@ let
       name = "nvim/${name}";
       value = { source = ./nvim/${name}; };
     }) [
-    "ftplugin"
+    "after"
     "lsp"
     "lua"
     "snippets"
