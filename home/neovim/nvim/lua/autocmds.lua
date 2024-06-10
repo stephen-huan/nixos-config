@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 -- enable spellcheck for text files
-vim.api.nvim_create_autocmd("Filetype", {
+vim.api.nvim_create_autocmd("FileType", {
     group = "vimrc",
     pattern = { "gitcommit", "mail", "markdown", "tex", "text" },
     callback = function()
