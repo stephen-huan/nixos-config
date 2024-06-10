@@ -45,8 +45,6 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "vimrc",
     pattern = "*",
     callback = function(args)
-        -- still disables syntax highlighting
-        -- overwritten by actual treesitter
         if
             args.match ~= "tex"
             and args.match ~= "julia"
@@ -55,6 +53,8 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "startify"
             and args.match ~= "checkhealth"
         then
+            -- still disables syntax highlighting
+            -- overwritten by actual treesitter
             vim.b[args.buf].ts_highlight = false
         end
     end,
