@@ -48,11 +48,15 @@ vim.api.nvim_create_autocmd("FileType", {
         if
             true
             and args.match ~= "checkhealth"
+            and args.match ~= "cmp_menu"
             and args.match ~= "cython"
+            and args.match ~= "fzf"
             and args.match ~= "julia"
             and args.match ~= "pyrex"
+            and args.match ~= "robots"
             and args.match ~= "startify"
             and args.match ~= "tex"
+            and args.match ~= "text"
         then
             -- still disables syntax highlighting
             -- overwritten by actual treesitter
