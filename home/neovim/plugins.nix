@@ -102,7 +102,65 @@ in
     }
     # tree-sitter support
     {
-      plugin = nvim-treesitter.withAllGrammars;
+      # plugin = nvim-treesitter.withAllGrammars;
+      plugin = nvim-treesitter.withPlugins (p: with p; [
+        asm
+        awk
+        bibtex
+        cmake
+        comment
+        cpp
+        css
+        csv
+        cuda
+        diff
+        disassembly
+        fish
+        fortran
+        gitattributes
+        gitcommit
+        git_config
+        gitignore
+        git_rebase
+        gpg
+        haskell
+        hlsplaylist
+        html
+        http
+        ini
+        java
+        javascript
+        jq
+        jsdoc
+        json
+        julia
+        latex
+        liquid
+        make
+        meson
+        mlir
+        muttrc
+        nix
+        passwd
+        pem
+        perl
+        printf
+        pymanifest
+        qmljs
+        r
+        regex
+        requirements
+        rst
+        ruby
+        rust
+        sql
+        ssh_config
+        toml
+        udev
+        xml
+        yaml
+        zathurarc
+      ]);
       type = "lua";
       config = getConfig "nvim-treesitter";
     }

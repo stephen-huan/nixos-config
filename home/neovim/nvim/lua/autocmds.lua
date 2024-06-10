@@ -37,3 +37,25 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.opt_local.signcolumn = "no"
     end,
 })
+-- HACK: filetype-specific highlighting, based on b:ts_highlight
+-- true: treesitter syntax highlighting enabled
+-- undefined: default (lexical) highlighting enabled
+-- false: both disabled (no highlighting)
+vim.api.nvim_create_autocmd("FileType", {
+    group = "vimrc",
+    pattern = "*",
+    callback = function(args)
+        -- still disables syntax highlighting
+        -- overwritten by actual treesitter
+        if
+            args.match ~= "tex"
+            and args.match ~= "julia"
+            and args.match ~= "pyrex"
+            and args.match ~= "cython"
+            and args.match ~= "startify"
+            and args.match ~= "checkhealth"
+        then
+            vim.b[args.buf].ts_highlight = false
+        end
+    end,
+})
