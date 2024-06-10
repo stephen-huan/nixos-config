@@ -17,6 +17,14 @@ vim.keymap.set(modes, "<c-j>", "<cmd>qa!<cr>")
 vim.keymap.set("n", "<c-n>", "<cmd>tabnew<cr>")
 -- show highlight under cursor
 vim.keymap.set("", "<c-h>h", "<cmd>Inspect<cr>")
+-- comment, <c-_> is ctrl + /
+-- https://github.com/neovim/neovim/pull/28176
+vim.keymap.set("x", "<c-_>", function()
+    return require("vim._comment").operator()
+end, { expr = true })
+vim.keymap.set("n", "<c-_>", function()
+    return require("vim._comment").operator() .. "_"
+end, { expr = true })
 
 -- leader shortcuts
 

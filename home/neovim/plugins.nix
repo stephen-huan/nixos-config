@@ -84,12 +84,6 @@ in
     }
     # community snippets
     vim-snippets
-    # comment
-    {
-      plugin = tcomment_vim;
-      type = "lua";
-      config = getConfig "tcomment_vim";
-    }
     # detect indent and adjust indent options
     vim-sleuth
     # matching
