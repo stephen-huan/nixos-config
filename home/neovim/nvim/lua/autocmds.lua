@@ -46,12 +46,13 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",
     callback = function(args)
         if
-            args.match ~= "tex"
+            true
+            and args.match ~= "checkhealth"
+            and args.match ~= "cython"
             and args.match ~= "julia"
             and args.match ~= "pyrex"
-            and args.match ~= "cython"
             and args.match ~= "startify"
-            and args.match ~= "checkhealth"
+            and args.match ~= "tex"
         then
             -- still disables syntax highlighting
             -- overwritten by actual treesitter
@@ -59,7 +60,7 @@ vim.api.nvim_create_autocmd("FileType", {
         end
     end,
 })
--- warning when syntax highlighting falls through
+-- HACK: warning when syntax highlighting falls through
 vim.api.nvim_create_autocmd({ "BufWinEnter", "WinNew", "BufFilePost" }, {
     group = "vimrc",
     pattern = "*",
