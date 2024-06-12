@@ -54,6 +54,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "fzf"
             and args.match ~= "julia"
             and args.match ~= "pyrex"
+            and args.match ~= "qf"
             and args.match ~= "robots"
             and args.match ~= "startify"
             and args.match ~= "tex"
