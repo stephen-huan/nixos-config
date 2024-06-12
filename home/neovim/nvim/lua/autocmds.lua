@@ -49,6 +49,7 @@ vim.api.nvim_create_autocmd("FileType", {
             true
             and args.match ~= "checkhealth"
             and args.match ~= "cmp_menu"
+            and args.match ~= "conf"
             and args.match ~= "cython"
             and args.match ~= "fzf"
             and args.match ~= "julia"
