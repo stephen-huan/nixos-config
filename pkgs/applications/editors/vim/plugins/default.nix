@@ -2,16 +2,16 @@
 
 final: prev:
 {
-  ranger-vim = buildVimPlugin {
-    pname = "ranger.vim";
-    version = "2019-10-30";
+  ranger-nvim = buildVimPlugin {
+    pname = "ranger.nvim";
+    version = "2024-02-09";
     src = fetchFromGitHub {
-      owner = "francoiscabrol";
-      repo = "ranger.vim";
-      rev = "91e82debdf566dfaf47df3aef0a5fd823cedf41c";
-      sha256 = "sha256-6ut7u6AwtyYbHLHa2jelf5PkbtlfHvuHfWRL5z1CTUQ=";
+      owner = "kelly-lin";
+      repo = "ranger.nvim";
+      rev = "d3b032feee6b3b0cf923222f260523e2bd7f3ad3";
+      sha256 = "sha256-8vsSMRRfz6Nj0YIpjGdSwg+iq8Qa7yGbhOmDfWLOgB0=";
     };
-    meta.homepage = "https://github.com/francoiscabrol/ranger.vim/";
+    meta.homepage = "https://github.com/kelly-lin/ranger.nvim/";
   };
 
   polar-nvim = buildVimPlugin {
