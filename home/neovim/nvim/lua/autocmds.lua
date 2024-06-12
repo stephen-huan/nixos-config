@@ -48,6 +48,7 @@ vim.api.nvim_create_autocmd("FileType", {
         if
             true
             and args.match ~= "checkhealth"
+            and args.match ~= "cmp_docs"
             and args.match ~= "cmp_menu"
             and args.match ~= "conf"
             and args.match ~= "cython"
