@@ -4,7 +4,7 @@
   programs.git = {
     enable = true;
     userName = "Stephen Huan";
-    userEmail = "stephen03.huan@gmail.com";
+    userEmail = "stephen.huan@cgdct.moe";
     ignores = import ./gitignore.nix;
     lfs.enable = true;
     signing = {
