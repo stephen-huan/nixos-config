@@ -61,11 +61,10 @@ in
     # allow plugins to . repeat
     vim-repeat
     # ranger integration
-    bclose-vim
     {
-      plugin = ranger-vim;
+      plugin = ranger-nvim;
       type = "lua";
-      config = getConfig "ranger-vim";
+      config = getConfig "ranger-nvim";
     }
     # fzf
     {
