@@ -10,7 +10,7 @@ let
         ("mkdir -p $out/parser\n" + (lib.concatMapStringsSep "\n"
           (grammar:
             let name = lib.last (lib.splitString "-" grammar.name); in
-            "cp ${grammar}/parser/${name}.so $out/parser/${name}.so"
+            "ln -s ${grammar}/parser/${name}.so $out/parser/${name}.so"
           )
           nvim-treesitter.passthru.dependencies
         ))
