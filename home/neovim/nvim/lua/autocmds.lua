@@ -54,6 +54,8 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "cython"
             and args.match ~= "fzf"
             and args.match ~= "julia"
+            and args.match ~= "lean"
+            and args.match ~= "leaninfo"
             and args.match ~= "man"
             and args.match ~= "pyrex"
             and args.match ~= "qf"
