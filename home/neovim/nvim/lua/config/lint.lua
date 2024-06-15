@@ -34,9 +34,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- keybindings: https://github.com/neovim/nvim-lspconfig
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>l", vim.diagnostic.setloclist)
 vim.keymap.set("n", "<leader>d", function()
     if vim.b.linter_hidden then
