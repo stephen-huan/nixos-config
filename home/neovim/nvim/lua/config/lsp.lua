@@ -142,7 +142,7 @@ local on_attach = function(_, bufnr)
     map("n", "<leader>rn", vim.lsp.buf.rename)
     map("n", "<leader>ca", vim.lsp.buf.code_action)
     map("n", "gr", vim.lsp.buf.references)
-    map({ "n", "v" }, "<leader>f", function()
+    map({ "n", "v" }, "<leader>F", function()
         vim.lsp.buf.format { async = true }
     end)
 end

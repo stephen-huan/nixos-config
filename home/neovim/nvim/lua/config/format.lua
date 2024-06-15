@@ -19,8 +19,7 @@ end
 -- keybindings
 local opts = { noremap = true, silent = true }
 -- try to avoid conflicts with lsp
--- vim.keymap.set({ "n", "v" }, "<leader>f", ":Format<cr>", opts)
-vim.keymap.set({ "n", "v" }, "<leader>F", ":Format<cr>", opts)
+vim.keymap.set({ "n", "v" }, "<leader>f", "<cmd>Format<cr>", opts)
 
 -- adjust formatter configuration
 
