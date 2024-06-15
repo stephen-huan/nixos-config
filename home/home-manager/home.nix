@@ -17,6 +17,7 @@
       pkgs.jq
       pkgs.julia-bin
       pkgs.krita
+      pkgs.lean4
       pkgs.libreoffice
       pkgs.maim
       pkgs.memento
