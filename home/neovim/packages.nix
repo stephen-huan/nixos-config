@@ -13,8 +13,8 @@
     pkgs.nodePackages.bash-language-server
     pkgs.nodePackages.jsonlint
     pkgs.nodePackages.prettier
-    pkgs.nodePackages.pyright
     pkgs.nodePackages.vscode-langservers-extracted
+    pkgs.pyright
     pkgs.ripgrep
     pkgs.ruff
     pkgs.selene
