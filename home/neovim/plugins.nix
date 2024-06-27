@@ -120,7 +120,9 @@ in
       plugin = collateGrammars (nvim-treesitter.withPlugins (p: with p; [
         asm
         awk
+        bash
         bibtex
+        c
         cmake
         comment
         cpp
@@ -150,7 +152,10 @@ in
         julia
         latex
         liquid
+        lua
         make
+        markdown
+        markdown_inline
         meson
         mlir
         muttrc
@@ -160,7 +165,9 @@ in
         perl
         printf
         pymanifest
+        python
         qmljs
+        query
         r
         regex
         requirements
@@ -171,6 +178,8 @@ in
         ssh_config
         toml
         udev
+        vim
+        vimdoc
         xml
         yaml
         zathurarc
