@@ -1,5 +1,6 @@
--- HACK: warning when syntax highlighting falls through
+-- HACK: relies on b:ts_highlight
 vim.api.nvim_create_autocmd("FileType", {
+    desc = "warning when syntax highlighting falls through",
     group = "vimrc",
     pattern = "*",
     callback = function(args)

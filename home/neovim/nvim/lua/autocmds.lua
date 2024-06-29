@@ -1,7 +1,7 @@
 vim.api.nvim_create_augroup("vimrc", { clear = true })
 
--- vimtex compile
 vim.api.nvim_create_autocmd("FileType", {
+    desc = "vimtex compile",
     group = "vimrc",
     pattern = "tex",
     callback = function(args)
@@ -19,8 +19,8 @@ vim.api.nvim_create_autocmd("FileType", {
         })
     end,
 })
--- enable spellcheck for text files
 vim.api.nvim_create_autocmd("FileType", {
+    desc = "enable spellcheck for text files",
     group = "vimrc",
     pattern = { "gitcommit", "mail", "markdown", "tex", "text" },
     callback = function()
@@ -28,8 +28,8 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.spelllang = "en_us"
     end,
 })
--- terminal settings
 vim.api.nvim_create_autocmd("TermOpen", {
+    desc = "terminal settings",
     group = "vimrc",
     callback = function()
         vim.opt_local.number = false
@@ -37,11 +37,12 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.opt_local.signcolumn = "no"
     end,
 })
--- HACK: filetype-specific highlighting, based on b:ts_highlight
+-- HACK: based on b:ts_highlight
 -- true: treesitter syntax highlighting enabled
 -- undefined: default (lexical) highlighting enabled
 -- false: both disabled (no highlighting)
 vim.api.nvim_create_autocmd("FileType", {
+    desc = "filetype-specific highlighting",
     group = "vimrc",
     pattern = "*",
     callback = function(args)
