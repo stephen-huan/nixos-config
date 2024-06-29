@@ -1,5 +1,33 @@
 vim.api.nvim_create_augroup("vimrc", { clear = true })
 
+vim.api.nvim_create_autocmd("TermOpen", {
+    desc = "terminal settings",
+    group = "vimrc",
+    callback = function()
+        vim.opt_local.number = false
+        vim.opt_local.relativenumber = false
+        vim.opt_local.signcolumn = "no"
+    end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+    desc = "enable spellcheck for text files",
+    group = "vimrc",
+    pattern = { "gitcommit", "mail", "markdown", "tex", "text" },
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = "en_us"
+    end,
+})
+-- https://github.com/neovim/neovim/pull/28176#issuecomment-2051944146
+vim.api.nvim_create_autocmd("FileType", {
+    desc = "force commentstring to include spaces",
+    group = "vimrc",
+    callback = function(args)
+        vim.bo[args.buf].commentstring = vim.bo[args.buf].commentstring
+            :gsub("(%S)%%s", "%1 %%s")
+            :gsub("%%s(%S)", "%%s %1")
+    end,
+})
 vim.api.nvim_create_autocmd("FileType", {
     desc = "vimtex compile",
     group = "vimrc",
@@ -17,34 +45,6 @@ vim.api.nvim_create_autocmd("FileType", {
                 vim.cmd "VimtexView"
             end,
         })
-    end,
-})
-vim.api.nvim_create_autocmd("FileType", {
-    desc = "enable spellcheck for text files",
-    group = "vimrc",
-    pattern = { "gitcommit", "mail", "markdown", "tex", "text" },
-    callback = function()
-        vim.opt_local.spell = true
-        vim.opt_local.spelllang = "en_us"
-    end,
-})
-vim.api.nvim_create_autocmd("TermOpen", {
-    desc = "terminal settings",
-    group = "vimrc",
-    callback = function()
-        vim.opt_local.number = false
-        vim.opt_local.relativenumber = false
-        vim.opt_local.signcolumn = "no"
-    end,
-})
--- https://github.com/neovim/neovim/pull/28176#issuecomment-2051944146
-vim.api.nvim_create_autocmd("FileType", {
-    desc = "force commentstring to include spaces",
-    group = "vimrc",
-    callback = function(args)
-        vim.bo[args.buf].commentstring = vim.bo[args.buf].commentstring
-            :gsub("(%S)%%s", "%1 %%s")
-            :gsub("%%s(%S)", "%%s %1")
     end,
 })
 -- HACK: relies on b:ts_highlight
