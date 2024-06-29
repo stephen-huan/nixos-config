@@ -65,6 +65,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "cython"
             and args.match ~= "fzf"
             and args.match ~= "julia"
+            and args.match ~= "juliadoc"
             and args.match ~= "latex"
             and args.match ~= "lean"
             and args.match ~= "leaninfo"
