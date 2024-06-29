@@ -37,7 +37,17 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.opt_local.signcolumn = "no"
     end,
 })
--- HACK: based on b:ts_highlight
+-- https://github.com/neovim/neovim/pull/28176#issuecomment-2051944146
+vim.api.nvim_create_autocmd("FileType", {
+    desc = "force commentstring to include spaces",
+    group = "vimrc",
+    callback = function(args)
+        vim.bo[args.buf].commentstring = vim.bo[args.buf].commentstring
+            :gsub("(%S)%%s", "%1 %%s")
+            :gsub("%%s(%S)", "%%s %1")
+    end,
+})
+-- HACK: relies on b:ts_highlight
 -- true: treesitter syntax highlighting enabled
 -- undefined: default (lexical) highlighting enabled
 -- false: both disabled (no highlighting)
