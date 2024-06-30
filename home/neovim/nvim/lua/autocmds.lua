@@ -63,6 +63,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "cmp_menu"
             and args.match ~= "conf"
             and args.match ~= "cython"
+            and args.match ~= "editorconfig"
             and args.match ~= "fzf"
             and args.match ~= "julia"
             and args.match ~= "juliadoc"
