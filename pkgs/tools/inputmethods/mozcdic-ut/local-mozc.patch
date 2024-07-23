@@ -1,11 +1,12 @@
---- a/remove_duplicate_ut_entries.rb
-+++ b/remove_duplicate_ut_entries.rb
-@@ -14,7 +14,7 @@ if ARGV == []
- 	exit
- end
+--- a/remove_duplicate_ut_entries.py
++++ b/remove_duplicate_ut_entries.py
+@@ -14,7 +14,8 @@ if len(sys.argv) == 1:
+ file_name = sys.argv[1]
  
+ # Mozc の一般名詞のID
 -url = "https://raw.githubusercontent.com/google/mozc/master/src/data/dictionary_oss/id.def"
-+url = "mozc/src/data/dictionary_oss/id.def"
- id_mozc = URI.open(url).read.split(" 名詞,一般,")[0]
- id_mozc = id_mozc.split("\n")[-1]
++from pathlib import Path
++url = f"file://{Path(__file__).parent / 'mozc/src/data/dictionary_oss/id.def'}"
+ with urllib.request.urlopen(url) as response:
+ 	id_mozc = response.read().decode()
  

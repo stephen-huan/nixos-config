@@ -1,10 +1,10 @@
---- a/count_word_hits.rb
-+++ b/count_word_hits.rb
-@@ -7,7 +7,6 @@
- require 'zlib'
+--- a/count_word_hits.py
++++ b/count_word_hits.py
+@@ -8,7 +8,6 @@ import gzip
+ import subprocess
  
  # jawiki-latest-all-titles を取得
--`wget -N https://dumps.wikimedia.org/jawiki/latest/jawiki-latest-all-titles-in-ns0.gz`
+-subprocess.run(['wget', '-N', 'https://dumps.wikimedia.org/jawiki/latest/jawiki-latest-all-titles-in-ns0.gz'], check=True)
  
- filename = "jawiki-latest-all-titles-in-ns0.gz"
- dicname = "jawiki-latest-all-titles-in-ns0.hits"
+ file_name = "jawiki-latest-all-titles-in-ns0.gz"
+ dict_name = "jawiki-latest-all-titles-in-ns0.hits"

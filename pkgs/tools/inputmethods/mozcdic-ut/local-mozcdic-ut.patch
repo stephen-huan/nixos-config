@@ -16,7 +16,7 @@
 +#sudachidict="true"
  
  rm -f mozcdic-ut.txt
--rm -rf mozcdic-ut-*/{*,.git}
+-rm -rf mozcdic-ut-*/
  
  if [[ $alt_cannadic = "true" ]]; then
  git clone --depth 1 https://github.com/utuhiro78/mozcdic-ut-alt-cannadic.git

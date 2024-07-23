@@ -5,7 +5,7 @@
 , ibus-engines
 , mozc ? ibus-engines.mozc
 , glibcLocales
-, ruby
+, python3
 , alt-cannadic ? false
 , edict ? false
 , jawiki ? true
@@ -20,7 +20,7 @@
 # and https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=mozc-ut
 stdenvNoCC.mkDerivation rec {
   pname = "mozcdic-ut";
-  version = "20240620";
+  version = "20240720";
 
   srcs = [
     mozc.src
@@ -28,61 +28,61 @@ stdenvNoCC.mkDerivation rec {
       name = repo;
       owner = "utuhiro78";
       repo = "merge-ut-dictionaries";
-      rev = "23ae870ee0f8e4d115019fcaf1a8b74d204a9f89";
-      hash = "sha256-kHhLMUnTS1K1uzkAuh8ItY6t7d4Xn6pXyn3Xft5Di4k=";
+      rev = "2855b796743acb0c7d320b08d0728977bf6d0860";
+      hash = "sha256-ppOsNy3yd8DndrQ6Uh8J1OdsTYhT1uYzIhZYqKxVWwQ=";
     })
     (fetchurl {
       url = "https://dumps.wikimedia.org/jawiki/${version}/jawiki-${version}-all-titles-in-ns0.gz";
-      hash = "sha256-uL3Yro7mXLM+9b7ktUPQMZUPCTt275FsFd6JAgZtjZY=";
+      hash = "sha256-t8Q96FQEaOJs1cc9ySSrVYyD4I/DvfXh6UxvURHHHWk=";
     })
   ] ++ lib.optional alt-cannadic (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-alt-cannadic";
-    rev = "9e71156adf8cbaf148fe76bc12539f55b461e163";
-    hash = "sha256-JslI5hY6uZgIC4iGX4+oVGcS2PKJefadFjy4iCnH3m8=";
+    rev = "b3d151c189c55b00e3e384ddb847cc76b3565746";
+    hash = "sha256-1Mo8Ccdi/8VietPPB+q/fPOnKdG76uELdY9HRFfcEY8=";
   }) ++ lib.optional edict (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-edict2";
-    rev = "38f7f74726d36b4ece85adadd3739b6177592108";
-    hash = "sha256-Ckvvc/vTAHOqVyViEqwY6KnKx5zBM5zHRNX65mRVJ/8=";
+    rev = "a3febcb019454af445809965d4f64baddd962c73";
+    hash = "sha256-1j2SZu2S25nnbBeVms/aErDEKzRDrh/19DC5uWsv2AY=";
   }) ++ lib.optional jawiki (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-jawiki";
-    rev = "daab02bed062e4a3723a07d875194d436324df2a";
-    hash = "sha256-utsX2akMmYF6RwntrIjyQcpFS650Udr6FZ0zy7hTqss=";
+    rev = "9395f09f8dd87cc4521d7986ec4239af8abcecea";
+    hash = "sha256-jrXni5emy37O2e2yLldUmirVDLpHKXFyp4Prycw7DFk=";
   }) ++ lib.optional neologd (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-neologd";
-    rev = "65370a0efae204f3d9071f46ec56f72e8cf5508a";
-    hash = "sha256-/mSwxazEw9YuHi8boFzuGWG94zNUc0qB/+fHqgw1XcY=";
+    rev = "c1524034b08fad881957d72f5b29931cc5964f8c";
+    hash = "sha256-KZtPQccvWz6qygrrmDzZp3SkF1pJA8ptP1oU3IvDb0k=";
   }) ++ lib.optional personal-names (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-personal-names";
-    rev = "e1049584984ac9376685937661ae18c968e25c48";
-    hash = "sha256-yiZooHKB8+eNyt1ZaPjcm3gLCExYQqB6lI02GR5utto=";
+    rev = "5df5cedaef3b55c509cacfbf3e97ded852535a1b";
+    hash = "sha256-zTJVhbZEIG+xiRWAPsK9faxxxnKeHIt/gc7HuAXqOl4=";
   }) ++ lib.optional place-names (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-place-names";
-    rev = "1e45b1d5781e46c3d99d285711a0fb964b223a67";
-    hash = "sha256-Ilf/V9cYVx75lsdHBi38M8qPGjDOpoUDcQ20QDfxZ8Q=";
+    rev = "99cb804417a5816933d87ac9d2caeb993ea98339";
+    hash = "sha256-6LP6amg8TC0XCXCdlcSRGN6qSyBfQ1k+K1FvxEd62pY=";
   }) ++ lib.optional skk-jisyo (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-skk-jisyo";
-    rev = "e1f26b891ea80f52f846791959fa8e4acf36fa99";
-    hash = "sha256-o5EvAnv6Iha0RiHQ0BjqrkHHSlmSTs0dGX0zbGAAKTc=";
+    rev = "d5bf4e970e35c0ccd51c3a24ff301ed1d0770cef";
+    hash = "sha256-OBGHW0brW/JqPEKTXwpBWuNpd4hzpx7PH3p3wjwGi+8=";
   }) ++ lib.optional sudachidict (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-sudachidict";
-    rev = "f25afb4be556a5549f41cd0032fe3e6c4ad6e655";
-    hash = "sha256-jpiurgcStGPfM+p3/ITeMB2+3lqfk9A5oAJeHWShPyw=";
+    rev = "1aa3d3d56bf26a77010febfa87e1a6c745770dd7";
+    hash = "sha256-eiV6mo4rWARlwyoy89K1vJO+YRdvRRtgCAid7Ig++qc=";
   });
 
   sourceRoot = ".";
@@ -118,7 +118,7 @@ stdenvNoCC.mkDerivation rec {
   };
 
   strictDeps = true;
-  nativeBuildInputs = [ ruby ];
+  nativeBuildInputs = [ python3 ];
 
   buildPhase = ''
     runHook preBuild
