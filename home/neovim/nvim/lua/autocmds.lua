@@ -77,6 +77,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "qf"
             and args.match ~= "robots"
             and args.match ~= "startify"
+            and args.match ~= "systemd"
             and args.match ~= "tex"
             and args.match ~= "text"
             and args.match ~= "undotree"
