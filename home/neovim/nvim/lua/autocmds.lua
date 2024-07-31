@@ -76,6 +76,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "man"
             and args.match ~= "pyrex"
             and args.match ~= "qf"
+            and args.match ~= "resolv"
             and args.match ~= "robots"
             and args.match ~= "startify"
             and args.match ~= "systemd"
