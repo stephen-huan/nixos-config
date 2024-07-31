@@ -15,7 +15,7 @@ require("nvim-treesitter.configs").setup {
     },
     indent = {
         enable = true,
-        disable = { "julia" },
+        disable = { "julia", "nix" },
     },
     matchup = {
         enable = true,
