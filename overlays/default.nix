@@ -1,7 +1,7 @@
 {
   pkgs = final: prev: import ../pkgs/top-level { pkgs = final; };
   lib = final: prev: { lib = prev.lib // (import ../lib { pkgs = final; }); };
-  caffeine-ng = import ./caffeine-ng.nix;
+  caffeine-ng = import ./caffeine-ng;
   fishPlugins = import ./fishPlugins.nix;
   gcc' = import ./gcc.nix;
   ibus-engines = import ./ibus-engines.nix;
