@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  inherit (config._module.args) ethernet wifi;
+in
 {
   networking = {
     hostName = config._module.args.hostname;
@@ -13,9 +16,9 @@
     };
     useDHCP = false;
     interfaces = {
-      eno1.useDHCP = true;
+      ${ethernet}.useDHCP = true;
       # configured by iwd
-      wlan0.useDHCP = false;
+      ${wifi}.useDHCP = false;
     };
     dhcpcd = {
       enable = true;
@@ -23,8 +26,8 @@
         # disable wifi if ethernet connected and
         # enable wifi if ethernet disconnected
         # https://bugs.archlinux.org/task/67382#comment191690
-        wired=eno1
-        wireless=wlan0
+        wired=${ethernet}
+        wireless=${wifi}
 
         if [ "$interface" = $wired ]; then
           case "$reason" in NOCARRIER|BOUND)

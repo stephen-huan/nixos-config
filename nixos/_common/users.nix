@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
 let
-  inherit (config._module.args) persistent username;
+  inherit (config._module.args) hostname username persistent;
   home = "${persistent}${config.users.users.${username}.home}";
-  password-store = "${home}/.password-store/encryption/tuxedo";
+  password-store = "${home}/.password-store/encryption/${hostname}";
 in
 {
   users = {

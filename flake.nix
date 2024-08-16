@@ -13,10 +13,6 @@
   outputs = { self, nixpkgs, home-manager, impermanence, ... }:
     let
       system = "x86_64-linux";
-      hostname = "hima";
-      username = "ikue";
-      persistent = "/keep";
-      args = { inherit hostname username persistent; };
       pkgs = nixpkgs.legacyPackages.${system};
       # https://github.com/NixOS/nixpkgs/issues/156312
       # https://github.com/NixOS/nixpkgs/pull/157056
@@ -25,32 +21,48 @@
       );
       formatter = pkgs.nixpkgs-fmt;
       linters = [ pkgs.statix ];
+      mkSystem =
+        { hostname
+        , username
+        , persistent ? "/keep"
+        , ethernet
+        , wifi ? "wlan0"
+        }@explicitargs:
+        let
+          args = explicitargs // { inherit persistent wifi; };
+        in
+        {
+          ${hostname} = lib.nixosSystem {
+            modules = [
+              (lib.importDir "nixos/_common")
+              (lib.importDir "nixos/${hostname}")
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  useGlobalPkgs = false;
+                  useUserPackages = false;
+                  users.${username} = lib.importDir "home";
+                  sharedModules = [
+                    "${impermanence}/home-manager.nix"
+                    { _module = { inherit args; }; }
+                  ];
+                  # optionally, use extraSpecialArgs to pass arguments
+                  extraSpecialArgs = { inherit self; };
+                };
+              }
+              "${impermanence}/nixos.nix"
+              { _module = { inherit args; }; }
+            ];
+            # optionally, use specialArgs to pass arguments
+            specialArgs = { inherit self; };
+          };
+        };
     in
     {
-      nixosConfigurations = {
-        ${hostname} = lib.nixosSystem {
-          modules = [
-            (lib.importDir "nixos")
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = false;
-                useUserPackages = false;
-                users.${username} = lib.importDir "home";
-                sharedModules = [
-                  "${impermanence}/home-manager.nix"
-                  { _module = { inherit args; }; }
-                ];
-                # optionally, use extraSpecialArgs to pass arguments
-                extraSpecialArgs = { inherit self; };
-              };
-            }
-            "${impermanence}/nixos.nix"
-            { _module = { inherit args; }; }
-          ];
-          # optionally, use specialArgs to pass arguments
-          specialArgs = { inherit self; };
-        };
+      nixosConfigurations = mkSystem {
+        hostname = "hima";
+        username = "ikue";
+        ethernet = "eno1";
       };
 
       legacyPackages.${system} = import ./. { inherit pkgs; };
