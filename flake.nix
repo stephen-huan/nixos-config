@@ -59,11 +59,15 @@
         };
     in
     {
-      nixosConfigurations = mkSystem {
+      nixosConfigurations = (mkSystem {
         hostname = "hima";
         username = "ikue";
         ethernet = "eno1";
-      };
+      }) // (mkSystem {
+        hostname = "tetuya";
+        username = "slhuan";
+        ethernet = "enp0s31f6";
+      });
 
       legacyPackages.${system} = import ./. { inherit pkgs; };
 
