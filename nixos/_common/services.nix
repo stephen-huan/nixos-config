@@ -11,7 +11,10 @@ in
     # openssh.enable = true;
     displayManager = {
       defaultSession = "none+i3";
-      sddm.enable = true;
+      sddm = {
+        enable = true;
+        theme = "simplicity";
+      };
       autoLogin = {
         enable = true;
         user = config._module.args.username;
@@ -42,6 +45,9 @@ in
       };
     };
   };
+  environment.systemPackages = with pkgs; [
+    simplicity-sddm-theme
+  ];
   systemd = lib.mkIf config.services.geoclue2.enableWifi {
     # delay until mullvad-daemon.service connects
     services = {
