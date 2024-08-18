@@ -63,8 +63,10 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "cmp_menu"
             and args.match ~= "conf"
             and args.match ~= "cython"
+            and args.match ~= "desktop"
             and args.match ~= "editorconfig"
             and args.match ~= "fzf"
+            and args.match ~= "i3config"
             and args.match ~= "julia"
             and args.match ~= "juliadoc"
             and args.match ~= "latex"
@@ -83,6 +85,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "tex"
             and args.match ~= "text"
             and args.match ~= "undotree"
+            and args.match ~= "xmath"
         then
             -- still disables syntax highlighting
             -- overwritten by actual treesitter
