@@ -12,4 +12,5 @@ in
     skk-jisyo = true;
     sudachidict = true; # overwrite pkgs.sudachidict
   };
+  simplicity-sddm-theme = callPackage ../data/themes/simplicity-sddm-theme { };
 }
