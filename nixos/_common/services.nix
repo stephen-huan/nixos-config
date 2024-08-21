@@ -5,8 +5,6 @@ let
 in
 {
   services = {
-    # Enable CUPS to print documents.
-    # printing.enable = true;
     # Enable the OpenSSH daemon.
     # openssh.enable = true;
     displayManager = {
@@ -44,6 +42,7 @@ in
         };
       };
     };
+    printing.enable = true;
   };
   environment.systemPackages = with pkgs; [
     simplicity-sddm-theme
