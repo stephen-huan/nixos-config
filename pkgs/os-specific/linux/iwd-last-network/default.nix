@@ -2,16 +2,7 @@
 
 stdenvNoCC.mkDerivation {
   name = "iwd-last-network";
-  src = ./iwd-last-network.py;
-
-  sourceRoot = ".";
-  unpackPhase = ''
-    runHook preUnpack
-
-    cp $src "$(stripHash "$src")"
-
-    runHook postUnpack
-  '';
+  src = ./src;
 
   strictDeps = true;
   buildInputs = [ python3 ];
