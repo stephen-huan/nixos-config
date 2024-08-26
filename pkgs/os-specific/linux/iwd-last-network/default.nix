@@ -1,4 +1,4 @@
-{ lib, stdenvNoCC, python3, black, isort, ruff }:
+{ lib, stdenvNoCC, python3, black, isort, ruff, pyright }:
 
 stdenvNoCC.mkDerivation {
   name = "iwd-last-network";
@@ -9,13 +9,14 @@ stdenvNoCC.mkDerivation {
   preferLocalBuild = true;
 
   doCheck = true;
-  nativeCheckInputs = [ black isort ruff ];
+  nativeCheckInputs = [ black isort ruff pyright ];
   checkPhase = ''
     runHook preCheck
 
     isort --check --diff --profile black .
     black --check --diff --exclude="" .
     ruff check .
+    pyright .
 
     runHook postCheck
   '';
