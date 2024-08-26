@@ -20,7 +20,7 @@
 # and https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=mozc-ut
 stdenvNoCC.mkDerivation rec {
   pname = "mozcdic-ut";
-  version = "20240720";
+  version = "20240820";
 
   srcs = [
     mozc.src
@@ -28,61 +28,61 @@ stdenvNoCC.mkDerivation rec {
       name = repo;
       owner = "utuhiro78";
       repo = "merge-ut-dictionaries";
-      rev = "2855b796743acb0c7d320b08d0728977bf6d0860";
-      hash = "sha256-ppOsNy3yd8DndrQ6Uh8J1OdsTYhT1uYzIhZYqKxVWwQ=";
+      rev = "1f1cdcf545b952f84fdad78d58c0db7a662b592d";
+      hash = "sha256-BrjHLTomoaF/DHmxUEFVzyTWBXfB+LUtt5b/MiuZ8EU=";
     })
     (fetchurl {
       url = "https://dumps.wikimedia.org/jawiki/${version}/jawiki-${version}-all-titles-in-ns0.gz";
-      hash = "sha256-t8Q96FQEaOJs1cc9ySSrVYyD4I/DvfXh6UxvURHHHWk=";
+      hash = "sha256-zL9EtZZFDHSzKyanirhMcI0Mcs2CBz2ox6VMWox9zHs=";
     })
   ] ++ lib.optional alt-cannadic (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-alt-cannadic";
-    rev = "b3d151c189c55b00e3e384ddb847cc76b3565746";
-    hash = "sha256-1Mo8Ccdi/8VietPPB+q/fPOnKdG76uELdY9HRFfcEY8=";
+    rev = "50fee0397b87fe508f9edd45bac56f5290d8ce66";
+    hash = "sha256-KKUj3d9yR2kTTTFbroZQs+OZR4KUyAUYE/X3z9/vQvM=";
   }) ++ lib.optional edict (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-edict2";
-    rev = "a3febcb019454af445809965d4f64baddd962c73";
-    hash = "sha256-1j2SZu2S25nnbBeVms/aErDEKzRDrh/19DC5uWsv2AY=";
+    rev = "b2112277d0d479b9218f42772356da3601b3e8cf";
+    hash = "sha256-DIIp8FooWxyHMrQmq+2KUGEmYHKy+H6NtHrvRldxXqc=";
   }) ++ lib.optional jawiki (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-jawiki";
-    rev = "9395f09f8dd87cc4521d7986ec4239af8abcecea";
-    hash = "sha256-jrXni5emy37O2e2yLldUmirVDLpHKXFyp4Prycw7DFk=";
+    rev = "08814f70cc0cc9b0f4757fa46f40d918dfd7073d";
+    hash = "sha256-Sfw5cNXuno3aSUUPy9c3HODIu9cVSmskTwibD8w8jaM=";
   }) ++ lib.optional neologd (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-neologd";
-    rev = "c1524034b08fad881957d72f5b29931cc5964f8c";
-    hash = "sha256-KZtPQccvWz6qygrrmDzZp3SkF1pJA8ptP1oU3IvDb0k=";
+    rev = "b7035b88db25ad1a933f05a33f193711c6c3b2db";
+    hash = "sha256-JPTrWaDtdNs/Z0uLRwaS8Qc/l4/Y7NtwLanivyefXnk=";
   }) ++ lib.optional personal-names (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-personal-names";
-    rev = "5df5cedaef3b55c509cacfbf3e97ded852535a1b";
-    hash = "sha256-zTJVhbZEIG+xiRWAPsK9faxxxnKeHIt/gc7HuAXqOl4=";
+    rev = "79e1192de922bba74ce45f59fd591f1cd9a061f5";
+    hash = "sha256-5cfoeQS7H4uMRi7CQGFwdwDetihWKNVdFdON+/syvDA=";
   }) ++ lib.optional place-names (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-place-names";
-    rev = "99cb804417a5816933d87ac9d2caeb993ea98339";
-    hash = "sha256-6LP6amg8TC0XCXCdlcSRGN6qSyBfQ1k+K1FvxEd62pY=";
+    rev = "e606f2336b79bf0fa7fad3a0eb6a1a9baebafcb9";
+    hash = "sha256-IKn5ge8OiAidAmqr5+F7f4b1nUPa0ZT0n+5PfvkJKAs=";
   }) ++ lib.optional skk-jisyo (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-skk-jisyo";
-    rev = "d5bf4e970e35c0ccd51c3a24ff301ed1d0770cef";
-    hash = "sha256-OBGHW0brW/JqPEKTXwpBWuNpd4hzpx7PH3p3wjwGi+8=";
+    rev = "7300f19e6a3f27334ed7af64589de8782549a13f";
+    hash = "sha256-LJ1rP+uyh8K3IWCgKMDYt0EwEDiQqQL+wBdQCFbZM/k=";
   }) ++ lib.optional sudachidict (fetchFromGitHub rec {
     name = repo;
     owner = "utuhiro78";
     repo = "mozcdic-ut-sudachidict";
-    rev = "1aa3d3d56bf26a77010febfa87e1a6c745770dd7";
-    hash = "sha256-eiV6mo4rWARlwyoy89K1vJO+YRdvRRtgCAid7Ig++qc=";
+    rev = "a754f1fff5fded62cc066aa6be0ab0169059a144";
+    hash = "sha256-WzhWNpqtiG9TtFHEOSbHG1mbb4ak0zCkO13g9ZWqyBE=";
   });
 
   sourceRoot = ".";
