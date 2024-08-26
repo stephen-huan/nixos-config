@@ -16,6 +16,7 @@ in
     hideMounts = true;
     directories = [
       "/var/cache"
+      "/var/lib/nixos"
       "/var/lib/systemd"
       "/var/log"
     ];
