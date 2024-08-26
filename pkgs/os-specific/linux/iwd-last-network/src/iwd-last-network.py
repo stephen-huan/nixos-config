@@ -24,7 +24,7 @@ def get_date(date: str) -> datetime.datetime:
     return datetime.datetime.strptime(date, "%b %d, %H:%M %p")
 
 
-def get_known_networks() -> list[str]:
+def get_known_networks() -> list[tuple[str, str, str, datetime.datetime]]:
     """Parses the output of iwctl."""
     lines = __known_networks().strip().splitlines()
     header = lines[2].lower()
@@ -33,7 +33,7 @@ def get_known_networks() -> list[str]:
     starts = {field: header.find(field) - start for field in fields}
     offset = {
         field: (starts[field], starts.get(next_field, len(header)))
-        for field, next_field in zip(fields, fields[1:] + [None])
+        for field, next_field in zip(fields, fields[1:] + [""])
     }
     get_field = lambda line, field: line[  # noqa: E731
         offset[field][0] + line.find(" ") : offset[field][1] + line.find(" ")
