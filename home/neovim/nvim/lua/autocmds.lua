@@ -66,6 +66,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "desktop"
             and args.match ~= "editorconfig"
             and args.match ~= "fzf"
+            and args.match ~= "gitsendemail"
             and args.match ~= "i3config"
             and args.match ~= "julia"
             and args.match ~= "juliadoc"
