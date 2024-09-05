@@ -131,6 +131,7 @@ in
         cuda
         diff
         disassembly
+        editorconfig
         fish
         fortran
         gitattributes
@@ -171,6 +172,7 @@ in
         r
         regex
         requirements
+        robots
         rst
         ruby
         rust
