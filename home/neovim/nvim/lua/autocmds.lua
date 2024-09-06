@@ -58,6 +58,7 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function(args)
         if
             true
+            and args.match ~= "cfg"
             and args.match ~= "checkhealth"
             and args.match ~= "cmp_docs"
             and args.match ~= "cmp_menu"
