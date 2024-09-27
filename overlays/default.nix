@@ -11,6 +11,7 @@
   perl' = import ./perl.nix;
   ranger = import ./ranger;
   sioyek = import ./sioyek.nix;
+  tectonic = import ./tectonic.nix;
   tectonic-unwrapped = import ./tectonic-unwrapped.nix;
   vimPlugins = import ./vimPlugins.nix;
 }
