@@ -6,8 +6,8 @@ let
     src = final.fetchFromGitHub {
       owner = "ahrm";
       repo = "sioyek";
-      rev = "a3aeca4864976a0d09572c58f61da0b2b9896481";
-      sha256 = "sha256-2i54zNe8IOI80/qPTVI4iMCt5H1griDlfOHTqGw5eig=";
+      rev = "ae733e927a4bddc49abe81b96a1d96361736ea52";
+      sha256 = "sha256-kErb8PZmp670D7/+oJfKllVD/ypgNNFdx74kIaYiXsw=";
     };
     buildInputs = previousAttrs.buildInputs ++ [ final.qt6.qtspeech ];
     patches = [ ];
