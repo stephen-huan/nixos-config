@@ -37,16 +37,4 @@ final: prev:
     };
     meta.homepage = "https://github.com/lambdalisue/vim-cython-syntax/";
   };
-
-  vimtex = buildVimPlugin {
-    pname = "vimtex";
-    version = "2024-08-08";
-    src = fetchFromGitHub {
-      owner = "stephen-huan";
-      repo = "vimtex";
-      rev = "489ef667a63195112a419b43a0aa2e9e32065d8f";
-      sha256 = "sha256-VvDtcdBSe2y32Yu1WF+/b6LU8J3xlENokc+XccUcG6k=";
-    };
-    meta.homepage = "https://github.com/stephen-huan/vimtex/";
-  };
 }
