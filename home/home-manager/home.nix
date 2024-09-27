@@ -9,6 +9,7 @@
       pkgs.android-tools
       pkgs.anki
       pkgs.cmus
+      pkgs.comma
       pkgs.diffoscopeMinimal
       pkgs.du-dust
       pkgs.ffmpeg-full
@@ -28,7 +29,6 @@
       pkgs.pandoc
       pkgs.pulsemixer
       pkgs.python3
-      pkgs.python3Packages.cython
       pkgs.python3Packages.pygments
       pkgs.python3Packages.pytaglib
       pkgs.signal-desktop
