@@ -117,75 +117,9 @@ in
     # tree-sitter support
     {
       # plugin = collateGrammars nvim-treesitter.withAllGrammars;
-      plugin = collateGrammars (nvim-treesitter.withPlugins (p: with p; [
-        asm
-        awk
-        bash
-        bibtex
-        c
-        cmake
-        comment
-        cpp
-        css
-        csv
-        cuda
-        diff
-        disassembly
-        editorconfig
-        fish
-        fortran
-        gitattributes
-        gitcommit
-        git_config
-        gitignore
-        git_rebase
-        gpg
-        haskell
-        hlsplaylist
-        html
-        http
-        ini
-        java
-        javascript
-        jq
-        jsdoc
-        json
-        julia
-        latex
-        liquid
-        lua
-        make
-        markdown
-        markdown_inline
-        meson
-        mlir
-        muttrc
-        nix
-        passwd
-        pem
-        perl
-        printf
-        pymanifest
-        python
-        qmljs
-        query
-        r
-        regex
-        requirements
-        robots
-        rst
-        ruby
-        rust
-        sql
-        ssh_config
-        toml
-        udev
-        vim
-        vimdoc
-        xml
-        yaml
-        zathurarc
-      ]));
+      plugin = collateGrammars (nvim-treesitter.withPlugins
+        (builtins.import ./grammars.nix)
+      );
       type = "lua";
       config = getConfig "nvim-treesitter";
     }
