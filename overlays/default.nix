@@ -10,6 +10,7 @@
   nobinsh = import ./nobinsh.nix;
   perl' = import ./perl.nix;
   ranger = import ./ranger;
+  signal-desktop = import ./signal-desktop.nix;
   sioyek = import ./sioyek.nix;
   tectonic = import ./tectonic.nix;
   tectonic-unwrapped = import ./tectonic-unwrapped.nix;
