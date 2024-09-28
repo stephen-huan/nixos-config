@@ -77,6 +77,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "lspinfo"
             and args.match ~= "mail"
             and args.match ~= "man"
+            and args.match ~= "nroff"
             and args.match ~= "pyrex"
             and args.match ~= "qf"
             and args.match ~= "resolv"
