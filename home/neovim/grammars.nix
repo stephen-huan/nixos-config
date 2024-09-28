@@ -57,9 +57,12 @@ p: with p; [
   rst
   ruby
   rust
+  scss
   sql
   ssh_config
   toml
+  tsx
+  typescript
   udev
   vim
   vimdoc
