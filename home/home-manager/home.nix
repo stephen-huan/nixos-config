@@ -14,6 +14,8 @@
       pkgs.du-dust
       pkgs.ffmpeg-full
       pkgs.gpick
+      pkgs.hunspell
+      pkgs.hunspellDicts.en_US-large
       pkgs.iw
       pkgs.jq
       pkgs.julia-bin
