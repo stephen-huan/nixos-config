@@ -43,14 +43,14 @@
                   useUserPackages = false;
                   users.${username} = lib.importDir "home";
                   sharedModules = [
-                    "${impermanence}/home-manager.nix"
+                    impermanence.homeManagerModules.impermanence
                     { _module = { inherit args; }; }
                   ];
                   # optionally, use extraSpecialArgs to pass arguments
                   extraSpecialArgs = { inherit self; };
                 };
               }
-              "${impermanence}/nixos.nix"
+              impermanence.nixosModules.impermanence
               { _module = { inherit args; }; }
             ];
             # optionally, use specialArgs to pass arguments
