@@ -5,6 +5,7 @@
   caffeine-ng = import ./caffeine-ng;
   fishPlugins = import ./fishPlugins.nix;
   gcc' = import ./gcc.nix;
+  julia-bin = import ./julia-bin.nix;
   mpv = import ./mpv.nix;
   nix = import ./nix.nix;
   nobinsh = import ./nobinsh.nix;
