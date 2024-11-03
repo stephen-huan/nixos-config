@@ -12,8 +12,8 @@ in
           src = final.fetchFromGitHub {
             owner = "tectonic-typesetting";
             repo = "tectonic";
-            rev = "51e179f7428cf00669ae4751ce59f10b4accdd05";
-            sha256 = "sha256-Tml+aE0TjL7Pblh5LxyG2rPSXj9YzWccmu4R8yiYi4I=";
+            rev = "d1ee37974a508c9fc093c408f109c85f9f287e96";
+            sha256 = "sha256-z1LisQ/R7sL3XfRVhZ4oAEYqgjuFes6aTt89nKbMpls=";
           };
           cargoHash = "sha256-xN9LPlS3zcN0qW950pq0SN7G45xS/Gpi0DuIrqsd9L4=";
           cargoPatches = [ ];

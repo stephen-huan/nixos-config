@@ -2,17 +2,14 @@ final: prev:
 
 let
   self = prev.sioyek;
-  sioyek' = self.overrideAttrs (previousAttrs: {
+in
+{
+  sioyek = self.overrideAttrs {
     src = final.fetchFromGitHub {
       owner = "ahrm";
       repo = "sioyek";
-      rev = "ae733e927a4bddc49abe81b96a1d96361736ea52";
-      sha256 = "sha256-kErb8PZmp670D7/+oJfKllVD/ypgNNFdx74kIaYiXsw=";
+      rev = "84030b7387221c6d3378a4aaa1a1aefef6bb6063";
+      sha256 = "sha256-gA716w5mCb6mts/27RHHeebBfq7Uvcjpqlj9x1qWDZk=";
     };
-    buildInputs = previousAttrs.buildInputs ++ [ final.qt6.qtspeech ];
-    patches = [ ];
-  });
-in
-{
-  sioyek = final.qt6.callPackage sioyek'.override { };
+  };
 }
