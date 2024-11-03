@@ -1,7 +1,7 @@
 final: prev:
 
 let
-  self = prev.tectonic-unwrapped;
+  self = prev.tectonic-unwrapped.overrideAttrs { patches = [ ]; };
 in
 {
   # https://discourse.nixos.org/t/4393/4
