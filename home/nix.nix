@@ -1,7 +1,7 @@
 {
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+      experimental-features = [ "nix-command" "flakes" ];
       flake-registry = "";
       use-registries = false;
       keep-outputs = true;
