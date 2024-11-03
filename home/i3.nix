@@ -88,9 +88,7 @@ in
         smartGaps = true;
         smartBorders = "on";
       };
-      # --no-startup-id because alacritty does not send the proper response
-      # https://github.com/alacritty/alacritty/issues/868
-      terminal = "--no-startup-id alacritty";
+      terminal = "alacritty";
       menu = "--no-startup-id dmenu_run";
       bars = [{
         statusCommand = "i3status";
