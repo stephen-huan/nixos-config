@@ -1,6 +1,6 @@
 {
   hardware = {
     cpu.amd.updateMicrocode = true;
-    tuxedo-keyboard.enable = true;
+    tuxedo-drivers.enable = true;
   };
 }
