@@ -50,16 +50,6 @@ in
         rmdir --ignore-fail-on-non-empty /bin
       fi
     '');
-    # https://github.com/NixOS/nixpkgs/issues/260658
-    usrbinenv = lib.mkIf (config.environment.usrbinenv == null) (lib.mkForce ''
-      rm -f /usr/bin/env
-      if test -e /usr/bin; then
-        rmdir --ignore-fail-on-non-empty /usr/bin
-      fi
-      if test -e /usr; then
-        rmdir --ignore-fail-on-non-empty /usr
-      fi
-    '');
   };
   systemd.services = rec {
     mkdir-usr = usr-service // {
