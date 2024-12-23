@@ -18,7 +18,7 @@
       pkgs.hunspellDicts.en_US-large
       pkgs.iw
       pkgs.jq
-      pkgs.julia-bin
+      pkgs.julia
       pkgs.krita
       pkgs.lean4
       pkgs.libreoffice
