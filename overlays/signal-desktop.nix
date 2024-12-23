@@ -8,7 +8,7 @@ in
   signal-desktop = self.overrideAttrs (previousAttrs: {
     src = final.fetchurl {
       inherit (previousAttrs.src) url;
-      hash = "sha256-xtNJpakgz1d6zVdzsVk0mEgQ/jfrOjwmcIyECJAfbxk=";
+      hash = "sha256-4giccLkmvi1Gut3CI4jCa+WHp9GYyLGlag63DG3my04=";
     };
 
     nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [ final.dpkg ];
