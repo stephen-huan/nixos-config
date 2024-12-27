@@ -147,6 +147,7 @@ in
       type = "lua";
       config = getConfig "vimtex";
     }
+    texpresso-vim
     # cython
     vim-cython-syntax
     # julia

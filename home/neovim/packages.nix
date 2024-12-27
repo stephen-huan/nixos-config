@@ -23,7 +23,9 @@
     pkgs.statix
     pkgs.stylua
     pkgs.taplo
+    pkgs.tectonic
     pkgs.texlab
+    pkgs.texpresso
     pkgs.yaml-language-server
   ];
 }
