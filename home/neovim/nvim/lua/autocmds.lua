@@ -29,11 +29,11 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 vim.api.nvim_create_autocmd("FileType", {
-    desc = "vimtex compile",
+    desc = "texpresso compile",
     group = "vimrc",
     pattern = "tex",
     callback = function(args)
-        -- compile and view on every BufWrite
+        -- start server on first BufWrite
         vim.api.nvim_create_autocmd("BufWritePost", {
             group = vim.api.nvim_create_augroup(
                 string.format("latex<buffer=%d>", args.buf),
@@ -41,8 +41,11 @@ vim.api.nvim_create_autocmd("FileType", {
             ),
             buffer = args.buf,
             callback = function()
-                vim.cmd "silent VimtexCompileSS"
-                vim.cmd "VimtexView"
+                if not vim.b.latex_started then
+                    vim.cmd "TeXpresso %"
+                    vim.b.latex_started = true
+                end
+                -- vim.cmd "VimtexView"
             end,
         })
     end,
