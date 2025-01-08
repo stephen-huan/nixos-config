@@ -7,7 +7,8 @@ in
   # revert https://github.com/NixOS/nixpkgs/pull/337161
   signal-desktop = self.overrideAttrs (previousAttrs: {
     src = final.fetchurl {
-      inherit (previousAttrs.src) url;
+      url = builtins.replaceStrings [ self.version ] [ "7.35.0" ]
+        previousAttrs.src.url;
       hash = "sha256-4giccLkmvi1Gut3CI4jCa+WHp9GYyLGlag63DG3my04=";
     };
 
