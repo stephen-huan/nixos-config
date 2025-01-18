@@ -15,6 +15,7 @@ in
     persistentStoragePath = persistent;
     hideMounts = true;
     directories = [
+      { directory = "/tmp"; mode = "1777"; }
       "/var/cache"
       "/var/lib/nixos"
       "/var/lib/systemd"
