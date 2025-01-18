@@ -8,8 +8,8 @@ in
     src = final.fetchFromGitHub {
       owner = "ahrm";
       repo = "sioyek";
-      rev = "bab683c46f92421427f505377ff853d2a1905200";
-      sha256 = "sha256-fbS36c1Mf5IkX1i07CT3c+Y1uIraNuvifNf2oDebCD0=";
+      rev = "3a09b1664de2a58de6298c247714a8f3d3d1aa99";
+      sha256 = "sha256-TBvwO0vNfNv1X+DozZ1IqYzkznJELJ/nA4NHhWCfsKo=";
     };
   };
 }
