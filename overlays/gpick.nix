@@ -9,7 +9,7 @@ in
     patches = previousAttrs.patches or [ ] ++ [
       (final.fetchpatch2 {
         url = "https://patch-diff.githubusercontent.com/raw/thezbyg/gpick/pull/227.patch";
-        hash = "sha256-qYspUctvlPMEK/c2hMUxYc5EYdG//CBcN2PluTtXiFc=";
+        hash = "sha256-3a5P/e+Nlv+y2b18jus/c6YtqNjx/5wJ4WXEUwmWB9g=";
       })
     ];
   });
