@@ -1,10 +1,9 @@
-{ config, lib, ... }:
+{ lib, ... }:
 
 {
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
     modesetting.enable = true;
-    open = false;
+    open = true;
   };
   services.xserver.videoDrivers = [ "nvidia" ];
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
