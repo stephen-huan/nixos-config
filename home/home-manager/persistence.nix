@@ -26,6 +26,7 @@ in
         "libreoffice"
         "memento"
         "mozc"
+        "nixpkgs"
         "Signal"
       ]
     );
