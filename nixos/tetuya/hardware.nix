@@ -12,4 +12,5 @@ in
     size = 32 * 1024;
     randomEncryption.enable = true;
   }];
+  services.fwupd.enable = true;
 }

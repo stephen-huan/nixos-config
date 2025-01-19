@@ -4,7 +4,11 @@ let
   inherit (config._module.args) username hostname;
   inherit (config.users.users.${username}) home;
   machine-id = builtins.substring 0 32 (builtins.hashString "sha256" hostname);
-  usr-services = [ "dbus-broker.service" "systemd-update-done.service" ];
+  usr-services = [
+    "dbus-broker.service"
+    "systemd-update-done.service"
+    "fwupd.service"
+  ];
   usr-service = {
     unitConfig.DefaultDependencies = "no";
     serviceConfig.Type = "oneshot";
