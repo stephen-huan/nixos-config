@@ -7,7 +7,9 @@ let
   usr-services = [
     "dbus-broker.service"
     "systemd-update-done.service"
+    "logrotate.service"
     "fwupd.service"
+    "fwupd-refresh.service"
   ];
   usr-service = {
     unitConfig.DefaultDependencies = "no";
