@@ -7,6 +7,7 @@ in
   services = {
     # Enable the OpenSSH daemon.
     # openssh.enable = true;
+    dbus.implementation = "broker";
     displayManager = {
       defaultSession = "none+i3";
       sddm = {
