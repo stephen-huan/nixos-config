@@ -7,6 +7,7 @@ in
   services.earlyoom = {
     enable = true;
     enableNotifications = true;
+    freeMemThreshold = 20;
     # kill as soon as swap is used
     freeSwapThreshold = 100;
     freeSwapKillThreshold = 100;
