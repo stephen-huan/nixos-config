@@ -24,5 +24,5 @@ in
       OOMScoreAdjust = 1000;
     };
   };
-  nix.settings.cores = 16;
+  nix.settings.cores = 8;
 }
