@@ -1,8 +1,3 @@
-{ config, ... }:
-
-let
-  inherit (config._module.args) username;
-in
 {
   services.earlyoom = {
     enable = true;
@@ -12,10 +7,8 @@ in
     freeSwapThreshold = 100;
     freeSwapKillThreshold = 100;
   };
+  # https://discourse.nixos.org/t/nix-build-ate-my-ram/35752
   systemd = {
-    # https://github.com/NixOS/nixpkgs/issues/374959
-    services.earlyoom.serviceConfig.User = username;
-    # https://discourse.nixos.org/t/nix-build-ate-my-ram/35752
     slices.nix-daemon.sliceConfig = {
       ManagedOOMMemoryPressure = "kill";
       ManagedOOMMemoryPressureLimit = "50%";
