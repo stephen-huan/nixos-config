@@ -14,5 +14,6 @@
   signal-desktop = import ./signal-desktop.nix;
   sioyek = import ./sioyek.nix;
   tectonic = import ./tectonic.nix;
+  texpresso = import ./texpresso.nix;
   vimPlugins = import ./vimPlugins.nix;
 }
