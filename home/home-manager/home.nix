@@ -5,7 +5,6 @@
     stateVersion = "23.11";
 
     packages = [
-      pkgs.alass
       pkgs.android-tools
       pkgs.anki
       pkgs.cmus
