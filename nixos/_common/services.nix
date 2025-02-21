@@ -28,9 +28,7 @@ in
     locate = {
       enable = true;
       interval = "never"; # manually `updatedb`
-      localuser = null;
       prunePaths = lib.mkOptionDefault [ "${config._module.args.persistent}" ];
-      package = pkgs.plocate;
     };
     geoclue2 = {
       enable = true;
