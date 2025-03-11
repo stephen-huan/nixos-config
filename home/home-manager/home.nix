@@ -48,9 +48,6 @@
       pkgs.zotero
     ] ++ (import ./unfree.nix pkgs);
 
-    sessionVariables = {
-      # restrict openMP from using all CPU resources (monitor flickering)
-      OMP_NUM_THREADS = "4";
-    };
+    sessionVariables = { };
   };
 }
