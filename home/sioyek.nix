@@ -10,7 +10,8 @@
       # otherwise we open the file in the previous window
       should_launch_new_window = "1";
       # https://github.com/ahrm/sioyek/issues/1297
-      should_launch_new_instance = "1";
+      # disable for latex reasons
+      should_launch_new_instance = "0";
     };
   };
 }
