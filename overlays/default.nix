@@ -9,7 +9,6 @@
   nix = import ./nix.nix;
   nobinsh = import ./nobinsh.nix;
   perl' = import ./perl.nix;
-  pytaglib = import ./pytaglib.nix;
   ranger = import ./ranger;
   signal-desktop = import ./signal-desktop.nix;
   sioyek = import ./sioyek.nix;
