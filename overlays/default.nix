@@ -3,6 +3,7 @@
   lib = final: prev: { lib = prev.lib // (import ../lib { pkgs = final; }); };
   bottom = import ./bottom.nix;
   caffeine-ng = import ./caffeine-ng;
+  fish = import ./fish.nix;
   fishPlugins = import ./fishPlugins.nix;
   gcc' = import ./gcc.nix;
   mpv = import ./mpv.nix;
