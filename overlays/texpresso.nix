@@ -9,8 +9,8 @@ in
     src = final.fetchFromGitHub {
       owner = "let-def";
       repo = "texpresso";
-      rev = "c42a5912f501f180984840fa8adf9ffc09c5ac13";
-      sha256 = "sha256-T/vou7OcGtNoodCrznmjBLxg6ZAFDCjhpYgNyZaf44g=";
+      rev = "a4f4da32198f34838c1e25eb99b18c5cfb80ec39";
+      sha256 = "sha256-/tlQcrpSlZktFr5aVtdNojpYja5oUJ1v5wk0xGFjAmM=";
     };
     passthru = previousAttrs.passthru // {
       tectonic = previousAttrs.passthru.tectonic.overrideAttrs (super: {
