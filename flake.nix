@@ -10,7 +10,7 @@
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { self, nixpkgs, home-manager, impermanence, ... }:
+  outputs = { self, nixpkgs, home-manager, impermanence }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
