@@ -117,3 +117,12 @@ vim.api.nvim_create_autocmd("QuitPre", {
         end
     end,
 })
+-- from leanprover/verso (bisected to 41b85d429fcdb33349115edc063078dd98ee7c0b)
+-- see src/verso/Verso/Code/Highlighted.lean for the current message
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = "vimrc",
+    pattern = { "*.lean" },
+    callback = function()
+        vim.g.lean_no_goals_message = string.lower("All goals completed! 🐙")
+    end,
+})
