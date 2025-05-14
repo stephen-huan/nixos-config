@@ -90,8 +90,8 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "tex"
             and args.match ~= "text"
             and args.match ~= "undotree"
-            and args.match ~= "xmath"
             and args.match ~= "xf86conf"
+            and args.match ~= "xmath"
         then
             -- still disables syntax highlighting
             -- overwritten by actual treesitter
