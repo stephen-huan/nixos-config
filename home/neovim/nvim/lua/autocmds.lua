@@ -123,6 +123,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = "vimrc",
     pattern = { "*.lean" },
     callback = function()
-        vim.g.lean_no_goals_message = string.lower("All goals completed! 🐙")
+        vim.g.lean_no_goals_message = string.lower "All goals completed! 🐙"
     end,
 })
