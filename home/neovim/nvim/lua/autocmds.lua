@@ -69,6 +69,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "cython"
             and args.match ~= "desktop"
             and args.match ~= "fzf"
+            and args.match ~= "git" -- .git/{FETCH_HEAD,HEAD,ORIG_HEAD}
             and args.match ~= "gitsendemail"
             and args.match ~= "i3config"
             and args.match ~= "julia"
@@ -90,6 +91,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "text"
             and args.match ~= "undotree"
             and args.match ~= "xmath"
+            and args.match ~= "xf86conf"
         then
             -- still disables syntax highlighting
             -- overwritten by actual treesitter
