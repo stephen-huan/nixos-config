@@ -12,4 +12,7 @@
     };
     windowManager.i3.enable = true;
   };
+  services.libinput = {
+    mouse.accelProfile = "flat";
+  };
 }
