@@ -4,4 +4,13 @@ require("lean").setup {
     abbreviations = { enable = true },
     mappings = true,
     infoview = { autoopen = true },
+    goal_markers = {
+        unsolved = " todo ",
+        -- "" disables goals entirely
+        accomplished = " ",
+        -- leanprover/verso (bisected 41b85d429fcdb33349115edc063078dd98ee7c0b)
+        -- see src/verso/Verso/Code/Highlighted.lean
+        goals_accomplished = string.lower "All goals completed! 🐙",
+        no_goals = string.lower "No goals.",
+    },
 }
