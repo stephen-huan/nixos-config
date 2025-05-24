@@ -37,13 +37,9 @@ vim.diagnostic.config { virtual_text = true, virtual_lines = false }
 -- keybindings: https://github.com/neovim/nvim-lspconfig
 vim.keymap.set("n", "<leader>l", vim.diagnostic.setloclist)
 vim.keymap.set("n", "<leader>d", function()
-    if vim.b.linter_hidden then
-        vim.diagnostic.show()
-        vim.b.linter_hidden = false
-    else
-        vim.diagnostic.hide()
-        vim.b.linter_hidden = true
-    end
+    local scope = { bufnr = 0 }
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled(scope), scope)
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(scope), scope)
 end)
 
 -- adjust linter configuration
