@@ -14,18 +14,6 @@ final: prev:
     meta.homepage = "https://github.com/stephen-huan/polar.nvim/";
   };
 
-  ranger-nvim = buildVimPlugin {
-    pname = "ranger.nvim";
-    version = "2024-02-09";
-    src = fetchFromGitHub {
-      owner = "kelly-lin";
-      repo = "ranger.nvim";
-      rev = "d3b032feee6b3b0cf923222f260523e2bd7f3ad3";
-      sha256 = "sha256-8vsSMRRfz6Nj0YIpjGdSwg+iq8Qa7yGbhOmDfWLOgB0=";
-    };
-    meta.homepage = "https://github.com/kelly-lin/ranger.nvim/";
-  };
-
   vim-cython-syntax = buildVimPlugin {
     pname = "vim-cython-syntax";
     version = "2023-08-02";
