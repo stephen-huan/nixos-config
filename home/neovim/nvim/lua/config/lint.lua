@@ -33,6 +33,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end,
 })
 
+vim.diagnostic.config { virtual_text = true, virtual_lines = false }
 -- keybindings: https://github.com/neovim/nvim-lspconfig
 vim.keymap.set("n", "<leader>l", vim.diagnostic.setloclist)
 vim.keymap.set("n", "<leader>d", function()
