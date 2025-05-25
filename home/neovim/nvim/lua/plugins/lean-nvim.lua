@@ -5,7 +5,8 @@ require("lean").setup {
     mappings = true,
     infoview = { autoopen = true },
     goal_markers = {
-        unsolved = " todo ",
+        -- gets in the way of writing proofs
+        unsolved = "",
         -- "" disables goals entirely
         accomplished = " ",
         -- leanprover/verso (bisected 41b85d429fcdb33349115edc063078dd98ee7c0b)
