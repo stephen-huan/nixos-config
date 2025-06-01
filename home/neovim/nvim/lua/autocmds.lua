@@ -84,6 +84,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "nroff"
             and args.match ~= "pyrex"
             and args.match ~= "qf"
+            and args.match ~= "ranger"
             and args.match ~= "resolv"
             and args.match ~= "startify"
             and args.match ~= "systemd"
