@@ -19,11 +19,6 @@
     defaultPackages = lib.remove pkgs.perl
       options.environment.defaultPackages.default;
   };
-  # see nixos/modules/system/activation/switchable-system.nix
-  system = {
-    switch.enable = false;
-    switch.enableNg = true;
-  };
   services.displayManager.sddm.settings = {
     X11.XephyrPath = "${pkgs.xorg.xorgserver'.out}/bin/Xephyr";
   };
