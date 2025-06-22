@@ -8,12 +8,12 @@ let
       src = final.fetchFromGitHub {
         owner = "tectonic-typesetting";
         repo = "tectonic";
-        rev = "c2ae25ff1facd9e9cce31b48944b867773f709ec";
-        hash = "sha256-cDCJ1Tu2lA4KvN2EBUtT0MvMtkejd8YAoNRkNeoreEc=";
+        rev = "825e11b71f7382da7c7e1a871e1590cf0cc9d7a2";
+        hash = "sha256-/+d41poc/PPIvRP8XsPTNxLWiQWEgp5Xbrd+tKxan90=";
       };
       patches = [ ];
       cargoPatches = [ ];
-      cargoHash = "sha256-dBthzRS+9wqKCwmo5cY/ynTdfIPK3QCsbZ2vAQ8q7aM=";
+      cargoHash = "sha256-yxwSH1zIM1z01+hW3uHU7XepwBgVMtrrngz5Du7GNck=";
       # pkgs/by-name/te/texpresso/package.nix
       cargoDeps = final.rustPlatform.fetchCargoVendor {
         inherit (finalAttrs) src;
