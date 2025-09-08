@@ -4,12 +4,12 @@ final: prev:
 {
   lean-nvim = buildVimPlugin {
     pname = "lean.nvim";
-    version = "2025-05-24";
+    version = "2025-09-08";
     src = fetchFromGitHub {
       owner = "stephen-huan";
       repo = "lean.nvim";
-      rev = "0e92b4d7b29d533cb5e5c99ccbcf5d76923b4f22";
-      sha256 = "sha256-iyBzp3XZgX2EI0oEe4VLNFi6n55HKHw5MjPv4ikbmx4=";
+      rev = "6f6de40c5829be7700961e5064820ce40d0a91b7";
+      sha256 = "sha256-zXrRdCexYhzteu9RpZIWM9L7SlhxkaFK4T81VE70tSU=";
     };
     meta.homepage = "https://github.com/stephen-huan/lean.nvim/";
     dependencies = with final; [
