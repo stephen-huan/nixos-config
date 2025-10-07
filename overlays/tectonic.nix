@@ -8,8 +8,8 @@ let
       src = final.fetchFromGitHub {
         owner = "tectonic-typesetting";
         repo = "tectonic";
-        rev = "09b1c14e89a8f2cf0c5b6d4bfb08fde07caa2725";
-        hash = "sha256-POdR94xvEGZsSUQDuoQfzl8WUGIfXp9yRpHi6dIL6og=";
+        rev = "d7f3275adf6b501fc21122a1873912e970bf52ba";
+        hash = "sha256-4p5ZU1O75xcE4pDUs1xwZkFkxJ+g3Rm9LL5Cog96Sm8=";
       };
       patches = [ ];
       cargoPatches = [ ];
