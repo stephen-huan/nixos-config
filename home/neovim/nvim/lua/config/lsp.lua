@@ -1,4 +1,3 @@
-local lspconfig = require "lspconfig"
 -- add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -151,10 +150,10 @@ end
 for _, language in pairs(packages) do
     if language.lsp then
         for _, lsp in pairs(language.lsp) do
-            lspconfig[lsp].setup {
+            vim.lsp.config(lsp, {
                 on_attach = on_attach,
                 capabilities = capabilities,
-            }
+            })
         end
     end
 end
@@ -174,7 +173,7 @@ local on_attach_semantic = function(client, bufnr)
 end
 
 -- adjust lsp configuration: https://github.com/neovim/nvim-lspconfig/
-lspconfig.lua_ls.setup {
+vim.lsp.config("lua_ls", {
     on_attach = on_attach_semantic,
     capabilities = capabilities,
     settings = {
@@ -198,10 +197,10 @@ lspconfig.lua_ls.setup {
             },
         },
     },
-}
+})
 
 -- https://github.com/oxalica/nil/blob/main/docs/configuration.md
-require("lspconfig").nil_ls.setup {
+vim.lsp.config("nil_ls", {
     on_attach = on_attach_semantic,
     capabilities = capabilities,
     settings = {
@@ -211,7 +210,7 @@ require("lspconfig").nil_ls.setup {
             },
         },
     },
-}
+})
 
 return {
     packages = packages,
