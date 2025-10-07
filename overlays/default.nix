@@ -14,5 +14,4 @@
   tectonic = import ./tectonic.nix;
   texpresso = import ./texpresso.nix;
   vimPlugins = import ./vimPlugins.nix;
-  xlayoutdisplay = import ./xlayoutdisplay.nix;
 }
