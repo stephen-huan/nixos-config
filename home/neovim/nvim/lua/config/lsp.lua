@@ -154,6 +154,7 @@ for _, language in pairs(packages) do
                 on_attach = on_attach,
                 capabilities = capabilities,
             })
+            vim.lsp.enable(lsp)
         end
     end
 end
