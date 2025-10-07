@@ -2,7 +2,6 @@
 , formats
 , stdenvNoCC
 , fetchFromGitLab
-, libsForQt5
 , themeConfig ? null
 }:
 
@@ -12,16 +11,14 @@ in
 
 stdenvNoCC.mkDerivation {
   pname = "simplicity-sddm-theme";
-  version = "1.0-2024-08-18";
+  version = "25.09-2025-10-07";
 
   src = fetchFromGitLab {
     owner = "stephenhuan";
     repo = "simplicity-sddm-theme";
-    rev = "715421eff3239408d9e6aab7fce0b8a02b7b5e92";
-    hash = "sha256-PRnG4EUKkm2lMSOZxeNV87jcD0xfN8fxXDyAbjoJr8E=";
+    rev = "81a50cd29a4806a2d9c7dca7caafb79c89f1834e";
+    hash = "sha256-JnDrzYzPjDr5QRjPGx8bF3v8kt541qCn0wfnh1BrxiE=";
   };
-
-  propagatedBuildInputs = with libsForQt5; [ qtquickcontrols2 ];
 
   dontWrapQtApps = true;
 
