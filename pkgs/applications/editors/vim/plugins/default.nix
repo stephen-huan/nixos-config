@@ -1,16 +1,24 @@
-{ lib, buildVimPlugin, buildNeovimPlugin, fetchFromGitHub, fetchgit }:
+{ lib, buildVimPlugin, buildNeovimPlugin, fetchFromGitHub, fetchgit, fetchpatch2 }:
 
 final: prev:
 {
   lean-nvim = buildVimPlugin {
     pname = "lean.nvim";
-    version = "2025-09-08";
+    version = "2025-10-07";
     src = fetchFromGitHub {
       owner = "stephen-huan";
       repo = "lean.nvim";
-      rev = "6f6de40c5829be7700961e5064820ce40d0a91b7";
-      sha256 = "sha256-zXrRdCexYhzteu9RpZIWM9L7SlhxkaFK4T81VE70tSU=";
+      rev = "a0756ce5c16f1ed3056aa46cd96468d4dbb5a38f";
+      sha256 = "sha256-pMPY/88gvpm5e6+QqDBGdnU+2u+ccE9RPPq47m4OKYw=";
     };
+    patches = [
+      # https://github.com/Julian/lean.nvim/pull/428
+      (fetchpatch2 {
+        name = "lspconfig.patch";
+        url = "https://github.com/Julian/lean.nvim/commit/84069e88f1948fc686c97d56eb36e855b73be95c.patch";
+        hash = "sha256-ZwntHliZdZRwRZ26HT2jiSbyYzvJhMeULvZSfFEXH9s=";
+      })
+    ];
     meta.homepage = "https://github.com/stephen-huan/lean.nvim/";
     dependencies = with final; [
       nvim-lspconfig
