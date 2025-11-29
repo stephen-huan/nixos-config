@@ -22,6 +22,9 @@
       "credential \"https://git.overleaf.com\"" = {
         provider = "generic";
       };
+      "credential \"https://codeberg.org\"" = {
+        provider = "generic";
+      };
     };
     aliases = {
       a = "add --all";
