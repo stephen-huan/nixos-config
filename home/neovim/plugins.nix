@@ -159,7 +159,11 @@ in
       config = getConfig "lean-nvim";
     }
     # F*
-    VimFStar
+    {
+      plugin = VimFStar;
+      type = "lua";
+      config = getConfig "VimFStar";
+    }
     # markdown preview
     {
       plugin = markdown-preview-nvim;
