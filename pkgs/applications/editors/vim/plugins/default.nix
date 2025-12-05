@@ -49,4 +49,16 @@ final: prev:
     };
     meta.homepage = "https://github.com/lambdalisue/vim-cython-syntax/";
   };
+
+  VimFStar = buildVimPlugin {
+    pname = "VimFStar";
+    version = "2024-03-24";
+    src = fetchFromGitHub {
+      owner = "FStarLang";
+      repo = "VimFStar";
+      rev = "dedefcfe0041ad5af4afe1ac4230e3404311bfdb";
+      sha256 = "sha256-tTAjbBIKBYkYzUmqbMycSvuPEmuLLG8LQL1WVMwzd7c=";
+    };
+    meta.homepage = "https://github.com/FStarLang/VimFStar/";
+  };
 }
