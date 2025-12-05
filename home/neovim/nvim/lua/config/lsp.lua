@@ -22,6 +22,12 @@ local packages = {
     fish = {
         linter = { "fish" },
     },
+    -- broken, see
+    -- https://github.com/FStarLang/FStar/issues/2823
+    -- https://github.com/FStarLang/FStar/issues/2922
+    -- fstar = {
+    --     lsp = { "fstar" },
+    -- },
     html = {
         -- https://github.com/microsoft/vscode-html-languageservice
         lsp = { "html" },
