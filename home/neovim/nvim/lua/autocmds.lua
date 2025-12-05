@@ -68,6 +68,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "conf"
             and args.match ~= "cython"
             and args.match ~= "desktop"
+            and args.match ~= "fstar"
             and args.match ~= "fzf"
             and args.match ~= "git" -- .git/{FETCH_HEAD,HEAD,ORIG_HEAD}
             and args.match ~= "gitsendemail"
