@@ -42,6 +42,9 @@ p: with p; [
   mlir
   muttrc
   nix
+  ocaml
+  ocaml_interface
+  ocamllex
   passwd
   pem
   perl
