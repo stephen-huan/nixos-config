@@ -9,6 +9,11 @@
       monospace = [ "Noto Sans Mono" ];
       emoji = [ "Noto Color Emoji" ];
     };
+    # https://wiki.archlinux.org/title/Font_configuration/Examples#CJK,_but_other_Latin_fonts_are_preferred
+    configFile.noto = {
+      enable = true;
+      source = ./fonts.conf;
+    };
   };
   home.packages = [
     pkgs.ipaexfont
