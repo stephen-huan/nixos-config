@@ -10,7 +10,7 @@
       pkgs.cmus
       pkgs.comma
       pkgs.diffoscopeMinimal
-      pkgs.du-dust
+      pkgs.dust
       pkgs.ffmpeg-full
       pkgs.gpick
       pkgs.hunspell
