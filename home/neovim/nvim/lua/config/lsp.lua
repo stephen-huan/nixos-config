@@ -34,8 +34,8 @@ local packages = {
         formatter = { "prettier" },
     },
     json = {
-        -- https://github.com/zaach/jsonlint
-        linter = { "jsonlint" },
+        -- https://docs.python.org/3/library/json.html#module-json.tool
+        linter = { "json_tool" },
         formatter = { "prettier" },
     },
     julia = {

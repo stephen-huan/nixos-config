@@ -11,10 +11,10 @@
     pkgs.nil
     pkgs.nixpkgs-fmt
     pkgs.nodePackages.bash-language-server
-    pkgs.nodePackages.jsonlint
     pkgs.nodePackages.prettier
     pkgs.nodePackages.vscode-langservers-extracted
     pkgs.pyright
+    pkgs.python3
     pkgs.ripgrep
     pkgs.ruff
     pkgs.selene
