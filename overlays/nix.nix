@@ -6,7 +6,7 @@ let
 in
 {
   nix' = self.overrideAttrs (previousAttrs: {
-    preConfigure = previousAttrs.preConfigure or "" + ''
+    preBuild = previousAttrs.preBuild or "" + ''
       substituteInPlace src/libmain/shared.cc \
         --replace-fail "/bin/sh" "${sh}"
     '';
