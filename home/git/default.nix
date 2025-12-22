@@ -3,15 +3,17 @@
 {
   programs.git = {
     enable = true;
-    userName = "Stephen Huan";
-    userEmail = "stephen.huan@cgdct.moe";
     ignores = import ./gitignore.nix;
     lfs.enable = true;
     signing = {
       key = null;
       signByDefault = true;
     };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Stephen Huan";
+        email = "stephen.huan@cgdct.moe";
+      };
       init.defaultBranch = "master";
       pull.rebase = true;
       push.autoSetupRemote = true;
@@ -25,10 +27,10 @@
       "credential \"https://codeberg.org\"" = {
         provider = "generic";
       };
-    };
-    aliases = {
-      a = "add --all";
-      tree = "log --graph --decorate --pretty=oneline --abbrev-commit";
+      alias = {
+        a = "add --all";
+        tree = "log --graph --decorate --pretty=oneline --abbrev-commit";
+      };
     };
   };
 }
