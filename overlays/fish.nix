@@ -10,8 +10,8 @@ in
     postPatch = previousAttrs.postPatch or "" + ''
       substituteInPlace \
         share/functions/__fish_apropos.fish \
-        share/functions/__fish_config_interactive.fish \
         share/functions/fish_git_prompt.fish \
+        share/functions/fish_update_completions.fish \
         share/functions/help.fish \
         --replace-fail "/bin/sh" "${sh}"
     '';
