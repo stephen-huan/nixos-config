@@ -4,6 +4,13 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
+      fish_config theme choose none
+      fish_config theme choose tomorrow --color-theme=light
+
+      set -g fish_color_user brgreen
+      set -g fish_color_host brred
+      set -g fish_color_cwd cyan
+
       # add user bin to $PATH
       fish_add_path ~/bin
 
