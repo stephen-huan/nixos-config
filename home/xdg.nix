@@ -19,7 +19,7 @@ in
     "app-picom@autostart".Service.ExecStart = no-op;
   };
   home.persistence.default.directories = map
-    (path: { directory = builtins.baseNameOf path; method = "symlink"; })
+    (path: { directory = builtins.baseNameOf path; })
     (with config.xdg.userDirs; [
       desktop
       music

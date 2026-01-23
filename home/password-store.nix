@@ -12,6 +12,6 @@
     };
   };
   home.persistence.default.directories = [
-    { directory = ".password-store"; method = "symlink"; }
+    { directory = ".password-store"; }
   ];
 }

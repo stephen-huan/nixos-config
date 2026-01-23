@@ -2,16 +2,13 @@
 
 let
   inherit (config.home) homeDirectory;
-  persistentStoragePath = "${config._module.args.persistent}${homeDirectory}";
   strip = lib.removePrefixPath homeDirectory;
   configHome = strip config.xdg.configHome;
 in
 {
   home.persistence.default = {
-    inherit persistentStoragePath;
-    allowOther = true;
-    # uses `bindfs` (https://bindfs.org/) rather than `mount --bind`
-    directories = map (directory: { inherit directory; method = "symlink"; }) (
+    persistentStoragePath = config._module.args.persistent;
+    directories = map (directory: { inherit directory; }) (
       [
         "bin"
         ".julia"
