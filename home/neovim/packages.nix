@@ -26,6 +26,7 @@
     pkgs.tectonic
     pkgs.texlab
     pkgs.texpresso
+    pkgs.tree-sitter
     pkgs.yaml-language-server
   ];
 }
