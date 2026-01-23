@@ -56,7 +56,7 @@ p: with p; [
   r
   regex
   requirements
-  robots
+  robots_txt
   rst
   ruby
   rust
