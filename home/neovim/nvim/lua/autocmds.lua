@@ -50,57 +50,6 @@ vim.api.nvim_create_autocmd("FileType", {
         })
     end,
 })
--- HACK: relies on b:ts_highlight
--- true: treesitter syntax highlighting enabled
--- undefined: default (lexical) highlighting enabled
--- false: both disabled (no highlighting)
-vim.api.nvim_create_autocmd("FileType", {
-    desc = "filetype-specific highlighting",
-    group = "vimrc",
-    pattern = "*",
-    callback = function(args)
-        if
-            true
-            and args.match ~= "cfg"
-            and args.match ~= "checkhealth"
-            and args.match ~= "cmp_docs"
-            and args.match ~= "cmp_menu"
-            and args.match ~= "conf"
-            and args.match ~= "cython"
-            and args.match ~= "desktop"
-            and args.match ~= "fstar"
-            and args.match ~= "fzf"
-            and args.match ~= "git" -- .git/{FETCH_HEAD,HEAD,ORIG_HEAD}
-            and args.match ~= "gitsendemail"
-            and args.match ~= "i3config"
-            and args.match ~= "julia"
-            and args.match ~= "juliadoc"
-            and args.match ~= "latex"
-            and args.match ~= "lean"
-            and args.match ~= "leaninfo"
-            and args.match ~= "leanstderr"
-            and args.match ~= "lspinfo"
-            and args.match ~= "mail"
-            and args.match ~= "man"
-            and args.match ~= "nroff"
-            and args.match ~= "pyrex"
-            and args.match ~= "qf"
-            and args.match ~= "ranger"
-            and args.match ~= "resolv"
-            and args.match ~= "startify"
-            and args.match ~= "systemd"
-            and args.match ~= "tex"
-            and args.match ~= "text"
-            and args.match ~= "undotree"
-            and args.match ~= "xf86conf"
-            and args.match ~= "xmath"
-        then
-            -- still disables syntax highlighting
-            -- overwritten by actual treesitter
-            vim.b[args.buf].ts_highlight = false
-        end
-    end,
-})
 -- https://github.com/Julian/lean.nvim/issues/43#issuecomment-1850633100
 vim.api.nvim_create_autocmd("QuitPre", {
     group = "vimrc",
