@@ -1,22 +1,7 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   getConfig = name: builtins.readFile ./nvim/lua/plugins/${name}.lua;
-  # see pkgs/applications/editors/vim/plugins/nvim-treesitter/overrides.nix
-  # and pkgs/applications/editors/neovim/utils.nix
-  collateGrammars = nvim-treesitter: nvim-treesitter.overrideAttrs {
-    passthru.dependencies = [
-      (pkgs.runCommandLocal "vimplugin-treesitter-grammars" { }
-        ("mkdir -p $out/parser\n" + (lib.concatMapStringsSep "\n"
-          (grammar:
-            let name = lib.last (lib.splitString "-" grammar.name); in
-            "ln -s ${grammar}/parser/${name}.so $out/parser/${name}.so"
-          )
-          nvim-treesitter.passthru.dependencies
-        ))
-      )
-    ];
-  };
 in
 {
   programs.neovim.plugins = with pkgs.vimPlugins; [
@@ -115,14 +100,7 @@ in
       config = getConfig "leap-nvim";
     }
     # tree-sitter support
-    {
-      # plugin = collateGrammars nvim-treesitter.withAllGrammars;
-      plugin = collateGrammars (nvim-treesitter.withPlugins
-        (builtins.import ./grammars.nix)
-      );
-      type = "lua";
-      config = getConfig "nvim-treesitter";
-    }
+    (nvim-treesitter.withPlugins (builtins.import ./grammars.nix))
     # lsp configuration
     {
       plugin = nvim-lspconfig;
