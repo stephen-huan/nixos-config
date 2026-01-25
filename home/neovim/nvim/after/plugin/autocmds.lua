@@ -4,7 +4,12 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",
     callback = function(args)
         local lang = vim.treesitter.language.get_lang(args.match)
-        if lang ~= nil and vim.treesitter.language.add(lang) then
+        if
+            lang ~= nil
+            and lang ~= "latex"
+            and lang ~= "tex"
+            and vim.treesitter.language.add(lang)
+        then
             vim.treesitter.start(args.buf, lang)
         elseif
             true
