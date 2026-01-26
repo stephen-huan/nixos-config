@@ -31,8 +31,10 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     desc = "treesitter indentation",
     group = "vimrc",
-    callback = function()
-        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    callback = function(args)
+        if args.match ~= "latex" and args.match ~= "tex" then
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
     end,
 })
 vim.api.nvim_create_autocmd("FileType", {
