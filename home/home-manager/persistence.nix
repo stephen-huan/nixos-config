@@ -28,7 +28,7 @@ in
       ]
     );
     files = [
-      { file = ".background-image"; method = "symlink"; }
+      ".background-image"
       "${configHome}/mimeapps.list"
     ];
   };
