@@ -12,6 +12,7 @@
       pkgs.diffoscopeMinimal
       pkgs.dust
       pkgs.ffmpeg-full
+      pkgs.file
       pkgs.gpick
       pkgs.hunspell
       pkgs.hunspellDicts.en_US-large
