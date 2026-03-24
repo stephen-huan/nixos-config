@@ -29,6 +29,7 @@ in
     systemPackages = with pkgs; [
       git # required for flakes
       backintime-common
+      cryptsetup
     ];
     etc = {
       "nixos/flake.nix".source = "${home}/.config/home-manager/flake.nix";
