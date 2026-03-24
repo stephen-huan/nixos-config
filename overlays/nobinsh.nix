@@ -23,8 +23,8 @@ let
     silver-searcher = self.callPackage prev.silver-searcher.override { };
     xlayoutdisplay = self.callPackage prev.xlayoutdisplay.override { };
 
-    xorgserver = self.callPackage
-      (prev.xorg.xorgserver.overrideAttrs (previousAttrs: {
+    xorg-server = self.callPackage
+      (prev.xorg-server.overrideAttrs (previousAttrs: {
         postPatch = previousAttrs.postPatch or "" + ''
           substituteInPlace \
             hw/xquartz/mach-startup/bundle-main.c \
@@ -35,14 +35,7 @@ let
         '';
       })).override
       { };
-
-    xrdb = self.callPackage prev.xorg.xrdb.override { };
-  } // {
-    xorg = final.xorg // {
-      inherit (self)
-        xorgserver
-        xrdb;
-    };
+    xrdb = self.callPackage prev.xrdb.override { };
   });
   sh = "${final.busybox-sandbox-shell}/bin/sh";
   addFlags = pkgs: builtins.mapAttrs
@@ -60,16 +53,12 @@ in
   gnugrep' = packages.gnugrep;
   # overlaying xdg-utils triggers a mass rebuild
   xdg-utils' = packages.xdg-utils;
+  xorg-server' = packages.xorg-server;
 
   inherit (packages)
     alacritty
     i3
     silver-searcher
-    xlayoutdisplay;
-
-  xorg = prev.xorg // {
-    xorgserver' = packages.xorg.xorgserver;
-
-    inherit (packages.xorg) xrdb;
-  };
+    xlayoutdisplay
+    xrdb;
 }

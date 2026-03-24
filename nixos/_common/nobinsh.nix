@@ -13,22 +13,22 @@
 
       pkgs.perl'
 
-      pkgs.xorg.xorgserver'.out
+      pkgs.xorg-server'.out
       pkgs.xdg-utils'
     ];
     defaultPackages = lib.remove pkgs.perl
       options.environment.defaultPackages.default;
   };
   services.displayManager.sddm.settings = {
-    X11.XephyrPath = "${pkgs.xorg.xorgserver'.out}/bin/Xephyr";
+    X11.XephyrPath = "${pkgs.xorg-server'.out}/bin/Xephyr";
   };
   # see nixos/modules/services/x11/xserver.nix
   services.xserver = {
     displayManager = {
-      xserverBin = lib.mkForce "${pkgs.xorg.xorgserver'.out}/bin/X";
+      xserverBin = lib.mkForce "${pkgs.xorg-server'.out}/bin/X";
     };
     excludePackages = [
-      pkgs.xorg.xorgserver.out
+      pkgs.xorg-server.out
       pkgs.xdg-utils
     ];
   };
