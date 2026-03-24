@@ -53,12 +53,12 @@ in
   gnugrep' = packages.gnugrep;
   # overlaying xdg-utils triggers a mass rebuild
   xdg-utils' = packages.xdg-utils;
-  xorg-server' = packages.xorg-server;
 
   inherit (packages)
     alacritty
     i3
     silver-searcher
     xlayoutdisplay
+    xorg-server
     xrdb;
 }
