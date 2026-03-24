@@ -19,7 +19,7 @@ in
     programs.neovim = {
       enable = true;
       defaultEditor = true;
-      extraLuaConfig = builtins.readFile ./nvim/init.lua;
+      initLua = builtins.readFile ./nvim/init.lua;
     };
     xdg.configFile = builtins.listToAttrs neovimFiles;
     home.sessionVariables = {
