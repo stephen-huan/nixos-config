@@ -6,6 +6,7 @@
     ignores = import ./gitignore.nix;
     lfs.enable = true;
     signing = {
+      format = "openpgp";
       key = null;
       signByDefault = true;
     };
