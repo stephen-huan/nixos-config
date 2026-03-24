@@ -11,6 +11,7 @@ in
     userDirs = {
       enable = true;
       createDirectories = false;
+      setSessionVariables = false;
     };
   };
   # xdg-autostart
