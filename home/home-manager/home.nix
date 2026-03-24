@@ -26,7 +26,7 @@
       pkgs.memento
       pkgs.mpv
       pkgs.mupdf
-      pkgs.neofetch
+      pkgs.fastfetch
       pkgs.openconnect
       pkgs.pandoc
       pkgs.pulsemixer
