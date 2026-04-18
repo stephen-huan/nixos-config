@@ -31,7 +31,8 @@ let
 in
 {
   tectonic = self.overrideAttrs (previousAttrs: {
-    buildCommand = builtins.replaceStrings [ "--web-bundle" ] [ "--bundle" ]
+    buildCommand = builtins.replaceStrings
+      [ "--web-bundle ${previousAttrs.passthru.bundleUrl}" ] [ "" ]
       previousAttrs.buildCommand;
   });
 }
