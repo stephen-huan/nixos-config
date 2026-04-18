@@ -21,6 +21,7 @@ let
     alacritty = self.callPackage prev.alacritty.override { };
     i3 = self.callPackage prev.i3.override { };
     silver-searcher = self.callPackage prev.silver-searcher.override { };
+    texpresso = self.callPackage prev.texpresso.override { };
     xlayoutdisplay = self.callPackage prev.xlayoutdisplay.override { };
 
     xorg-server = self.callPackage
@@ -58,6 +59,7 @@ in
     alacritty
     i3
     silver-searcher
+    texpresso
     xlayoutdisplay
     xorg-server
     xrdb;
