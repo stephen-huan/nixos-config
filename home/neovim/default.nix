@@ -20,6 +20,9 @@ in
       enable = true;
       defaultEditor = true;
       initLua = builtins.readFile ./nvim/init.lua;
+      withNodeJs = false;
+      withPython3 = false;
+      withRuby = false;
     };
     xdg.configFile = builtins.listToAttrs neovimFiles;
     home.sessionVariables = {
