@@ -52,14 +52,15 @@
           # https://github.com/NixOS/nixpkgs/issues/513610#issuecomment-4344168151
           ctrl-slash = builtins.fromJSON ''"\u001f"'';
           esc = builtins.fromJSON ''"\u001b"'';
-        in [
-        { key = "Space"; mods = "Alt"; mode = "~Search"; action = "ToggleViMode"; }
-        # https://apple.stackexchange.com/q/24261
-        { key = "Slash"; mods = "Control"; chars = ctrl-slash; }
-        # https://stackoverflow.com/questions/16359878/how-to-map-shift-enter
-        { key = "Return"; mods = "Shift"; chars = "${esc}[13;2u"; }
-        { key = "Return"; mods = "Control"; chars = "${esc}[13;5u"; }
-      ];
+        in
+        [
+          { key = "Space"; mods = "Alt"; mode = "~Search"; action = "ToggleViMode"; }
+          # https://apple.stackexchange.com/q/24261
+          { key = "Slash"; mods = "Control"; chars = ctrl-slash; }
+          # https://stackoverflow.com/questions/16359878/how-to-map-shift-enter
+          { key = "Return"; mods = "Shift"; chars = "${esc}[13;2u"; }
+          { key = "Return"; mods = "Control"; chars = "${esc}[13;5u"; }
+        ];
     };
   };
 }
