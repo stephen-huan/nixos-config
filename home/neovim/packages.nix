@@ -10,9 +10,9 @@
     pkgs.luaPackages.luacheck
     pkgs.nil
     pkgs.nixpkgs-fmt
-    pkgs.nodePackages.bash-language-server
-    pkgs.nodePackages.prettier
-    pkgs.nodePackages.vscode-langservers-extracted
+    pkgs.bash-language-server
+    pkgs.prettier
+    pkgs.vscode-langservers-extracted
     pkgs.pyright
     pkgs.python3
     pkgs.ripgrep
