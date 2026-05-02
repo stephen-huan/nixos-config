@@ -11,7 +11,5 @@
   perl' = import ./perl.nix;
   ranger = import ./ranger;
   signal-desktop = import ./signal-desktop.nix;
-  tectonic = import ./tectonic.nix;
-  texpresso = import ./texpresso.nix;
   vimPlugins = import ./vimPlugins.nix;
 }
