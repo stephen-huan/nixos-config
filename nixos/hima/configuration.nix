@@ -22,6 +22,7 @@
     # https://nixos.wiki/wiki/Filesystems
     "/nix" = {
       device = "${config._module.args.persistent}/nix";
+      fsType = "ext4";
       options = [ "bind" ];
     };
   };
