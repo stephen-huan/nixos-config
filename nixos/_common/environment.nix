@@ -12,13 +12,13 @@ let
     "fwupd-refresh.service"
   ];
   usr-service = {
-    unitConfig.DefaultDependencies = "no";
+    unitConfig.DefaultDependencies = false;
     serviceConfig.Type = "oneshot";
     wantedBy = usr-services;
   };
   usr-service-reload = lib.attrsets.recursiveUpdate usr-service {
     unitConfig.ReloadPropagatedFrom = usr-services;
-    serviceConfig.RemainAfterExit = "yes";
+    serviceConfig.RemainAfterExit = true;
     script = " "; # no-op
     wantedBy = [ ];
     upheldBy = usr-services;
