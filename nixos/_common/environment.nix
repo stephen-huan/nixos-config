@@ -52,13 +52,9 @@ in
   };
   system.activationScripts = {
     binsh = lib.mkIf true (lib.mkForce ''
-      if test -L /bin; then
-        rm -f /bin
-      fi
+      if test -L /bin; then rm -f /bin; fi
       rm -f /bin/sh
-      if test -d /bin; then
-        rmdir --ignore-fail-on-non-empty /bin
-      fi
+      if test -d /bin; then rmdir --ignore-fail-on-non-empty /bin; fi
     '');
   };
   systemd.services = rec {
