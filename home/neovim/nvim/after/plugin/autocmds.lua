@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "conf"
             and args.match ~= "cython"
             and args.match ~= "desktop"
+            and args.match ~= "fstab"
             and args.match ~= "fstar"
             and args.match ~= "fzf"
             and args.match ~= "git" -- .git/{FETCH_HEAD,HEAD,ORIG_HEAD}
@@ -39,6 +40,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "qf"
             and args.match ~= "ranger"
             and args.match ~= "resolv"
+            and args.match ~= "services"
             and args.match ~= "startify"
             and args.match ~= "systemd"
             and args.match ~= "tex"
