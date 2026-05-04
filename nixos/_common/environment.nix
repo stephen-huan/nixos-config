@@ -52,8 +52,11 @@ in
   };
   system.activationScripts = {
     binsh = lib.mkIf true (lib.mkForce ''
+      if test -L /bin; then
+        rm -f /bin
+      fi
       rm -f /bin/sh
-      if test -e /bin; then
+      if test -d /bin; then
         rmdir --ignore-fail-on-non-empty /bin
       fi
     '');
