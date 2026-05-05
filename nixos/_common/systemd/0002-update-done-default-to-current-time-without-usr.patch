@@ -1,0 +1,25 @@
+From cc85dd357c3364570aebeb4f5efbdbdc0e2ca011 Mon Sep 17 00:00:00 2001
+From: Stephen Huan <stephen.huan@cgdct.moe>
+Date: Tue, 5 May 2026 04:19:55 -0400
+Subject: [PATCH 2/2] update-done: default to current time without /usr
+
+---
+ src/update-done/update-done.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/update-done/update-done.c b/src/update-done/update-done.c
+index c50acca045..e3cd6f51f6 100644
+--- a/src/update-done/update-done.c
++++ b/src/update-done/update-done.c
+@@ -141,7 +141,7 @@ static int run(int argc, char *argv[]) {
+                            /* ret_path= */ NULL,
+                            &st);
+         if (r < 0)
+-                return log_error_errno(r, "Failed to stat %s/usr/: %m", strempty(arg_root));
++                clock_gettime(CLOCK_REALTIME, &st.st_mtim);
+ 
+         r = mac_init();
+         if (r < 0)
+-- 
+2.53.0
+

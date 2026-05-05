@@ -1,0 +1,33 @@
+From f6d2e41f9c15ce3b45d25e260f1d5c0123b4b9bd Mon Sep 17 00:00:00 2001
+From: Stephen Huan <stephen.huan@cgdct.moe>
+Date: Tue, 5 May 2026 02:36:18 -0400
+Subject: [PATCH 1/2] core/namespace: support ProtectSystem without /usr
+
+---
+ src/core/namespace.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/core/namespace.c b/src/core/namespace.c
+index 6e4ec80dc9..eeb91240ed 100644
+--- a/src/core/namespace.c
++++ b/src/core/namespace.c
+@@ -234,14 +234,14 @@ static const MountEntry protect_control_groups_strict_table[] = {
+ 
+ /* ProtectSystem=yes */
+ static const MountEntry protect_system_yes_table[] = {
+-        { "/usr",                MOUNT_READ_ONLY,     false },
++        { "/usr",                MOUNT_READ_ONLY,     true },
+         { "/boot",               MOUNT_READ_ONLY,     true  },
+         { "/efi",                MOUNT_READ_ONLY,     true  },
+ };
+ 
+ /* ProtectSystem=full includes ProtectSystem=yes */
+ static const MountEntry protect_system_full_table[] = {
+-        { "/usr",                MOUNT_READ_ONLY,     false },
++        { "/usr",                MOUNT_READ_ONLY,     true },
+         { "/boot",               MOUNT_READ_ONLY,     true  },
+         { "/efi",                MOUNT_READ_ONLY,     true  },
+         { "/etc",                MOUNT_READ_ONLY,     false },
+-- 
+2.53.0
+
