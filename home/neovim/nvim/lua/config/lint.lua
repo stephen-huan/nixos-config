@@ -39,6 +39,9 @@ vim.keymap.set("n", "<leader>l", vim.diagnostic.setloclist)
 vim.keymap.set("n", "<leader>d", function()
     local scope = { bufnr = 0 }
     vim.diagnostic.enable(not vim.diagnostic.is_enabled(scope), scope)
+end)
+vim.keymap.set("n", "<leader>i", function()
+    local scope = { bufnr = 0 }
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(scope), scope)
 end)
 
