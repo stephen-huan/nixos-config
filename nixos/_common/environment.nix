@@ -4,25 +4,6 @@ let
   inherit (config._module.args) username hostname;
   inherit (config.users.users.${username}) home;
   machine-id = builtins.substring 0 32 (builtins.hashString "sha256" hostname);
-  usr-services = [
-    "dbus-broker.service"
-    "systemd-update-done.service"
-    "logrotate.service"
-    "fwupd.service"
-    "fwupd-refresh.service"
-  ];
-  usr-service = {
-    unitConfig.DefaultDependencies = false;
-    serviceConfig.Type = "oneshot";
-    wantedBy = usr-services;
-  };
-  usr-service-reload = lib.attrsets.recursiveUpdate usr-service {
-    unitConfig.ReloadPropagatedFrom = usr-services;
-    serviceConfig.RemainAfterExit = true;
-    script = " "; # no-op
-    wantedBy = [ ];
-    upheldBy = usr-services;
-  };
 in
 {
   environment = {
@@ -56,23 +37,5 @@ in
       rm -f /bin/sh
       if test -d /bin; then rmdir --ignore-fail-on-non-empty /bin; fi
     '');
-  };
-  systemd.services = rec {
-    mkdir-usr = usr-service // {
-      script = "mkdir -p /usr";
-      before = usr-services;
-    };
-    mkdir-usr-reload = usr-service-reload // {
-      reload = mkdir-usr.script;
-      before = usr-services;
-    };
-    rmdir-usr = usr-service // {
-      script = "rmdir --ignore-fail-on-non-empty /usr";
-      after = usr-services;
-    };
-    rmdir-usr-reload = usr-service-reload // {
-      reload = rmdir-usr.script;
-      after = usr-services;
-    };
   };
 }
