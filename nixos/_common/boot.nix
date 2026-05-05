@@ -59,6 +59,7 @@ in
       rm -f /usr/bin/env
       if test -d /usr/bin; then rmdir --ignore-fail-on-non-empty /usr/bin; fi
       if test -d /usr; then rmdir --ignore-fail-on-non-empty /usr; fi
+      # HACK: prevent garbage collection ${script}
     '';
   };
 }
