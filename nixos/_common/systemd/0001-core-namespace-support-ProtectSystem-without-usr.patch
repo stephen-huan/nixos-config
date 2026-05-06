@@ -1,7 +1,7 @@
 From f6d2e41f9c15ce3b45d25e260f1d5c0123b4b9bd Mon Sep 17 00:00:00 2001
 From: Stephen Huan <stephen.huan@cgdct.moe>
 Date: Tue, 5 May 2026 02:36:18 -0400
-Subject: [PATCH 1/2] core/namespace: support ProtectSystem without /usr
+Subject: [PATCH 1/4] core/namespace: support ProtectSystem without /usr
 
 ---
  src/core/namespace.c | 4 ++--

@@ -1,0 +1,28 @@
+From 0cf7557b3317eebbcfac4cbbf594038f3908459d Mon Sep 17 00:00:00 2001
+From: Stephen Huan <stephen.huan@cgdct.moe>
+Date: Wed, 6 May 2026 01:26:09 -0400
+Subject: [PATCH 4/4] base-filesystem: avoid creating /bin and /usr
+
+---
+ src/shared/base-filesystem.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/src/shared/base-filesystem.c b/src/shared/base-filesystem.c
+index 9e8856ba48..09f862631a 100644
+--- a/src/shared/base-filesystem.c
++++ b/src/shared/base-filesystem.c
+@@ -36,11 +36,9 @@ typedef struct BaseFilesystem {
+ /* Note that as entries are processed in order, entries with BASE_FILESYSTEM_EMPTY_MARKER must be listed
+  * before entries with BASE_FILESYSTEM_EMPTY_ONLY. */
+ static const BaseFilesystem table[] = {
+-        { "bin",      0, "usr/bin\0",                  NULL,                        BASE_FILESYSTEM_EMPTY_MARKER      },
+         { "lib",      0, "usr/lib\0",                  NULL,                        BASE_FILESYSTEM_EMPTY_MARKER      },
+         { "root",  0750, NULL,                         NULL,                        BASE_FILESYSTEM_IGNORE_ON_FAILURE },
+         { "sbin",     0, "usr/sbin\0",                 NULL,                        BASE_FILESYSTEM_EMPTY_MARKER      },
+-        { "usr",   0755, NULL,                         NULL },
+         { "var",   0755, NULL,                         NULL },
+         { "etc",   0755, NULL,                         NULL },
+         { "proc",  0555, NULL,                         NULL,                        BASE_FILESYSTEM_IGNORE_ON_FAILURE },
+-- 
+2.53.0
+

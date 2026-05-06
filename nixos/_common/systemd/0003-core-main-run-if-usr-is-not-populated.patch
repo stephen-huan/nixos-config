@@ -1,0 +1,30 @@
+From 0f49a3d76e0d275bb85663cf50cf3cf526b26db2 Mon Sep 17 00:00:00 2001
+From: Stephen Huan <stephen.huan@cgdct.moe>
+Date: Wed, 6 May 2026 01:09:27 -0400
+Subject: [PATCH 3/4] core/main: run if /usr/ is not populated
+
+This reverts commit 87c4f0f824a3f69deac17bff8225f9ef09bd62b0.
+---
+ src/core/main.c | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/src/core/main.c b/src/core/main.c
+index 3a6284b456..a5e2a25a96 100644
+--- a/src/core/main.c
++++ b/src/core/main.c
+@@ -2488,12 +2488,6 @@ static int initialize_runtime(
+                 install_crash_handler();
+ 
+                 if (!skip_setup) {
+-                        /* Check that /usr/ is either on the same file system as / or mounted already. */
+-                        if (dir_is_empty("/usr", /* ignore_hidden_or_backup= */ true) > 0) {
+-                                *ret_error_message = "Refusing to run in unsupported environment where /usr/ is not populated";
+-                                return -ENOEXEC;
+-                        }
+-
+                         /* Pull credentials from various sources into a common credential directory (we do
+                          * this here, before setting up the machine ID, so that we can use credential info
+                          * for setting up the machine ID) */
+-- 
+2.53.0
+
