@@ -41,6 +41,7 @@ vim.api.nvim_create_autocmd("FileType", {
             and args.match ~= "ranger"
             and args.match ~= "resolv"
             and args.match ~= "services"
+            and args.match ~= "snippets"
             and args.match ~= "startify"
             and args.match ~= "systemd"
             and args.match ~= "tex"
