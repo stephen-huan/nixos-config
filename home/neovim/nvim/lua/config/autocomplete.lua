@@ -11,6 +11,20 @@ cmp.setup {
     -- mapping = cmp.mapping.preset.insert({
     mapping = {
         -- save c-b (back) c-f (forward) for snippet placeholder navigation
+        ["<c-b>"] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+        ["<c-f>"] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(1) then
+                luasnip.jump(1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
         ["<c-u>"] = cmp.mapping.scroll_docs(-4), -- up
         ["<c-d>"] = cmp.mapping.scroll_docs(4), -- down
         ["<c-e>"] = cmp.mapping.abort(),
