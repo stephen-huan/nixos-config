@@ -11,6 +11,7 @@ in
     directories = map (directory: { inherit directory; }) (
       [
         "bin"
+        ".elan"
         ".julia"
         "micromamba"
         "not-programs"
