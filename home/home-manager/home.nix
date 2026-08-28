@@ -34,7 +34,7 @@
       pkgs.python3Packages.pygments
       pkgs.python3Packages.pytaglib
       pkgs.signal-desktop
-      pkgs.silver-searcher
+      pkgs.silver-searcher-ng
       pkgs.tectonic
       pkgs.tokei
       pkgs.trashy

@@ -20,7 +20,7 @@ let
 
     alacritty = self.callPackage prev.alacritty.override { };
     i3 = self.callPackage prev.i3.override { };
-    silver-searcher = self.callPackage prev.silver-searcher.override { };
+    silver-searcher-ng = self.callPackage prev.silver-searcher-ng.override { };
     texpresso = self.callPackage prev.texpresso.override { };
     xlayoutdisplay = self.callPackage prev.xlayoutdisplay.override { };
 
@@ -58,7 +58,7 @@ in
   inherit (packages)
     alacritty
     i3
-    silver-searcher
+    silver-searcher-ng
     texpresso
     xlayoutdisplay
     xorg-server
