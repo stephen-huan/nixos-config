@@ -1,15 +1,11 @@
 final: prev:
 
 let
-  self = prev.signal-desktop.override {
-    withAppleEmojis = true;
-  };
+  self = prev.signal-desktop;
 in
 {
   # revert https://github.com/NixOS/nixpkgs/pull/337161
-  signal-desktop = self.overrideAttrs (previousAttrs: {
-    meta = previousAttrs.meta // {
-      license = final.lib.dropEnd 1 previousAttrs.meta.license;
-    };
-  });
+  signal-desktop = self.override {
+    withAppleEmojis = false;
+  };
 }
