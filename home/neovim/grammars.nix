@@ -22,7 +22,6 @@ p: with p; [
   git_rebase
   gpg
   haskell
-  hlsplaylist
   html
   http
   ini
@@ -40,7 +39,6 @@ p: with p; [
   markdown_inline
   meson
   mlir
-  muttrc
   nix
   ocaml
   ocaml_interface
@@ -71,5 +69,4 @@ p: with p; [
   vimdoc
   xml
   yaml
-  zathurarc
 ]
