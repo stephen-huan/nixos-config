@@ -47,7 +47,7 @@
       pkgs.zbar
       pkgs.zip
       pkgs.zotero
-    ] ++ (import ./unfree.nix pkgs);
+    ];
 
     sessionVariables = { };
   };
