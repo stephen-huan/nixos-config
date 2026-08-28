@@ -5,6 +5,7 @@ and return the most recently connected network.
 
 iwd version 1.30+.
 """
+
 import datetime
 import subprocess
 
@@ -15,13 +16,14 @@ def __known_networks() -> str:
         ["iwctl", "known-networks", "list"],
         capture_output=True,
         text=True,
+        check=True,
     )
     return out.stdout
 
 
 def get_date(date: str) -> datetime.datetime:
     """Parse iwctl date format into a datetime object."""
-    return datetime.datetime.strptime(date, "%b %d, %H:%M %p")
+    return datetime.datetime.strptime(date, "%b %d, %H:%M %p").astimezone()
 
 
 def get_known_networks() -> list[tuple[str, str, str, datetime.datetime]]:
@@ -35,7 +37,7 @@ def get_known_networks() -> list[tuple[str, str, str, datetime.datetime]]:
         field: (starts[field], starts.get(next_field, len(header)))
         for field, next_field in zip(fields, fields[1:] + [""])
     }
-    get_field = lambda line, field: line[  # noqa: E731
+    get_field = lambda line, field: line[
         offset[field][0] + line.find(" ") : offset[field][1] + line.find(" ")
     ].strip()
     return [
