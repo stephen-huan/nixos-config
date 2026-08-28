@@ -38,6 +38,7 @@
         {
           ${hostname} = lib.nixosSystem {
             modules = [
+              { imports = builtins.attrValues self.nixosModules; }
               (lib.importDir "nixos/_common")
               (lib.importDir "nixos/${hostname}")
               home-manager.nixosModules.home-manager
@@ -77,7 +78,7 @@
       packages.${system} = lib.filterAttrs (_: v: lib.isDerivation v)
         self.legacyPackages.${system};
 
-      inherit (self.legacyPackages.${system}) overlays;
+      inherit (self.legacyPackages.${system}) nixosModules overlays;
 
       formatter.${system} = formatter;
 
