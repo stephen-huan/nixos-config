@@ -10,5 +10,6 @@
   perl' = import ./perl.nix;
   ranger = import ./ranger;
   signal-desktop = import ./signal-desktop.nix;
+  texpresso = import ./texpresso.nix;
   vimPlugins = import ./vimPlugins.nix;
 }
