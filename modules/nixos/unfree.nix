@@ -3,6 +3,7 @@
 let
   inherit (lib) mkOption types;
   cfg = config.unfreePackages;
+  getName = pkg: if builtins.isString pkg then pkg else lib.getName pkg;
 in
 {
   options.unfreePackages = mkOption {
@@ -18,6 +19,6 @@ in
 
   config = {
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg)
-      (map lib.getName cfg);
+      (map getName cfg);
   };
 }
